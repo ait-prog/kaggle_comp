@@ -1,10 +1,3 @@
-import kagglehub
-
-# Download latest version
-path = kagglehub.competition_download('name-that-llm')
-
-print("Path to competition files:", path)
-
 # Kaggle runs (quota tracking; week resets Sat 00:00 UTC)
 | run | acc | start UTC | end UTC | h | note |
 |---|---|---|---|---|---|
