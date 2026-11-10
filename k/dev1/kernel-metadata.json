@@ -1,0 +1,57 @@
+{
+  "id": "aitbekovalibek/ntl-dev1",
+  "title": "ntl-dev1",
+  "code_file": "ntl-dev1.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": [],
+  "dataset_sources": [
+    "dhruvtibarewal/nlm-l24-adapters",
+    "lightningv08/ntl-olmo2-native24-final-inference-assets",
+    "seyitkaangunes/ntl-extra-api-passages",
+    "abdullah1afify/ntl-generations",
+    "dophuchung/ntl-proxy-generations",
+    "zbigniewkirchner/ntl-qwen3-8b-lora-claude-head",
+    "josephadamski91/ntl-atlas-qwen3-8b-v1",
+    "lucasboesen/ntl-free-proxy-generations",
+    "nuridudak/ntl-q14-lora",
+    "nuridudak/ntl-q14-lora-v4",
+    "nuridudak/ntl-svc-prefit-pool-v4n",
+    "dhruvtibarewal/nlm-enc-v5",
+    "nuridudak/ntl-two-stage-encoders",
+    "nishantdahal/ntl-two-stage-lora",
+    "nishantdahal/ntl-handwriting-blend",
+    "dhruvtibarewal/nlm-l24-adapters-v5",
+    "mercurydust/ntllm-chatgpt-a-b",
+    "prvsiyan/prvsiyans-extended-name-that-llm-dataset",
+    "bbucxi/qwen35-9b-safetensors",
+    "pjmathematician/ultrabert-380m-ntl"
+  ],
+  "kernel_sources": [
+    "lucasboesen/name-that-llm-glm4-9b-trunc25",
+    "lucasboesen/name-that-llm-extract-encoders2",
+    "lucasboesen/name-that-llm-electra-large-weights",
+    "lucasboesen/name-that-llm-desklib-weights",
+    "lucasboesen/name-that-llm-train-lora24-s7",
+    "lucasboesen/name-that-llm-train-tokattn",
+    "lucasboesen/name-that-llm-train-tokattn2",
+    "vnton37nguyn/ntl-train-lora-qwen25-instyle"
+  ],
+  "competition_sources": [
+    "name-that-llm"
+  ],
+  "model_sources": [
+    "qwen-lm/qwen-3/Transformers/8b-base/1",
+    "qwen-lm/qwen-3/Transformers/4b-base/1",
+    "qwen-lm/qwen-3/Transformers/14b-base/1",
+    "qwen-lm/qwen-3-embedding/Transformers/8b/1",
+    "qwen-lm/qwen2.5/Transformers/7b/1",
+    "qwen-lm/qwen2.5/Transformers/14b/1"
+  ],
+  "docker_image": "gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f",
+  "machine_shape": "NvidiaTeslaT4"
+}

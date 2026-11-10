@@ -1,0 +1,19 @@
+round,variant,description,seed,passages,balanced_acc,balanced_acc_prompt_centred,balanced_acc_half_B,weak_label_recall
+1,R5,raw pool v1-5,0,45000,0.4716,0.4237,,0.3244
+1,H5,v1-5 minus hard junk,0,45000,0.4764,0.4386,,0.3335
+1,C5,v1-5 minus junk and off-genre sources,0,45000,0.4989,0.4478,,0.3368
+1,C7,v1-7 minus junk and off-genre sources,0,45000,0.4979,0.4745,,0.3336
+1,R7,raw pool v1-7,0,45000,0.466,0.4319,,0.3327
+1,R5,raw pool v1-5,1,45000,0.4597,0.416,,0.3176
+1,H5,v1-5 minus hard junk,1,45000,0.4723,0.4341,,0.3418
+1,C5,v1-5 minus junk and off-genre sources,1,45000,0.4872,0.4516,,0.3412
+1,C7,v1-7 minus junk and off-genre sources,1,45000,0.486,0.4542,,0.3319
+1,R7,raw pool v1-7,1,45000,0.4627,0.436,,0.3436
+2,C7,v1-7 minus junk and off-genre sources,0,45000,0.4979,0.4745,0.5007,0.3336
+2,U,the same plus licence/provenance filters and 8.6k new passages,0,45000,0.5009,0.4627,0.4844,0.3377
+2,UK,the previous row minus Kaggle Benchmarks proxy rows,0,45000,0.4912,0.4616,0.4874,0.3294
+2,US,the previous-but-one row minus the 30% least train-like passages per label,0,45000,0.4916,0.4675,0.4778,0.3211
+2,C7,v1-7 minus junk and off-genre sources,1,45000,0.486,0.4542,0.4793,0.3319
+2,U,the same plus licence/provenance filters and 8.6k new passages,1,45000,0.4831,0.4615,0.4859,0.3212
+2,UK,the previous row minus Kaggle Benchmarks proxy rows,1,45000,0.4912,0.4597,0.4911,0.3319
+2,US,the previous-but-one row minus the 30% least train-like passages per label,1,45000,0.4838,0.4512,0.483,0.3119

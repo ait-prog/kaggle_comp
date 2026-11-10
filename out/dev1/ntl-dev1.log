@@ -1,0 +1,51 @@
+[{"stream_name":"stderr","time":8.326951036,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.326997231,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.32700171,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.327004934,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.989834189,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.989862322,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.989867187,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.989870956,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.389262525,"data":"{\"mount_shim\": {\"sources\": 30, \"moved\": 22, \"absent\": [\"ntl-spectral-style-heads-paired-4404\"], \"input_paths\": 132, \"missing\": []}}\n"}
+,{"stream_name":"stdout","time":13.445029603,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/core_math.py\n"}
+,{"stream_name":"stdout","time":13.466751666,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/cache_contract.py\n"}
+,{"stream_name":"stdout","time":13.491903149,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gauss.py\n"}
+,{"stream_name":"stdout","time":13.514662054,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/svc4_runtime.py\n"}
+,{"stream_name":"stdout","time":13.539581986,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/ntl660_readout.py\n"}
+,{"stream_name":"stdout","time":13.562433308,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/stage_assets.py\n"}
+,{"stream_name":"stdout","time":13.589792634,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/core_readout.py\n"}
+,{"stream_name":"stdout","time":13.625930743,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/stage_checkpoint_files.py\n"}
+,{"stream_name":"stdout","time":13.654324983,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/core_worker.py\n"}
+,{"stream_name":"stdout","time":13.692522736,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/stage_dataset_weights.py\n"}
+,{"stream_name":"stdout","time":13.716089829,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/asset_paths.py\n"}
+,{"stream_name":"stdout","time":13.842557878000001,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/runtime_support.py\n"}
+,{"stream_name":"stdout","time":13.868154451,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/reference_helpers.py\n"}
+,{"stream_name":"stdout","time":13.891274363,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/portable.py\n"}
+,{"stream_name":"stdout","time":13.916145671,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/reference_gauss.py\n"}
+,{"stream_name":"stdout","time":13.957590879,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/comp_cached.py\n"}
+,{"stream_name":"stdout","time":13.9960713,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ntl_atlas/__init__.py\n"}
+,{"stream_name":"stdout","time":14.022619604,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ntl_atlas/model.py\n"}
+,{"stream_name":"stdout","time":14.046082651,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ntl_atlas/inference.py\n"}
+,{"stream_name":"stdout","time":14.069544808,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ntl_rlcd/__init__.py\n"}
+,{"stream_name":"stdout","time":14.093139379,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ntl_rlcd/data.py\n"}
+,{"stream_name":"stdout","time":14.117744773,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ultra/configuration_ultrabert.py\n"}
+,{"stream_name":"stdout","time":14.153564213,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/inline_support/ultra/modeling_ultrabert.py\n"}
+,{"stream_name":"stdout","time":14.178009813,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/legacy/atlas_worker.py\n"}
+,{"stream_name":"stdout","time":14.220127756,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gsq/gsq_infer_model.py\n"}
+,{"stream_name":"stdout","time":14.243808843,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gsq/gsq_infer_layers.py\n"}
+,{"stream_name":"stdout","time":14.268662935,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gsq/delta_turing.py\n"}
+,{"stream_name":"stdout","time":14.292686936,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gsq/adapter.py\n"}
+,{"stream_name":"stdout","time":14.319632332,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/gsq/infer.py\n"}
+,{"stream_name":"stdout","time":14.359480412,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/stage_dataset_weights.py\n"}
+,{"stream_name":"stdout","time":14.387509539,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/ensemble.py\n"}
+,{"stream_name":"stdout","time":14.731557255,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/native_embedding_worker.py\n"}
+,{"stream_name":"stdout","time":14.756761395,"data":"Writing /kaggle/temp/ntl-gsq-v27-runtime/native_fusion.py\n"}
+,{"stream_name":"stderr","time":17.483545234,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":17.483590151,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":17.655228121,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":17.655257859,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":18.524893475,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":18.652844162,"data":"[NbConvertApp] Writing 359568 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":21.333310226,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":22.824636656,"data":"[NbConvertApp] Writing 1749683 bytes to __results__.html\n"}
+]

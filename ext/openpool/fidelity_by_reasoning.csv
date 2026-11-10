@@ -1,0 +1,123 @@
+scope,model,source_dataset,gen_reasoning,passages,hit_pool,hit_real,fidelity_ratio
+all sources,claude-fable-5,,default,3142,0.0888,0.107,0.8299
+all sources,claude-fable-5,,low,1891,0.0968,0.107,0.9044
+all sources,claude-fable-5,,unknown,7740,0.0961,0.107,0.8984
+all sources,claude-opus-4-6,,default,4506,0.2974,0.433,0.6868
+all sources,claude-opus-4-6,,low,593,0.3052,0.433,0.7049
+all sources,claude-opus-4-6,,unknown,5767,0.305,0.433,0.7044
+all sources,claude-opus-4-8,,default,5079,0.1408,0.227,0.6202
+all sources,claude-opus-4-8,,low,599,0.172,0.227,0.7575
+all sources,claude-opus-4-8,,unknown,6188,0.1028,0.227,0.4528
+all sources,claude-opus-5,,default,4051,0.667,0.613,1.0881
+all sources,claude-opus-5,,low,630,0.5937,0.613,0.9684
+all sources,claude-opus-5,,unknown,4736,0.5272,0.613,0.8601
+all sources,claude-sonnet-5,,default,5984,0.2824,0.34,0.8306
+all sources,claude-sonnet-5,,low,620,0.3823,0.34,1.1243
+all sources,claude-sonnet-5,,off,55,0.2182,0.34,0.6417
+all sources,claude-sonnet-5,,unknown,6042,0.3125,0.34,0.9191
+all sources,gemini-3.1-pro-preview,,default,2755,0.5227,0.653,0.8004
+all sources,gemini-3.1-pro-preview,,low,1664,0.4904,0.653,0.751
+all sources,gemini-3.1-pro-preview,,unknown,5741,0.459,0.653,0.7029
+all sources,gemini-3.6-flash,,default,3888,0.2562,0.427,0.5999
+all sources,gemini-3.6-flash,,high,324,0.3148,0.427,0.7373
+all sources,gemini-3.6-flash,,low,2073,0.2619,0.427,0.6134
+all sources,gemini-3.6-flash,,off,72,0.2917,0.427,0.6831
+all sources,gemini-3.6-flash,,unknown,11690,0.2971,0.427,0.6958
+all sources,gemini-3.7-flash,,default,3231,0.3222,0.36,0.895
+all sources,gemini-3.7-flash,,other,266,0.1203,0.36,0.3342
+all sources,gemini-3.8-flash,,default,9014,0.2205,0.273,0.8079
+all sources,gemini-3.8-flash,,high,358,0.2682,0.273,0.9823
+all sources,gemini-3.8-flash,,low,847,0.2515,0.273,0.9212
+all sources,gemini-3.8-flash,,medium,698,0.2822,0.273,1.0338
+all sources,gemini-3.8-flash,,minimal,68,0.2647,0.273,0.9696
+all sources,gemini-3.8-flash,,off,92,0.2174,0.273,0.7963
+all sources,gemini-3.8-flash,,other,145,0.2,0.273,0.7326
+all sources,gemini-3.8-flash,,unknown,11968,0.2905,0.273,1.0642
+all sources,glm-5.3,,default,2858,0.1739,0.193,0.901
+all sources,glm-5.3,,low,1933,0.1309,0.193,0.6782
+all sources,glm-5.3,,minimal,577,0.156,0.193,0.8082
+all sources,glm-5.3,,unknown,6467,0.1398,0.193,0.7243
+all sources,glm-5.3-flash,,default,3690,0.1561,0.2,0.7805
+all sources,glm-5.3-flash,,low,1064,0.1532,0.2,0.766
+all sources,glm-5.3-flash,,minimal,590,0.1542,0.2,0.7712
+all sources,glm-5.3-flash,,other,30,0.1,0.2,0.5
+all sources,glm-5.3-flash,,unknown,6811,0.1399,0.2,0.6996
+all sources,gpt-5.5,,default,6475,0.2817,0.273,1.0319
+all sources,gpt-5.5,,low,2174,0.2833,0.273,1.0379
+all sources,gpt-5.5,,off,30,0.2667,0.273,0.9768
+all sources,gpt-5.5,,unknown,4867,0.2595,0.273,0.9506
+all sources,gpt-5.6-luna,,default,9846,0.2679,0.307,0.8727
+all sources,gpt-5.6-luna,,low,2192,0.2833,0.307,0.9228
+all sources,gpt-5.6-luna,,off,108,0.3704,0.307,1.2064
+all sources,gpt-5.6-luna,,other,112,0.2143,0.307,0.698
+all sources,gpt-5.6-luna,,unknown,5482,0.2899,0.307,0.9442
+all sources,gpt-5.6-sol,,default,7964,0.1696,0.193,0.879
+all sources,gpt-5.6-sol,,low,1721,0.1679,0.193,0.8701
+all sources,gpt-5.6-sol,,off,35,0.2286,0.193,1.1843
+all sources,gpt-5.6-sol,,other,55,0.1455,0.193,0.7537
+all sources,gpt-5.6-sol,,unknown,4816,0.1559,0.193,0.808
+all sources,gpt-5.6-terra,,default,8554,0.2114,0.213,0.9923
+all sources,gpt-5.6-terra,,low,1827,0.2348,0.213,1.1024
+all sources,gpt-5.6-terra,,off,110,0.2727,0.213,1.2804
+all sources,gpt-5.6-terra,,unknown,4781,0.2234,0.213,1.0488
+all sources,gpt-6-astra,,default,5214,0.3602,0.46,0.783
+all sources,gpt-6-astra,,low,1898,0.3604,0.46,0.7834
+all sources,gpt-6-astra,,unknown,4521,0.3689,0.46,0.8021
+all sources,kimi-k3,,default,2871,0.1142,0.313,0.365
+all sources,kimi-k3,,high,2673,0.2533,0.313,0.8092
+all sources,kimi-k3,,low,57,0.0351,0.313,0.1121
+all sources,kimi-k3,,off,1702,0.0834,0.313,0.2666
+all sources,kimi-k3,,other,374,0.0722,0.313,0.2306
+all sources,kimi-k3,,unknown,2054,0.1052,0.313,0.336
+all sources,qwen3.8-max,,default,528,0.1345,0.34,0.3955
+all sources,qwen3.8-max,,low,70,0.0,0.34,0.0
+all sources,qwen3.8-max,,other,1763,0.1696,0.34,0.4988
+all sources,qwen3.8-max,,unknown,2205,0.1905,0.34,0.5602
+within one source,claude-fable-5,arxitekton/ntl-claude-gen-v1,default,57,0.1053,0.107,0.9838
+within one source,claude-fable-5,arxitekton/ntl-claude-gen-v1,low,957,0.093,0.107,0.8691
+within one source,claude-sonnet-5,bingli283/ntl-gen-pilot-v1,default,270,0.1963,0.34,0.5773
+within one source,claude-sonnet-5,bingli283/ntl-gen-pilot-v1,off,55,0.2182,0.34,0.6417
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,default,908,0.2093,0.273,0.7665
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,high,35,0.2571,0.273,0.9419
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,low,31,0.129,0.273,0.4726
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,medium,36,0.1667,0.273,0.6105
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,minimal,68,0.2647,0.273,0.9696
+within one source,gemini-3.8-flash,willrice/name-that-llm-openrouter-harvest,other,129,0.1783,0.273,0.6531
+within one source,glm-5.3,arxitekton/ntl-claude-gen-v1,default,57,0.2632,0.193,1.3635
+within one source,glm-5.3,arxitekton/ntl-claude-gen-v1,low,954,0.1415,0.193,0.7332
+within one source,glm-5.3,lxdlxdlxd/ntl-synth-generations-v1,default,306,0.2092,0.193,1.0837
+within one source,glm-5.3,lxdlxdlxd/ntl-synth-generations-v1,low,30,0.1,0.193,0.5181
+within one source,glm-5.3-flash,arxitekton/ntl-claude-gen-v1,default,56,0.1786,0.2,0.8929
+within one source,glm-5.3-flash,arxitekton/ntl-claude-gen-v1,low,994,0.1559,0.2,0.7797
+within one source,glm-5.3-flash,lxdlxdlxd/ntl-synth-generations-v1,default,311,0.1125,0.2,0.5627
+within one source,glm-5.3-flash,lxdlxdlxd/ntl-synth-generations-v1,low,30,0.1667,0.2,0.8333
+within one source,glm-5.3-flash,lxdlxdlxd/ntl-synth-generations-v1,other,30,0.1,0.2,0.5
+within one source,glm-5.3-flash,willrice/name-that-llm-openrouter-harvest,default,970,0.166,0.2,0.8299
+within one source,glm-5.3-flash,willrice/name-that-llm-openrouter-harvest,low,40,0.075,0.2,0.375
+within one source,gpt-5.6-luna,bingli283/ntl-gen-pilot-v1,default,342,0.2749,0.307,0.8953
+within one source,gpt-5.6-luna,bingli283/ntl-gen-pilot-v1,off,58,0.3966,0.307,1.2917
+within one source,gpt-5.6-luna,dophuchung/ntl-proxy-generations,default,30,0.2667,0.307,0.8686
+within one source,gpt-5.6-luna,dophuchung/ntl-proxy-generations,low,80,0.325,0.307,1.0586
+within one source,gpt-5.6-luna,dophuchung/ntl-proxy-generations,off,30,0.3333,0.307,1.0858
+within one source,gpt-5.6-luna,elliotthankinson/ntl-exact-gens-v3,default,1423,0.2537,0.307,0.8263
+within one source,gpt-5.6-luna,elliotthankinson/ntl-exact-gens-v3,other,112,0.2143,0.307,0.698
+within one source,gpt-5.6-sol,dophuchung/ntl-proxy-generations,default,30,0.2667,0.193,1.3817
+within one source,gpt-5.6-sol,dophuchung/ntl-proxy-generations,low,80,0.2375,0.193,1.2306
+within one source,gpt-5.6-sol,dophuchung/ntl-proxy-generations,off,30,0.2,0.193,1.0363
+within one source,gpt-5.6-sol,elliotthankinson/ntl-exact-gens-v3,default,1290,0.1705,0.193,0.8836
+within one source,gpt-5.6-sol,elliotthankinson/ntl-exact-gens-v3,other,55,0.1455,0.193,0.7537
+within one source,gpt-5.6-terra,bingli283/ntl-gen-pilot-v1,default,322,0.177,0.213,0.8311
+within one source,gpt-5.6-terra,bingli283/ntl-gen-pilot-v1,off,60,0.2,0.213,0.939
+within one source,gpt-5.6-terra,dophuchung/ntl-proxy-generations,default,30,0.2333,0.213,1.0955
+within one source,gpt-5.6-terra,dophuchung/ntl-proxy-generations,low,80,0.3375,0.213,1.5845
+within one source,gpt-5.6-terra,dophuchung/ntl-proxy-generations,off,30,0.4333,0.213,2.0344
+within one source,kimi-k3,willrice/name-that-llm-openrouter-harvest,default,70,0.0571,0.313,0.1826
+within one source,kimi-k3,willrice/name-that-llm-openrouter-harvest,high,988,0.2095,0.313,0.6694
+within one source,kimi-k3,willrice/name-that-llm-openrouter-harvest,low,38,0.0263,0.313,0.0841
+within one source,kimi-k3,willrice/name-that-llm-openrouter-harvest,off,1077,0.0752,0.313,0.2403
+within one source,kimi-k3,willrice/name-that-llm-openrouter-harvest,other,374,0.0722,0.313,0.2306
+within one source,qwen3.8-max,lxdlxdlxd/ntl-synth-generations-v1,default,30,0.1667,0.34,0.4902
+within one source,qwen3.8-max,lxdlxdlxd/ntl-synth-generations-v1,other,321,0.162,0.34,0.4765
+within one source,qwen3.8-max,willrice/name-that-llm-openrouter-harvest,default,453,0.1369,0.34,0.4025
+within one source,qwen3.8-max,willrice/name-that-llm-openrouter-harvest,low,70,0.0,0.34,0.0
+within one source,qwen3.8-max,willrice/name-that-llm-openrouter-harvest,other,78,0.2179,0.34,0.641
