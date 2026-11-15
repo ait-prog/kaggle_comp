@@ -1,0 +1,37 @@
+# Clarification on self-generated data from model APIs
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/749613
+author: Efe Karamese date: 2026-10-15 votes: {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 8}
+Hi, and thanks for hosting this competition.
+
+I’d like to clarify how Section 6 (External Data and Tools) applies to data generated with the candidate models’ own APIs.
+
+1) If a participant generates additional passages by querying some of the 18 candidate models through their paid APIs, is that allowed under the Reasonableness Standard, or does the data need to be publicly available to all participants?
+
+2) If it is allowed, do we have to publish the generated dataset (e.g. on Kaggle Datasets or in the forum) before a certain date, or is that only required as part of the winners’ obligations in Section 2.8?
+
+3)Is there a cost threshold the host considers “minimal cost” for API usage of this kind?
+
+A clear answer would help everyone plan on equal terms, since several threads are already discussing whether the competition becomes pay-to-win.
+
+Thanks!
+## comments
+- [haritch | votes {'totalVotes': -1, 'canUpvote': True} | 2026-10-18] Thanks — one specific follow-up on the same question, because several
+public datasets now fall into a grey zone.
+
+Datasets such as `seyitkaangunes/ntl-extra-api-passages` (CC BY 4.0) and
+`lucasboesen/ntl-free-proxy-generations` consist of passages generated
+through official model APIs and are published openly on Kaggle, so they
+are free and available to every participant.
+
+Under the External Data and Tools rule, is it acceptable to use such
+publicly shared, free-to-all API-generated datasets?
+
+- Does "publicly available and free for all participants" settle it, or
+  does the fact that the original generation used paid API calls require
+  the Reasonableness Standard / host approval?
+- If it is acceptable, is anything beyond normal dataset citation required?
+
+To be clear, this is only about datasets already published on Kaggle for
+everyone, not about privately generating new API data. Many public
+notebooks now depend on these datasets, so a clarification would help
+everyone plan on equal terms. Thank you.

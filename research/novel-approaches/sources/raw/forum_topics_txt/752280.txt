@@ -1,0 +1,9 @@
+# How were the passages generated (API vs. chat apps/agents), and when?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752280
+author: codex rybaka date: 2026-10-24 votes: {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2}
+Hi, could you clarify how the passages were generated?
+
+Were all passages (train and test) generated through the providers’ APIs, or were some produced in consumer chat apps or agent products?
+Roughly when were they generated? This matters because some providers started watermarking text in autumn 2026.
+## comments
+- [Amr Yasser | votes {'canUpvote': True} | 2026-11-05] Could the organizers clarify whether the official training and hidden-test passages were collected through the same API/channel and generation settings (reasoning level, temperature, system prompt, and paragraph-length instructions)? It would also help to know the approximate collection dates and whether model labels were checked against the returned/served model version, particularly for Gemini 3.7 versus 3.8 routing. These details would help us evaluate the provenance and distribution of external training data. Thank you!

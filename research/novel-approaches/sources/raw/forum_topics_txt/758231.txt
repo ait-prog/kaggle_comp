@@ -1,0 +1,15 @@
+# Reason for qwen performing so well in classifying :/
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/758231
+author: Gaurav Rawat date: 2026-11-11 votes: {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1}
+Though things are alleged I am wondering why qwen is generally being good in this combination is it somewhat either distilled or maybe trained on some sythentic data from these llm so based on how the next token gets predicted it can detect the source from its pretraining or fine tuning . 
+
+It's alleged, not proven:
+
+Anthropic reportedly told the US Senate that Alibaba used about 25,000 fake accounts for roughly 28.8 million Claude exchanges in April–June 2026 to train Qwen. Alibaba hasn't confirmed or denied it. Other coverage stresses that the evidence hasn't been made public.
+It isn't one‑way. Kimi K3 called itself Claude in 40% of direct queries, and GLM appears to have a selectable "Claude persona". Claude Opus 4.8 has sometimes said it was Qwen when asked in Chinese, which analysts put down more to contaminated training data than to distillation.
+
+Whatever the truth, two things still think are pertinent
+
+Qwen's hidden states have probably absorbed the style of several of these models, which is part of why it works as a feature extractor.
+Some classes will look alike in the data. If Kimi or GLM were trained on Claude output, Claude vs Kimi will be a hard pair, just like the GPT siblings.
+## comments

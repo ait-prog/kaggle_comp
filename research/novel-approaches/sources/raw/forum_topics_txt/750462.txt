@@ -1,0 +1,39 @@
+# Early Qwen layers know the author better than late ones: 0.39 vs 0.31
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750462
+author: Aleksey Osipenko date: 2026-10-18 votes: {'totalVotes': 9, 'canUpvote': True, 'totalUpvotes': 10}
+Most embedding approaches use the last hidden layer. As it turned out, for this task the last layer was the least effective one.
+
+Setup: a frozen Qwen3-4B model (36 layers), mean pooling, and logistic regression on each layer; cross-validation split by `prompt_id`. In all my submissions this CV has been consistently about 0.015 above the public leaderboard, so I trust it for comparisons.
+
+Balanced accuracy by layer:
+- Layer 3 (8% depth): 0.391
+- Layer 6: 0.379
+- Layer 9: 0.370
+- Layer 18: 0.327
+- Layer 27: 0.341
+- Layer 36 (last layer): 0.311
+- All 6 layers concatenated: 0.414
+
+In my view, deeper layers encode what the text is about, while earlier layers capture how it is written – word choice, punctuation and rhythm. Authorship lives in the style, and the topic acts as a trap, especially since the test prompts are completely new.
+
+Combined with a TF-IDF + stylometry model (0.369 on its own), the blend reached 0.439 CV and 0.420 on the public leaderboard. With only 4 layers (9, 18, 27 and 36), the same blend gave 0.429 CV and 0.414 on the leaderboard. This result has helped shape my plan for further work.
+
+The task is still challenging: it is hard to tell apart related models from the same lab, for example `claude-fable-5` (recall 0.11), `gpt-5.6-sol` (0.21) and the GLM models (~0.21). I need to give more thought to the right approach here.
+
+Notebook with the results for all layers and the blend plot: [ССЫЛКА]
+
+Has anyone tried layers 1–2 or the embedding layer itself? I'm curious whether accuracy keeps improving closer to the input. Please share your results.
+Thanks!
+## comments
+- [shanzhong8 | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-18] Yeah, and I think their early layers contain more global information; as the layers go deeper, the features become more focused, from overall features to token-level hierarchy.
+  - [Aleksey Osipenko | votes {'canUpvote': True} | 2026-11-04] Thanks, makes sense. 
+Looks like the last layers are   tuned too hard for next-token prediction  , so the author's style gets washed out there .
+Funny enough , the leaderboard backed this up later: the strongest public solutions cut Qwen3-8B down to 24 layers and pool features from several of them (2, 4, 6 ... 24), not just the last one.
+
+I also looked at where models get confused the most. Roughly half of the errors are inside one family (gemini 3.7 vs 3.8, gpt-5.6 sol vs terra). If you're curious: https://www.kaggle.com/code/alekseyosipenko/name-that-llm-error-map-of-the-18-models
+- [harshraj22 | votes {'canUpvote': True} | 2026-11-02] I'm surprised, Opus is suggesting almost the same thing you posted. did it read your comment :confused:
+  - [Rayan Babur | votes {'canUpvote': True} | 2026-11-02] no he is using opus too. even this discussion is written using claude 🤣
+    - [Aleksey Osipenko | votes {'canUpvote': True} | 2026-11-04] Ha, fair enough 😄 
+Yeah, I use Claude to help with code and English, it's not my first language. But the numbers come from my own runs and the notebook is public, so anyone can recheck them. If you find a mistake there, I'd honestly be glad to hear it.
+  - [Aleksey Osipenko | votes {'canUpvote': True} | 2026-11-04] Ha, I doubt it read my post specifically 🙂 It's more of a known thing: people have noticed for a while that middle layers keep more of the style, while the last ones are tuned for the next token. I just checked it on this competition's data and got the numbers. So if Opus says the same, at least neither of us made it up out of thin air.
+- [? | votes {} | 2026-10-18] 

@@ -1,0 +1,28 @@
+{"arm": "KGR", "seed": 0, "n": 53673, "ba": 0.4493, "secs": 76}
+{"arm": "KGRE", "seed": 0, "n": 53673, "ba": 0.4345, "secs": 79}
+{"arm": "KGR", "seed": 1, "n": 53673, "ba": 0.4541, "secs": 73}
+{"arm": "KGRE", "seed": 1, "n": 53673, "ba": 0.4471, "secs": 74}
+
+paired deltas vs KGR (mean over seeds; 95% prompt-cluster bootstrap CI)
+KGRE   -0.0109  [-0.0243, +0.0017]
+
+per-class recall
+                          KGR   KGRE
+claude-fable-5          0.171  0.188
+claude-opus-4-6         0.613  0.557
+claude-opus-4-8         0.323  0.267
+claude-opus-5           0.680  0.687
+claude-sonnet-5         0.577  0.600
+gemini-3.1-pro-preview  0.790  0.750
+gemini-3.6-flash        0.587  0.570
+gemini-3.7-flash        0.450  0.487
+gemini-3.8-flash        0.487  0.480
+glm-5.3                 0.203  0.200
+glm-5.3-flash           0.223  0.197
+gpt-5.5                 0.390  0.323
+gpt-5.6-luna            0.330  0.373
+gpt-5.6-sol             0.307  0.247
+gpt-5.6-terra           0.247  0.247
+gpt-6-astra             0.640  0.663
+kimi-k3                 0.440  0.433
+qwen3.8-max             0.673  0.667

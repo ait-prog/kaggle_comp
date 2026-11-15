@@ -1,0 +1,50 @@
+# From 0.684 toward top 1%: what validation evidence predicts real gains?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/758301
+author: Pengyi Peng1 date: 2026-11-12 votes: {'canUpvote': True}
+Hi everyone,
+
+I am trying to improve a reproducible baseline toward the top 1% while avoiding
+leaderboard overfitting. I would appreciate feedback on validation and model
+complementarity rather than private weights or test-label heuristics.
+
+**Current evidence, as of 12 November:** my best public score is 0.684, an attributed
+reproduction of [Areeb Ali's v11](https://www.kaggle.com/code/areebbb/0-684-i-m-better?scriptVersionId=368307915),
+not my original ensemble. My snapshot is 308/5575 teams; strict top 1% is rank 55,
+whose displayed score is 0.705. Rank 56 is also 0.705, so a tied score is not a
+guarantee. Public standings are provisional,not final medals.
+
+**What did not establish a gain:** three small row-local residuals moved a
+separate CPU component's prompt-grouped macro recall from 0.385185 to at best
+0.391204. Corrected paired intervals crossed zero and sparse-prompt diagnostics
+regressed. These are reused development results,not fresh holdout evidence,
+and are not comparable with the full ensemble's 0.684 public score. One
+exploratory variant is still being scored;its result is unknown.
+
+I published a small [CPU Validation Lab](https://www.kaggle.com/code/pengyipeng1/name-that-llm-top1-validation-lab):
+original standard-library helpers for 18-class macro recall, prompt-overlap
+rejection and deterministic paired prompt-cluster intervals. Its executed
+examples are synthetic only; it is not a top 1% inference model or new submission.
+
+My proposed next experiment is ONE complementary representation/family
+specialist, with matched prompt-disjoint OOF for the complete incumbent,
+calibration fitted inside folds, external-source/duplicate audits and per-class
+plus one/two/many-row prompt checks. Full-ensemble OOF is still missing,not a
+completed validation claim. I found the earlier [grouped-CV and transfer discussion](https://www.kaggle.com/competitions/name-that-llm/discussion/757855)
+helpful, particularly its warning that group-based local gains may not transfer.
+
+Questions:
+
+1. Which prompt-held-out and external-source-held-out protocol has best
+predicted transfer for you? How do you audit same-prompt regeneration and
+duplicates in external data without querying/tuning on the public leaderboard?
+2. With balanced accuracy and changing model priors, which fold-safe calibration,
+per-class recall or family-confusion diagnostics identify genuinely complementary
+embedding/LoRA models? Public,license-compatible ablations would be helpful.
+3. How do you verify that the tested post-processing actually executes in the
+full hidden rerun, including tail batches, rather than only the tiny preview?
+
+I will preserve negative findings and credit shared methods. Thanks for any
+specific methodological feedback or links to reproducible public work.
+
+Pengyi Peng
+## comments

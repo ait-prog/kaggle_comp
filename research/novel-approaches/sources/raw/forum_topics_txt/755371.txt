@@ -1,0 +1,24 @@
+# Will self-generated extra data help or hurt here?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/755371
+author: Ruslan Akhmetzianov date: 2026-11-03 votes: {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3}
+Hi all,
+
+Train has only 150 prompts, so generating extra passages via the models' APIs looks tempting. But we don't know the original setup (system prompt, temperature, length control, post-processing). Data generated under a different setup might teach the model our prompt template instead of the model's style.
+
+So, what do you think:
+- Has anyone tried it? Did CV and LB improve?
+- Any tricks to match the original style (e.g. few-shot with train passages)?
+- Would it be safer to use extra data only for pre-training and then fine-tune on competition data?
+
+Would love to hear your experience!
+## comments
+- [somerandomguy | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-04] I tried with a little bit of extra data but my val score decreased, might be due my generation setup not being exact(system prompt and other factors) or even due to the data volume, also might be some modelling issues.
+
+Yeah also generated data varied when i compared that to the original train prompts.
+
+I tried matching sturcture and length distrubution.
+
+You can measue other special symbols, as someone gave the analysis in one of this discussion.
+  - [Nic | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-05] are you saying you're not using any external data to train your models?
+    - [somerandomguy | votes {'canUpvote': True} | 2026-11-06] No, I was saying the my own generated data didn't had any positve effect on my score.
+- [Soham Acharya | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-03] Same doubt as most of the data which is generated is of only gemini or only chatgpt/claude like that which i think could introduce topic based biasness which might look good right now but might get punished on overall test data

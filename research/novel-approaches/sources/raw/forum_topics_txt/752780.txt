@@ -1,0 +1,17 @@
+# Curly apostrophes never appear in Claude or GLM passages (EDA)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752780
+author: yuna5577 date: 2026-10-26 votes: {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3}
+I looked at what actually separates the 18 models, using only train.csv and CPU.
+
+A few findings:
+* The curly apostrophe (’) never appears in any Claude or GLM passage in train (0 of 567 passages that contain it).
+* The em dash (—) almost never appears in Gemini (1 of 1,052 passages that contain it).
+* Punctuation alone predicts the lab with 0.41 balanced accuracy (chance 0.17), but only 0.16 for the exact model.
+* The hardest pairs are sibling versions (Gemini 3.7 vs 3.8 Flash, GPT-5.6 Luna vs Sol), plus Kimi vs GPT-5.5 and GLM-5.3 vs Claude Opus 5.
+
+Notebook: https://www.kaggle.com/code/yuna5577/name-that-llm-18-fingerprints
+
+Feedback welcome, especially if anyone has checked whether these rules hold on the public LB.
+## comments
+- [Pavel Danilov | votes {'canUpvote': True} | 2026-10-26] :+1:
+- [Vivaan Satija | votes {'canUpvote': True} | 2026-10-26] thanks! it was helpful

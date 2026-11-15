@@ -1,0 +1,123 @@
+# [NOW UPDATED]## Open Pool v14: real `kimi-k3` was written with reasoning on, `glm-5.3` is fine, and 284 mislabelled rows are gone
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752766
+author: Carrot Production date: 2026-10-26 votes: {'totalVotes': 85, 'canUpvote': True, 'totalUpvotes': 85}
+**[Open Pool v14](https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool)** has **223,840 passages** from 61 source datasets. This version adds 11,501 passages. More importantly, it records **how every passage was generated**, so we can finally ask which generations look like the real ones.
+
+### How I measured it
+
+I trained a plain TF-IDF + logistic regression classifier **only on the 2,699 real train passages**. On train prompts it never saw (5 folds grouped by prompt), it gets 33% balanced accuracy. That is weak, but it is a fixed yardstick.
+
+I then scored every pool passage with it. If pool passages of a label are recognised much less often than real passages of that label, they differ from the real ones in a way the classifier can see. Read the results for large groups only, never to filter single passages.
+
+### Finding 1: real `kimi-k3` was most likely written with reasoning on
+
+Real `kimi-k3` passages are recognised 31% of the time. Pool `kimi-k3` passages, split by the new `gen_reasoning` column:
+
+| Reasoning setting | Passages | Recognised as `kimi-k3` |
+|---|---|---|
+| high | 2,673 | **25%** |
+| default | 2,871 | 11% |
+| unknown | 2,054 | 11% |
+| off | 1,702 | 8% |
+
+This is not a source effect. Inside one source, with the same prompts and filters (willrice), reasoning high gives 21% and reasoning off gives 8%.
+
+So only about 2,700 of the 9,700 pool `kimi-k3` passages look like the real model. If you use pool Kimi, try this subset first:
+
+```python
+kimi_real_like = pool[(pool.model == "kimi-k3") & (pool.gen_reasoning == "high")]
+```
+
+`glm-5.3` points the same way on fewer passages: reasoning low 13% against default 17%, with real at 19%. For GPT, Gemini and Claude the settings differ less and in no consistent direction. samarth1006's label audit reached a similar conclusion for Kimi from a different angle.
+
+### Finding 2: `glm-5.3` does not need reprocessing
+
+This answers the question asked earlier in this thread (and thread 755314). **Real** `glm-5.3` already reads like Claude: the train-only classifier puts 40% of its probability on the Claude labels. Pool `glm-5.3` does the same (42%), and its sources agree with each other. The Claude-like style belongs to the model; it is not a labelling error in the pool.
+
+### Finding 3: where the pool is furthest from real passages
+
+Pool recognition rate as a share of the real rate (100% = as recognisable as real):
+
+- `kimi-k3` 46%, `qwen3.8-max` 51%, `claude-opus-4-8` 54%: the widest gaps.
+- `claude-opus-4-8`: most of the gap comes from two sources, kilupy's Claude family set (3,209 passages, 24%) and adurey (441 passages, 17%).
+- The GPT labels range from 79% to 102%.
+
+Every source and label with 30 or more passages is in `fidelity_by_source.csv`.
+
+### Correction: 284 mislabelled passages removed
+
+In one source, the author's own model column shows that 284 passages were written by models outside the 18 labels:
+
+| Written by | Labelled as | Passages |
+|---|---|---|
+| gemini-3.5-flash-lite | `gemini-3.6-flash` | 121 |
+| gpt-6-luna | `gpt-5.6-luna` | 101 |
+| claude-opus-4-7 | `claude-opus-4-8` | 43 |
+| claude-haiku-5-5 | `claude-fable-5` | 19 |
+
+They are out of the main file and listed in `removed_rows.csv`. I checked every model-id column in every source file and found no other case. If you merged public datasets yourself, check yours.
+
+### What is new in the files
+
+- **7 new columns:**
+  - `gen_reasoning` (known for 54% of rows), with `gen_reasoning_evidence` and `gen_reasoning_raw`;
+  - `gen_route`, `gen_served_model`, `gen_date`;
+  - `flag_kb_proxy_after_ruling`: 17,876 proxy rows generated after the hosts' 2026-10-28 answer on the proxy quota. This is a lower bound, because sources that record no date are not flagged. The hosts said public datasets made this way are fine to train on; the flag is there if you want to be strict.
+- **`source_protocol.csv`:** for each of the 61 sources, the protocol it declares (system prompt, instruction wording, reasoning, sampling, route, text edits after generation, served-model check), with the document it was read from.
+- **`fidelity_by_label.csv`, `fidelity_by_source.csv`, `fidelity_by_reasoning.csv`:** the numbers behind this post.
+
+### Caveats
+
+- **None of this is tested by training yet.** It shows which passages look real, not that dropping the others raises your score. Earlier I found that dropping rows by cross-source agreement *hurt*, so test before you filter.
+- **The classifier is weak** and partly sees topic, and pool prompts are not the host's prompts. Compare groups, not single passages.
+
+**If you test the Kimi subset or the fidelity tables on the LB, please share the result here, especially if it disagrees.**
+## comments
+- [ducnh279 | votes {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-30] First, I really appreciate the time and effort that went into curating this dataset and making it available to the community. It's indeed useful! I used it for pretraining (0.55), followed by fine-tuning on the competition dataset (0.609), both on my local validation set.
+
+That said, I think diversity matters more than volume. My suspicion is that many prompts in the curated dataset have responses from only a subset of the 18 LLMs.
+
+Ideally, the dataset would be structured as N prompts × 18 responses, with one response from each LLM per prompt. This could provide better supervision I think. But yeahh, I also recognize how challenging this would be to achieve, given that responses have to be collected from multiple sources and not everyone has access to all 18 LLMs. I really appreciate the effort behind making this dataset available to the community.
+  - [Carrot Production | votes {'canUpvote': True} | 2026-10-30] Would try it, thanks so much sir
+- [water joe | votes {'canUpvote': True} | 2026-11-06] Does GLM need to be reprocessed? reference:https://www.kaggle.com/competitions/name-that-llm/discussion/755314
+- [bosprimigenious | votes {'canUpvote': True} | 2026-11-02] Hi, I read your Open Pool v11 audit, especially the provenance checks, recovered prompts, and controlled sampling experiments. I'm looking for complementary teammates for a three-person Name That LLM team using free compute only; my current public score is 0.349 with a CPU text/style baseline. Would you be interested in contributing data-quality and validation experiments? Are you still competing solo, and roughly how much time could you contribute? I'm checking fit before sending formal team invitations.
+  - [Carrot Production | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-02] my initial thinking when coming to any competition is to learn , not to compete, but Im always willing to try my best, for this competitions, I will only doing a solo and contribute to the community and gain the insights into the deep learning but thanks for your invitation, I am really appreciate.
+    - [bosprimigenious | votes {'canUpvote': True} | 2026-11-03] thks and wish  u get u want
+- [GoPain | votes {'canUpvote': True} | 2026-10-31] Thanks for the controlled comparison and for calling +0.002 noise. One thing that may help with reading such pairs:
+the noise of a *difference* between two submissions is not the noise of one score. Both are scored on the same public
+rows, so only the rows where exactly one of the two is right move the gap. If f is that share, the sd of the public
+gap is about sqrt(f / n_public), which for ~1,200 public rows is:
+
+| f (rows where exactly one is right) | 1% | 2% | 5% | 10% | 20% |
+| --- | --- | --- | --- | --- | --- |
+| sd of the public gap | 0.003 | 0.004 | 0.006 | 0.009 | 0.013 |
+
+You can measure f on your OOF before submitting: compare the two models' correctness row by row.
+
+- Two separately trained models (different pools, or even the same code with another seed) can easily disagree in
+  correctness on 10-20% of rows. That gives an sd of 0.009-0.013, the size of the ~0.009 that alexchilton measured,
+  and +0.002 says nothing either way, as you wrote.
+- Two blends that differ in one small weight are a different story. My 0.621 and 0.623 blends disagree in
+  correctness on only 1% of OOF rows, so their gap has an sd of about 0.003. There, 0.002 is still under one sd, but
+  a 0.01 gap would be over three sd, i.e. real.
+
+I checked the formula by simulation (balanced accuracy, 18 classes, random 30% public split; it matched within ±6%
+everywhere) and put it in a CPU notebook, with a helper that estimates f from your own OOF predictions:
+https://www.kaggle.com/code/locdunhat/is-a-0-002-lb-gain-real
+
+Caveat: it assumes independent rows. Real errors cluster by prompt and topic, so treat these numbers as a floor.
+  - [Carrot Production | votes {'canUpvote': True} | 2026-10-31] bro, that is really helpful, thanks for all the community and your support, I learnt alot, so this will contribute to this dataset, I fell it is silly to try to blend and make a "HUGE" ensemble, all the competition wins come from the clean data, the decent label , then the skillful pipeline, this means a lot, thank you.
+- [ZavodRobotov | votes {'canUpvote': True} | 2026-10-29] I observe that in computer vision tasks, even 10% of incorrect labels don't hurt training quality.
+  - [Carrot Production | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-29] Yes I just give my observation, seems from the beginning it is like some competitions like "pay to win" but in fact , it is not, we can learn many things about fine tuning, applying deep learning and data analysis, I just want to dive deeper into the datasets, thanks for your comment, I will check it out to find the best suitable data
+- [Marie Victoire IPOUK | votes {'canUpvote': True} | 2026-10-27] Deep analysis 👌
+- [Carrot Production | votes {'canUpvote': True} | 2026-10-27] gonna do this weekly to fetch more data, everyday I find about 20 legit datasets from user been given out, so I may do this weekly , or update this dataset for about 2 - 3 days. so the datasets can stay up-to-date
+- [Carrot Production | votes {'canUpvote': True} | 2026-10-26] already fix and update the dataset, this dataset I will keep to gather any further public dataset in the future by using kaggle CLI update during the period, hopefully can gather the best quality pool for analyzing 18 different models.
+- [jaquero | votes {'canUpvote': True} | 2026-10-26] Hi, first of all, Thanks for your effort !!
+
+I tried to download this dataser, but, got following message:
+
+Data not available. This dataset may need its archive recreated. Contact dataset author.
+  - [Carrot Production | votes {'canUpvote': True} | 2026-10-26] well, I already published it in publicity, what is the problem, maybe you try to dowload it with kaggle CLI ? , I think it would be good practice
+    - [jaquero | votes {'canUpvote': True} | 2026-10-26] thanks for your reply. I tried to download it as zip.
+- [ducnh279 | votes {'canUpvote': True} | 2026-10-27] Great work!
+- [buysider | votes {'canUpvote': True} | 2026-10-26] Thank you!

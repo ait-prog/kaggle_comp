@@ -1,0 +1,18 @@
+# Clarification on external datasets built by sending competition text to third-party LLM services
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/756466
+author: subuta_umee date: 2026-11-06 votes: {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1}
+Hi organizers,
+
+Could you clarify whether the following kind of external dataset is allowed under the Competition Rules?
+
+Several public notebooks use a dataset whose description says it contains "AI-assisted candidate annotations" of the official training answers (for example, stylistic cue labels with quoted evidence spans taken from the training passages). The dataset name suggests that the annotations were produced with a third-party LLM chat service (ChatGPT).
+
+My questions:
+
+1. Rule 2.4.b says competition data must not be shared with anyone who has not agreed to the rules. Does sending the competition's training passages to a third-party LLM service (to generate annotations) count as such sharing?
+2. If it does, may other participants still use the resulting public dataset, given that it is now posted on Kaggle under CC BY-SA 4.0?
+3. More generally, is it acceptable to use third-party LLM APIs only to generate new passages from our own prompts (no competition text sent), as long as the resulting data is shared publicly per Rule 2.6.a?
+
+I want to make sure my final submissions are compliant, so a clear answer would help many teams. Thank you!
+## comments
+- [Carrot Production | votes {'canUpvote': True} | 2026-11-07] will it be oke. what is your approach ? the data I use the same approach but I cannot find a peak dataset, still experiment more, the top scorer may have the rules of the synthetic data

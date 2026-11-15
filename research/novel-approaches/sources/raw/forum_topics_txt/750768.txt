@@ -1,0 +1,22 @@
+# Clarification on test set structure: do multiple models answer the same prompt?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750768
+author: Sujal Bist date: 2026-10-19 votes: {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3}
+Hi hosts, thanks for the competition!
+
+In train.csv, each prompt_id has exactly one passage from each of the 18 models. The Overview says the hidden test has unequal counts per model and unseen prompts, so I know that exact structure doesn't carry over. Two clarifications would help:
+
+In the hidden test set, do several passages share the same underlying prompt? If so, does any one model answer a given prompt at most once?
+Is it within the rules for a notebook to use relationships between test passages at inference time? For example, it could automatically cluster test passages by topic and make predictions jointly within a cluster. This would be fully automated, with no hand labelling or human judgment on test data.
+ Thanks!
+## comments
+- [Ace | votes {'canUpvote': True} | 2026-10-25] I feel, Since the metric is balanced accuracy and test counts per model are unequal, some hidden prompts(but there is no prompt id) in test may not include all 18 models, so the constraint might be “at most once per model”, not “exactly once”.
+
+
+The host wrote that test passages are written for “**prompts that do not appear in train**,” which implies new prompts with several answers each. And 4,000 ÷ 18 ≈ 222(220), which looks like about 222 new prompts answered by the models, built the same way as train.
+
+
+*Each model at most once per prompt? Likely yes.*
+
+Train data was made by asking each model each prompt(1 prompt id ) once. So hoping, they used the same process for test. But test counts per model are unequal, so some models were probably dropped from some prompts. So “at most once” is likely true; “exactly once” probably isn’t.
+
+ this trick might actually work to predict the topic ig, since we dont have access anyway to test promptid column,

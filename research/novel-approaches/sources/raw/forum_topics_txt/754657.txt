@@ -1,0 +1,46 @@
+# The free TPU v5e-8 trains a Qwen3-8B LoRA classifier ~14x faster than 2xT4 (and bf16 ends the fp16 overflows)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/754657
+author: GoPain date: 2026-11-01 votes: {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3}
+If you are training LoRA classifiers on T4s and fighting fp16 NaNs, the weekly TPU quota (20 h of a TPU v5e-8) may
+be the better machine. I measured it before moving any real training there; numbers below, in case they save
+someone a day.
+
+**Setup.** The same model I train on 2xT4: Qwen3-8B cut to 24 layers, LoRA r16 on every projection (30M trainable
+parameters), mean-pooled hidden states of 8 layers into a linear head, max 384 tokens, in **bfloat16** with
+torch_xla 2.8 (preinstalled on the TPU image, with transformers 5.12). XLA-side gradient checkpointing
+(`torch_xla.utils.checkpoint`) on every decoder layer.
+
+| run | batch (rows x tokens) | step time | padded tokens/s | vs 2xT4 fp16 | chip memory |
+| --- | --- | --- | --- | --- | --- |
+| 1 chip | 8 x 384 | 1.90 s | 1.6k | 1.8x | 11.1 / 16.9 GB |
+| 8 chips, SPMD data parallel | 64 x 384 | 1.97 s | 12.5k | 14.2x | |
+
+- Every loss and gradient norm was finite, and all 336 LoRA tensors received a gradient.
+- Compiling the step took 50-80 s, once per input shape.
+- A stage that takes me about 7 h on 2xT4 comes out at about 0.5 h.
+
+**Why it matters beyond speed.** On T4s (no native bf16) my fp16 LoRA on a larger pool began to overflow in the
+forward pass as the adapter grew. Batches were skipped more and more often until more than half were lost, and the
+OOF dropped by 0.10. bf16 has fp32's exponent range, so that failure mode is gone.
+
+**Things that cost me time:**
+1. **Fixed shapes.** XLA recompiles for every new (rows, tokens) shape, so length-bucketed batches with a variable
+   number of rows are out. I pad to three fixed shapes (128 / 256 / 384 tokens with a constant token budget) and
+   give padding rows zero loss weight. How many buckets, and where to put them: I wrote a small benchmark,
+   [How Many Sequence Buckets for TPU Training?](https://www.kaggle.com/code/locdunhat/how-many-sequence-buckets-for-tpu-training).
+   In short, 3-4 buckets at optimised bounds roughly double the efficiency of one max-length shape and repay their
+   compile time many times over.
+2. **No data-dependent sizes.** `bincount` / `index_add` with a data-dependent number of groups forces a recompile;
+   a fixed-size one-hot group matrix does the same job.
+3. **Queue time.** My first TPU notebook waited about 23 h in the queue before it got a machine (it then ran in
+   10 minutes). Push early, and do not count on same-day results.
+4. `xm.get_memory_info` fails on the SPMD virtual device. It is harmless, but wrap it in try/except so it doesn't
+   kill a finished run.
+
+Inference stays on the GPU notebook: the TPU run saves the same LoRA/head state dict as the GPU version, so the
+submission code does not change.
+
+Happy to share the probe script if it is useful to anyone.
+## comments
+- [Enai | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-02] Problem is that it's pretty impossible to get a tpu notebook out of the queue.
+- [bosprimigenious | votes {'canUpvote': True} | 2026-11-02] Hi GoPain, I read your free-TPU Qwen3-8B LoRA experiments and your grouped-OOF analysis. I'm recruiting two complementary teammates for a three-person Name That LLM team using free compute only; my current public score is 0.349 with a CPU text/style baseline. Would you be interested in leading NLP model experiments alongside a data/validation teammate? If you're open to it, could you confirm whether you're still competing solo, the time you could commit, and whether free-compute-only collaboration works for you? I'd keep competition code and artifacts private within an officially formed team.

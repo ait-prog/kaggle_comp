@@ -1,0 +1,50 @@
+# What score your best single model can achieve? 
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/754860
+author: Jak Ma date: 2026-11-02 votes: {'totalVotes': 15, 'canUpvote': True, 'totalUpvotes': 15}
+1. What score your best single model[**No Ensemble**] can achieve?  
+2. How long it will running in test?
+
+I have a Qwen model（lora）, single model & single fold0, 6min.
+Welcome to share and discuss!
+## comments
+- [Marie Victoire IPOUK | votes {'totalVotes': -1, 'canUpvote': True} | 2026-11-08] can reach 0.6
+- [syurenuko | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-07] 0.649 Qwen3.5-9B(No quantization)
+- [Horikita Saku | votes {'totalVotes': 5, 'canUpvote': True, 'totalUpvotes': 5} | 2026-11-04] In my case, ~0.670 Qwen3-14B
+  - [Jak Ma | votes {'canUpvote': True} | 2026-11-04] Maybe your data not only the public-pool 34940? Only single fold?
+    - [Horikita Saku | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-04] Indeed, there are some of our own data. 
+
+Through certain methods, yes, a single model.
+
+Using only public models, I can roughly achieve a score of around 0.65.
+    - [Jak Ma | votes {'canUpvote': True} | 2026-11-04] How long it will running in test?
+    - [? | votes {} | 2026-11-05] 
+    - [Horikita Saku | votes {'canUpvote': True} | 2026-11-05] Theoretically, about 30 minutes
+    - [? | votes {'totalVotes': -2} | 2026-11-05] 
+  - [Xiao | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-04] No way, mine is even better lol. Did you count any post processes or only a naive test? For me the best single one is somewhere between 0.67-0.68
+    - [Horikita Saku | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-04] No post processes for my 0.65-0.66 models.
+However, this model was trained 9 days ago. Maybe this is because I did not use the new data from the last 9 days.
+  - [Carrot Production | votes {'canUpvote': True} | 2026-11-06] that is super impressive
+- [Rayan Babur | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-06] Got:  0.616 CV, 0.575 LB
+ModernBert pretrained on open pool, then 5 fold LoRA finetuned on train.csv
+- [Arunodhayan | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-05] single model 0.651
+- [GoPain | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-04] Best single model here: **0.628 public**, a Qwen3-8B LoRA, nothing else in the submission.
+
+- **Data:** competition train plus the community Open Pool (v10), capped per label. The same recipe trained on our older, smaller pool reached 0.5886 OOF; with the Open Pool it reached 0.6224 OOF (5 folds: 0.589 / 0.598 / 0.654 / 0.626 / 0.645). Like the others in this thread, nearly all of the gain came from the data, not from the model.
+- **Training:** a Kaggle TPU v5e-8 session in bfloat16. Getting the TPU took a long queue, but the run itself was short.
+- **Inference:** fp16 on a T4 with a bfloat16 retry for any batch that overflows. The public score (0.628) came out a little above the OOF (0.6224), as it has for our other LoRA members.
+- **In a blend:** the same model as the main member, plus an older LoRA at a small weight, a DeBERTa, three n-gram SVCs and a small stylometry model, scores 0.635. So the ensemble adds less than a point on top of a good single model.
+
+The OOF here is plain balanced accuracy on held-out prompts; per-fold spread is large (0.589 to 0.654), so I would not read much into single-model gaps under ~0.01 between people's numbers.
+  - [Jak Ma | votes {'canUpvote': True} | 2026-11-04] Thank you! How long it will running in test?
+- [Nishant Dahal | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-02] Mine : ~0.65 /wo ensemble
+  - [? | votes {} | 2026-11-02] 
+  - [Shiner | votes {'canUpvote': True} | 2026-11-02] Impressive
+- [Carrot Production | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-02] 0,637 only single qwen with only one adapter, just try to improve my public dataset , all the gain comes from it
+  - [Shiner | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-02] On you public dataset V10?
+- [QianYuu | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-02] at present LB：0.628
+- [Nguyên Nguyên | votes {'canUpvote': True} | 2026-11-12] 0.657 single qwen 14b
+  - [QianYuu | votes {'canUpvote': True} | 2026-11-12] Is it 5-fold cross-validation, or just a single model?
+- [somerandomguy | votes {'canUpvote': True} | 2026-11-11] 0.65 though its a week old, haven't submitted a single model since then.
+- [OsakanaTeishoku | votes {'canUpvote': True} | 2026-11-11] Managed to achieve LB 0.620, CV 0.622 using Qwen3-14B-Base
+- [John K | votes {'canUpvote': True} | 2026-11-10] I only have a cheap fingerprint number to add, not a LoRA. A formatting-only model, grouped 5-fold by prompt_id, was 0.232 out-of-fold balanced accuracy on the official train file. A fuller tokenizer plus formatting pass reached 0.260. That is well above chance (about 0.0556 for 18 classes) and nowhere near the 0.65+ single models people are posting here.
+- [Less | votes {'canUpvote': True} | 2026-11-03] Using community collected data, the DeBERTa Large,  LB < 0.55. I feel like I haven't learned the skills of LLM competitions yet.

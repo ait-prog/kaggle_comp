@@ -1,0 +1,10 @@
+*.safetensors
+__pycache__/
+ext/pubdata/
+ext/pool/*.parquet
+ext/extra_clean.parquet
+out/submission-monitor.pid
+out/submission-monitor.log
+research/novel-approaches/BRIEF.md
+research/novel-approaches/plan.md
+research/novel-approaches/refresh_targets.md

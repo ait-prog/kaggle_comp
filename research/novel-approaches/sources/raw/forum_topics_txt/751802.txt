@@ -1,0 +1,35 @@
+# Does the test set keep the “one passage per model per prompt” structure?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/751802
+author: Noussair Mighri date: 2026-10-22 votes: {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 3}
+Hi everyone,
+
+I wanted to share what I’ve tried so far, and ask the community a few questions about how the test set is built.
+
+**What I found in train:**
+
+- 150 prompts × 18 models: every prompt is answered exactly once by each model (only claude-fable-5 is missing one prompt).
+- Typography is a strong family signal. For example, Claude and GLM never use the curly apostrophe ’, Gemini almost never uses the em-dash —, and GPT prefers curly quotes.
+- Telling sibling models apart within a family is the hard part, as expected.
+
+**Baseline:**
+
+- Char TF-IDF (1–5) + word TF-IDF (1–2) + about 60 style features, each with LogisticRegression (class_weight balanced), blended by geometric mean.
+- 5-fold GroupKFold on prompt_id: CV BA 0.3745 → public LB 0.353. A reasonable match, so the base model seems to generalize.
+
+**The idea that didn’t transfer:**
+
+Since every model answers each train prompt once, I tried using that structure at test time:
+
+- Cluster test passages by topic (TF-IDF cosine + average linkage). On train this recovers the prompts almost perfectly (ARI ≈ 0.95).
+- Inside each cluster, assign models with the Hungarian algorithm so each model appears at most once.
+
+On train out-of-fold predictions this gave a large boost: **0.374 → 0.481 BA**. I also stress-tested it by randomly dropping train passages with a different keep-rate per model, to mimic the “unequal passages per model” note. It still helped in every run (+3.5 to +6 points).
+
+On the real test it didn’t help at all: **LB 0.350 vs 0.353** without matching.
+
+My guess is that the test set breaks the “at most once per model per prompt” assumption. For example, some models may have several passages for the same prompt, and the matching then forces those duplicates onto wrong labels.
+
+Questions :
+
+**In the test set, does each model answer each prompt at most once, or can the same model have several passages for one prompt?**
+## comments

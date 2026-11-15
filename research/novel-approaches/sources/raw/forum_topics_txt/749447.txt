@@ -1,0 +1,207 @@
+# Will the winner just be whoever can get the most amount of extra training data?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/749447
+author: CoreyJamesLevinson date: 2026-10-14 votes: {'totalVotes': 146, 'canUpvote': True, 'totalUpvotes': 149}
+Someone who has 1M training examples per model will find more patterns than someone with 100K training examples per model. Is paying model providers for data generation going to be the key to winning?
+## comments
+- [Horikita Saku | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-04] At least in my analysis, I don't think some problems can be solved by increasing the amount of data. Some of my models did not show any meaningful improvement after the amount of data was significantly increased.
+- [Karsten | votes {'totalVotes': 9, 'canUpvote': True, 'totalUpvotes': 10} | 2026-10-25] How about this: make providing additional public data a side competition - add a public data submission tab, on that tab score data submissions in some meaningful way, and then give 10% of the price money to those who contributed most.
+  - [Ravi Ramakrishnan | votes {'canUpvote': True, 'totalUpvotes': 1} | 2026-10-25] Super idea, I think this should be incorporated in all such competitions!!
+- [ZavodRobotov | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-29] You can beat bigger data amout by proper data balancing, data cleaning and fixing distortions of the distributions in dataset (for example, spurious label correlations or Shortcut learning  in a certain region of the feature space)
+
+https://arxiv.org/abs/2004.07780
+- [Nikita Churkin | votes {'totalVotes': 24, 'canUpvote': True, 'totalUpvotes': 24} | 2026-10-20] Kaggle is becoming something like Formula 1. You need skills and talent, but financial resources are also playing an increasingly large role. It's neither good nor bad, it's reality.
+
+It's a bit disappointing that the vast majority of competitions with an accessible amount of data are trading competitions (with poorly formulated problem statements, for example, predicting some index a year ahead), many of which end completely randomly (and most of the winners don't even publish their solutions).
+  - [Maniceet Sahay | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-20] Like Formula1 is probably the best comparison I think. Now without the machinery (GPUs, agentic harness etc.) winning is probably very difficult even if you might be the best ML engineer.
+  - [Sergey Bryansky | votes {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 9} | 2026-10-21] It has always been this way. Maybe 15 years ago, even before XGBoost existed, you could solve a ton of tabular competitions on a basic laptop using just linear regression. But with the start of the DL era and the surge of computer vision competitions, access to powerful hardware has always been an advantage—and even more so now in the LLM era. Overall, this is a competitive sport, and it always has a financial component. Some people solve ARC Prizes just to secure fat new funding rounds for their startups, and that's okay. Anything that isn’t forbidden is allowed. As for publishing solutions, especially in financial trading competitions, everything is fair game. I’ve also stopped writing write-ups and sharing code. I just don't want LLMs to train on it and help participants in future similar competitions ;)
+    - [Yurnero | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 5} | 2026-10-21] its funnier to posion your writeups : )
+    - [greySnow | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-24] This is evil ah 🤣🤣
+    - [Grigoriy Zatravkin | votes {'canUpvote': True} | 2026-11-02] I was participating at ARC with almost no investments (~50 usd) and tbh Kaggle was pretty genrious in resources providing. Up to 30hrs of G4 card weekly per person + 9 hours submits per team easly can be like 1 million USD in compute during the compeition.
+- [Cody_Null | votes {'totalVotes': 30, 'canUpvote': True, 'totalUpvotes': 32} | 2026-10-18] Really feel like kaggle has fell off the last few years, this competition just seems like an obvious oversight that’s going to continue to make the unfairness of winning gold medals even more dramatic. If this competition was simply competition data only it would be fine, at least at the top ranks. 
+
+Every competition is who has the most gpu, who has the most token usage, etc. I love this platform and I am really hoping we can bring things back to a sensible middle ground for the LLM and CNN comps. Kaggle should be a place where anyone can compete and grow
+  - [Yurnero | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 12} | 2026-10-18] No, Kaggle has no "fell off the last few years". There are **plenty** community competitions, playground competitions — anyone can grow here!
+
+For me featured competitions is when you **compete** with the best in the field. In 2026, being the best in LLM-related problems obviously **requires** *some* resources — it's a prerequisite. Any problem that need SFT+ requires some GPUs. Hosts literally invest a lot of money and expect some ROI! It's also up to them to decide what data could we use.
+
+Out of my 8 gold medals only 2 required some substantial compute (>= $1000; but there were teams placed higher, that spent less!) and 6 were 100% possible with free Kaggle GPUs — I do not see anything unfair here. And I missed like many competitions that were also very easily winnable with no compute at all, just read the writeups, its mostly just v smart engineering and data research.
+
+-------------------------------------------------------------------------------------------------------------------
+
+And regarding this competition.
+
+Being able to come up with an algorithm that is able to differentiate between (same family) LLMs would be so cool. For example in that case, some form of an audit could be performed in order to verify that providers indeed give us the models we paid for. It is very important. So if someone spend just $5.000 or so and solves this, then its a huge W for the community. I dont see any reasons to seriously whine about potential progress of some teams and moreover I'd be happy to see this solutions, even when I cant afford myself to spend that much $$$ on data etc
+    - [Cody_Null | votes {'totalVotes': 17, 'canUpvote': True, 'totalUpvotes': 17} | 2026-10-18] I’m with you for some of this, absolutely it’s the entire point to give the hosts ROI and they should be able to determine what resources are allowed for competition. Playground series are great! My 4 gold medals were also earned with very little monetary investment (less than 100) but I absolutely have to be strategic about what competitions I pick for this, as many (especially the ones that have released over the last 12 months AIMO, arc, and other LLM or CNN comps) are significantly more difficult to compete in without being financially prepared to pay for some GPU.
+
+Where we disagree, I think it’s pretty clear to see that things are getting significantly more expensive to compete at the highest levels for the LLMs and image comps. Obviously that’s not all Kaggle’s fault, as GPUs have gotten much more expensive. But competitions like this where one could gain a huge advantage from say 5k in extra dataset creation seems more pay to play than seems fair? Or ARC where the GPU investment is almost required to get gold. If I recall (and I could totally be wrong no) I think there is a rule in the Kaggle ruleset to ensure that resources used in solutions is at a reasonable level to maintain fairness. 
+
+For me that last part is really why I care, I would be fine with spending a little extra money for a competition that I thought was interesting. But talking about large sums of money is unfair for competitors who might be students or from less gpu rich countries. I think it’s good to continue to have these types of discussions from both sides so that Kaggle can continue to become a better place, my only point here is that comps like AIMO, arc, and this one that will likely require more spending have gotten much more common than basic no resource required competitions.
+    - [Yurnero | votes {'totalVotes': -7, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-18] wcyd
+
+I guess I should start thinking that LeBron is an unfair basketball player since he spends ~$1.5 mil on his health yearly, while some loosers even dont make this much in NBA
+
+In !**competitions**! its not about what fair and what is not. It is about who is the best within provided rules. 
+
+Teaming up is not fair vs solo competitors
+    - [Cody_Null | votes {'totalVotes': 11, 'canUpvote': True, 'totalUpvotes': 11} | 2026-10-18] I mean that is kinda my point, we could try to enforce reasonable external resources within competitions, or at the very least avoid creating situations like this where extra data would obviously give an advantage all while being expensive to generate. 
+
+LeBron is an amazing basketball player because of preparation and training, just the same way you are a talented GM due to preparation and training. When we actually get to the game, or competition in this case, everyone should be on equal ground. LeBron is not given any advantage in game like a shorter 3pt line or an extra free throw, just the same way a kaggler shouldn’t get an advantage in game by having excessive GPU or data advantages. Is that really that whiny or unreasonable?
+    - [Yurnero | votes {'totalVotes': -2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-18] Is it fair to compete solo vs 5-man teams? Or vs 8-man teams like in ARC? Having 5x more people working on a problem must give some substantial advantage on average, right?
+    - [Cody_Null | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-18] I mean that is an explicit part of the game by design, and any one person can also choose to be on a team. Having more money for GPU or tokens is not part of a display of skill (within reason) which is why I would think it would be in kaggles best interest to support their own rules more rather than directly incentivizing the opposite.
+    - [斬る | votes {'canUpvote': True} | 2026-10-19] I completely agree with that. Whether it’s fair or not depends entirely on where you set the bar. If you consider having powerful computing resource and more money to be a form of strength in and of itself, then there’s no unfairness. It’s just like having better teammates.
+    - [Yurnero | votes {'totalVotes': -3, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-19] You are a bit naive in your assumptions about the nature of Kaggle. This isn't an entertainment platform. And competitions ranks are not ment to be a pure display of skill (there is a strong correlation tho)
+
+The primary purpose of Kaggle isn't to provide fair or equal competitions for the sake of it. It is to create an environment for people, companies, organizations and businesses to find effective solutions to real problems at hand.
+
+Kaggle will try to make competitions fair where reasonable, but at the end of the day if the problem happens to be solvable / simplifyable with the employment of extra GPUs, well, okay. There are a lot of competitions on Kaggle and other platforms where resources do not convert to an advantage. And if you wanna learn — late submissions are always open, notebooks are shared. There is a lot of room for learning
+    - [Cody_Null | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-19] I actually totally agree with you on virtually everything, I am simply stating that maybe the “fair where reasonable” bar you talk about, has shifted more lately. I think this entire thread is living proof of it. 
+
+Even if we look at the very rules of the competition it allows for this very confusion between you and I. It specifies little to no cost in multiple places all while saying that hosts have the ultimate control on what reasonable is. Truthfully kaggle should probably just clear up the rules one way or the other because clearly they are different. In practice I would think your point is 100% what is actually used, effectively the host decides. But in theory and in the ruleset I see “minimal cost” and “reasonable”, and I have a tough time calling the use of extreme compute or token cost either.
+
+“6. EXTERNAL DATA AND TOOLS
+
+a. You may use data other than the Competition Data (“External Data”) to develop and test your Submissions. However, you will ensure the External Data is either publicly available and equally accessible to use by all Participants of the Competition for purposes of the competition at no cost to the other Participants, or satisfies the Reasonableness criteria as outlined in Section 2.6.b below. The ability to use External Data under this Section does not limit your other obligations under these Competition Rules, including but not limited to Section 2.8 (Winners Obligations).
+
+b. The use of external data and models is acceptable unless specifically prohibited by the Host. Because of the potential costs or restrictions (e.g., “geo restrictions”) associated with obtaining rights to use external data or certain software and associated tools, their use must be “reasonably accessible to all” and of “minimal cost”. Also, regardless of the cost challenges as they might affect all Participants during the course of the competition, the costs of potentially procuring a license for software used to generate a Submission, must also be considered. The Host will employ an assessment of whether or not the following criteria can exclude the use of the particular LLM, data set(s), or tool(s):
+
+Are Participants being excluded from a competition because of the "excessive" costs for access to certain LLMs, external data, or tools that might be used by other Participants. The Host will assess the excessive cost concern by applying a “Reasonableness” standard (the “Reasonableness Standard”). The Reasonableness Standard will be determined and applied by the Host in light of things like cost thresholds and accessibility.
+
+By way of example only, a small subscription charge to use additional elements of a large language model such as Gemini Advanced are acceptable if meeting the Reasonableness Standard of Sec. 8.2. Purchasing a license to use a proprietary dataset that exceeds the cost of a prize in the competition would not be considered reasonable.
+    - [Yurnero | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-19] Yea, this is a good point actually. I agree. I don't like 'foggy' statements. I always wonder what is the exact meaning behind "excessive". There are no precedents, I suppose, in the Kaggle history, where some team was denied of a prize / being disqualified, because of exsessive costs.
+
+This competition could become one lol (but I highly doubt it). Let's just see how far competitors will go in order to win.
+    - [Cody_Null | votes {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-19] The community here is pretty great so I am kinda hoping the benefits of an individual balling out on token costs would be mitigated by like 10 people making their own public datasets for people to append together into hopefully a competitive dataset. 
+
+I agree tho, I doubt this will be a competition that there is someone removed from LB. I think I am aware of only 1 case where someone was removed from the LB for reasons (that arent cheating) across my almost 4 years so odds of seeing more in any case are low.
+    - [Chew Kok Wah | votes {'totalVotes': 5, 'canUpvote': True, 'totalUpvotes': 5} | 2026-10-21] @samson8  For a Competition Host in Kaggle, do you think which Team below is more valuable to them if the Team end up become the final winner of the Competition they Host ?   
+
+Team A: Won by scaling up enormous computing resources and data volume that no body can match, focus on using standard publicly available data , idea and algorithm.  
+  
+Team B: Won with unique idea and specialize but limited data that are way less compare to Team A  
+
+As a Competition Host with all the money to scale up their infrastructure and data volume, what Team A can value add to the Host compare to Team B?
+
+The problem today is not about fairness, we don't talk about fairness in a Competition as long as the rules is not been broken. But for the benefit of the Competition Host, some way to make everybody use the same compute resources is in the best interest of the Competition Host, and what happen currently where some Team can win based on Compute Resource alone, beating out Team with much better idea is Not a good trend.
+    - [Yurnero | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-21] That is a good and interesting point, thank you.
+
+I think there are too many variables. Short answer: if Competition Host need unique ideas with limited resources, then they should add a rule like that: "Any prize-eligible team solution has to be reproduced on a Kaggle GPU container" and/or "No external data is allowed" or smth equivalent to these. How to actually invoke rules like that is another good question.
+
+>The problem today is not about fairness, we don't talk about fairness in a Competition as long as the rules is not been broken.
+
+Yes. That was one of my points.
+  - [Ayush Khaire | votes {'canUpvote': True} | 2026-10-18] @cody11null 
+
+So sorry for disturbing , but would like to know your perspective !
+
+Like for now , we have a train dataset and a test dataset with 4,000 samples each , and like same ( approx ) will be on private lb .
+
+So , if I wonder , chances of , kaggle being derived both lbs from a single dataset are more likely .
+
+if so , then maybe , generating through APIs and external data sources might help , but more likely ( or not ) we can have an unpredictable difference between the public and private lb score .
+
+Because like training the model on some external data would make it a bit distinct from the current dataset context , we can also say it as "out of sample" , while training , means the external data was not really a sample of either train or test . Although it is just a hypothesis , i am not really sure about it .
+
+So , ig there will be mixed senerio like being conservative or open to more data , what do you think about it ?
+
+Thanks a bunch in advance !
+    - [Cody_Null | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-18] I recall similar competitions and favored strats (tho there are always new ones and things change from comp to comp with different data). If I were to try it I would compile my own data or consolidate public data and use this competition train as validation. If that ends up not correlating then you would know it’s harder to replicate the types of questions and answers that the lb and private might have so maybe you just use it as additive. I’m sure people will come up with all sorts of cool ideas!
+    - [Ayush Khaire | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-18] @cody11null 
+
+Thank you so much , although I agree with your GPU compute point , 
+I was too unfortunate to blame my ram , swap space on disk , my gpu and like exploiting cpus , memory clean stuff to save time and all things like that . I have been through many weird idas to manage my compute , like for example on local I wil test a few sample and on kaggle i will run fully , although an automaticdetection with the env and all , but overall these days i felt like kaggle is not for me except some light workloads , weird things are happening with me , like since my local 4050 is way faster then T4 gpu , and here kaggle give 2 T4 with one always sit idle in my case , unable to parallalizing it . One more thing is like i see notebooks and code which is too long and i can't really understand it , i always loved clean notebooks and tbh every time i start , i do it from scratch , but now there are bunch of ensambles to get up in public lb , and stuff like things , are getting to low input and like overinformation to my mind , I am looking at some other platforms which would be good , and possibly will do lightweight work on kaggle onwords . Even you are a student , less resources , best practies - for me nothing is working out . It is indeed a lot to learn but I can't just quantify it .
+    - [Cody_Null | votes {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-18] From my learning perspective, I was very similar where I was kind of forced to use limited resources and it forced me to be maybe a little bit more efficient than otherwise would have! There is stuff to learn everywhere!
+- [Jack | votes {'totalVotes': 31, 'canUpvote': True, 'totalUpvotes': 31} | 2026-10-15] I almost made a post asking to rename this competition to the 'Pay That LLM' competition
+  - [HUUUULA | votes {'canUpvote': True} | 2026-10-25] hahaha,i feel the same way ,totally!
+- [DeepUnderstanding | votes {'totalVotes': 21, 'canUpvote': True, 'totalUpvotes': 21} | 2026-10-15] ban external data or this competition
+  - [Ravi Ramakrishnan | votes {'totalVotes': -2, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-15] Then this will become a lora tuning assignment @mrinath
+- [greySnow | votes {'totalVotes': 15, 'canUpvote': True, 'totalUpvotes': 16} | 2026-10-15] Yes. It's rare to see so blatant 'pay to win' competition as this one 🤣🤣
+Although even if we got a large dataset participant can still generate more for an advantage...and then if we have huge amount of data the barrier would just move to pay to win for compute, hehe
+- [Azat Akhtyamov | votes {'totalVotes': 12, 'canUpvote': True, 'totalUpvotes': 12} | 2026-10-15] At the same time, the Smart Buildings competition doesn’t award medals, even though it’s genuinely interesting and doesn’t require spending $5k on data just to get started.
+- [Marie Victoire IPOUK | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-20] Diminishing returns. Past a certain volume, extra samples from the same prompts and the same generation settings add little. I’d expect prompt diversity (topics, formats, lengths) to matter more than raw count, since the test prompts are unseen.
+- [HALX2158 | votes {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 7} | 2026-10-18] Some data on this question: we tried adding the public 18-model corpus (licensed rows only, ~15k texts) to a simple char+word TF-IDF + LinearSVC, and scored with GroupKFold by prompt on competition texts only.
+
+- competition data only: 0.326
+- + 850 external rows that are already single paragraphs: 0.308
+- + 14,911 external rows flattened to one paragraph: 0.279
+
+We saw the same direction with a stronger TF-IDF and with frozen Qwen3-8B embeddings. Our main suspect is the mismatch: competition texts have 0% line breaks and 0% bold, while 94% / 60% of the external answers do, and the external median length is 174 words vs 101. So "more data" may matter, but only if it looks like the host's data.
+
+Details and code: https://www.kaggle.com/code/mizuno0522/model-fingerprints-punctuation-external-data
+- [Nicholas Broad | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-23] Isn't the solution for competitors to share the data they generate?  If 5k people participate and everyone shares $1 worth of data, that could be >>100k passages per model.
+
+At that scale, I would expect marginal benefits from more data. Hopefully this would level the playing field.
+  - [Ravi Ramakrishnan | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-23] @nbroad, few will share, others will prefer not to do so - instead the host should create a million rows across models and share as additional_train.csv - problem solved
+  - [Cody_Null | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-24] I think this is probably the only real solution because logistically kaggle and hosts benefit too much from allowing competitors to spend more to make better solutions. But if people want to withold that competitive advantage it makes it a bit unfortunate. 
+
+Like for example people kept their own astra labels for RSNA. It had to have cost a ton to make and no version was public. Any competent model, maybe even a copy of the top public work retrained with those labels was a top silver solution or more. To me this seems directly against the rules on ever competition but its never actually enforced so a sudden enforcement without an annoucement would be unfair too.
+    - [Ravi Ramakrishnan | votes {'totalVotes': -1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-24] This is a huge problem, not only here but in most recent competitions involving or independent of LLM. I recently saw several posts about people using Astra to create labels and use them effectively for a high ranking solution at this competition.
+
+If a participant is doing this on his/ her own, and if a lot of them are doing this extraction for similar studies, then why not have a mechanism to ask the host for this extraction? This way one could have a level playing field @cody11null
+- [Yurnero | votes {'totalVotes': 10, 'canUpvote': True, 'totalUpvotes': 11} | 2026-10-15] Official sponsor of the competition: Google
+
+Shadow sponsors of the competition: OpenAI, Anthropic~~~
+
+Qwen, GLM, Kiwi were added to cover tracks : )
+  - [Ravi Ramakrishnan | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-15] Why not have Qwen, GLM, Kiwi... only and remove the rest? Whatever method works for these will work for others also @samson8 ?
+  - [Noa Roggendorff | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-18] I'm having a hard time telling the difference between the ZAI models.
+    - [Ravi Ramakrishnan | votes {'canUpvote': True} | 2026-10-25] Same here very similar to Claude models also @nroggendorff
+- [Bharat | votes {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 8} | 2026-10-15] The competition hosts should provide us with enough data, otherwise the winners might have to spend more than they win (and pay taxes).
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F2411334%2F6621e3bb79584ebc77b327374a03132c%2FScreenshot%20from%202026-10-15%2010-26-47.png?generation=1792040292258956&alt=media)
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F2411334%2F1fd0611c828a45eaab65a94006318605%2FScreenshot%20from%202026-10-15%2010-27-04.png?generation=1792040303369541&alt=media)
+  - [Khoi Nguyen | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-15] You guys pay taxes?
+- [Zejun_ | votes {'totalVotes': 7, 'canUpvote': True, 'totalUpvotes': 7} | 2026-10-15] To be honest, I don't even understand the point of this competition—after all, aren't these companies just distilling each other's models?  (These AI companies are accusing each other on social media like this.)
+  - [Noa Roggendorff | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-18] There are differences in architecture and post-training. As much as we want an actual universal function approximator, architecture really impedes learning (at least with gradient descent via backpropogation). Pretraining-wise, pretty much everyone trains on some filtered version of common crawl + wikipedia + reddit (if they're rich). Differences in the RL pipeline employed and architecture are where the behavioral traits come in.
+- [wsc-MISX | votes {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 6} | 2026-10-15] Could the organizers clarify whether participants are allowed to generate additional training data by calling LLM APIs themselves? The provided training set contains only around 150 unique prompts, which is clearly quite limited.
+
+More specifically, how exactly will the "Reasonableness Standard" in Section 8.2 be defined and applied? Is there a specific cost threshold for API usage, and would generating additional training data through paid LLM APIs be considered acceptable under this standard?
+  - [jazivxt | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-15] There is a $100 per month token opportunity on https://www.kaggle.com/benchmarks for the different APIs
+    - [Ravi Ramakrishnan | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-10-15] This won't be enough for the data extraction...
+Also if we were to waste personal money for this, why not Kaggle provide it and ringfence the assignment to external datasets @jazivxt?
+  - [Yurnero | votes {'totalVotes': 5, 'canUpvote': True, 'totalUpvotes': 5} | 2026-10-15] You can't prove that some team were using the exact data they say, unless you run their pipeline E2E and obtain v close weights. So idk how this will be invoked correctly
+    - [wsc-MISX | votes {'canUpvote': True} | 2026-10-15] Exactly, like RSNA... and that earlier petfinder competition (then people realized even winning solutions could use external data without anyone noticing).
+- [Tawara | votes {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 6} | 2026-10-15] I agree with you.
+
+I think, in a real-world context, there should be some degree of domain gap between the training data and the test data in this competition.
+Ignoring the cost,  the simplest way to eliminate this gap is to obtain the training data directly via LLMs' API.
+- [Ayush Khaire | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-15] - "You distilled our models."
+
+- "We didn't , we are inocent."
+
+- "Proove that in court."
+
+- "See , in this competition , guys developed models to keep a model accountable based on the response."
+- "According to it all top 10 solutions , out of , 6 says model X distilled model Y" .
+
+- "But what if it is a false positive."
+- "That true negative model is sitting in the corner!"
+
+- "What's that and why it is there. This is a court and not a data science lab."
+
+- "We dont care - pay the fine."
+
+I mean , I am still surprised , that another competition about buildings was way meaningful . But it is sitting there in community competitions .
+
+## Edit
+
+On a serious note it would create a bias if you add more data , because the thing is you have 4000 questions in background test set , and they have their own responses , with their own prompts , if the pattern between your responses and prompts  , and their responses and prompts , it might become too much different . The way you will use LLM apis and the way they might have generated test set can vary a lot in my opinion , you can never know how they generated , but still having more data can give advantage , but i am still not sure if it will "worth" it .
+- [hsiaosuan | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-15] I wonder whoever owns an model router website shall win this competition.
+Google Owns a significant stake in Anthropic, and provides a significant portion of TPUs to Anthropic.
+- [Keanan | votes {'canUpvote': True} | 2026-11-12] At the time of writing I'm in the top 10, and I haven't used any paid generation.
+So it's possible to reach the top 10 here without paying for data.
+I hope this motivates a few people: you can get there even without the same budget as some of the bigger teams.
+- [xz | votes {'canUpvote': True} | 2026-11-04] It would be more fun if the competition only allows you to talk to the LLM.
+- [harshraj22 | votes {'canUpvote': True} | 2026-11-02] I'm surprised that everyone is thinking about adding new data by using the apis of these providers. and no one has considered what if the labels were swapped in the competition (say a response generated by claude is labelled as gemini). if you don't know the swapping they used, you'll mix up and ruin your model's performance.
+  - [Noa Roggendorff | votes {'canUpvote': True} | 2026-11-02] All of the top competitors are using external data.
+    - [harshraj22 | votes {'canUpvote': True} | 2026-11-02] source of your claim ?
+- [Iskander Zellagui | votes {'canUpvote': True} | 2026-10-28] I read that the data needs to be publicly available in the rules, and there is somebody very nice who offered some public dataset that merged many publicly available ones in the discussions as well.
+- [WOOSUNG YOON | votes {'canUpvote': True} | 2026-10-25] https://www.kaggle.com/benchmarks/woosungyoon/name-that-llm-benchmark/leaderboard
+
+By the way, it looks like Kaggle Benchmarks or Tasks allow you to generate and share $10 worth of credits every day.
+- [Sadiq Abdullahi | votes {'canUpvote': True} | 2026-10-21] from no where
+- [Noa Roggendorff | votes {'canUpvote': True} | 2026-10-21] Does anyone know the best score achieved so far without external data (including pretrained models)? I assume most people aren't even trying, but I assume at least one of the 2K entrants decided to handicap themselves like that.
+  - [James Warner | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-21] The best I've got so far is 0.505, but I bet you can get higher without any extra data. I don't think you'll have any chance of getting a medal though. I've found that external data is worth roughly +0.11 to +0.12.
+  - [Painera | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-22] My best LB score before adding external data was 0.583, but I suspect part of that is LB probing. The gain over my previous experiments was small, so it could just be noise on the public LB.
+    - [Sadiq Abdullahi | votes {'canUpvote': True} | 2026-10-22] Hmmmm that's cool
+    - [harshraj22 | votes {'canUpvote': True} | 2026-11-03] why not make the contest fair and challenging by sharing the external data that you used ? Competing in a one-sided contest is never fun.

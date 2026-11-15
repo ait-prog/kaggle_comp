@@ -1,0 +1,23 @@
+# Late post-processing cell never seems to affect the score in the hidden rerun — known differences vs. commit runs?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/758021
+author: vishu phalswal date: 2026-11-11 votes: {'canUpvote': True}
+I have a notebook that scores 0.682. I added one extra cell at the end that refines the predictions after the main pipeline. It reads the pipeline’s saved logits, runs a GPU step in a subprocess (a compiled binary with its own bundled CUDA libraries), and then atomically replaces /kaggle/working/submission.parquet. If anything fails, it keeps the original file.
+
+Offline, and in commit runs on a 4,000-row synthetic test set, the cell works and changes ~9% of labels. But every submission that should have used it scored exactly the same as the base (0.682). That suggests the cell always falls back in the hidden rerun. Since the hidden rerun shows no logs, I can’t see why.
+
+Things I’d like to know from anyone who has run long or late GPU stages:
+
+Time accounting: is the 9-hour limit measured from kernel start, or does it include queueing / environment setup? Has anyone seen the hidden rerun be noticeably slower than a commit run on the same data size?
+Disk: is /tmp (or /kaggle/temp) the same size in the hidden rerun as in commits? My step writes several GB of intermediate files there.
+Input read speed: first reads of large /kaggle/input files (100+ GB) are very slow for me in commits. Is it worse in the rerun?
+Subprocesses / GPUs: any known differences in subprocess handling, LD_LIBRARY_PATH, or GPU/driver version between commit and rerun?
+Debugging: has anyone found a reliable way to get diagnostic information out of a hidden run (other than encoding it into the score)?
+## comments
+- [somerandomguy | votes {'canUpvote': True} | 2026-11-11] As far as i have seen, 9 hour are for run, if it gets queued the time is not counted, time is measured from the kernel start. Make sure that extra cell is enabled during scoring run, which you set using the env variable `os.getenv("KAGGLE_IS_COMPETITION_RERUN")`. Also the environment is generally same for commit and sub (check your session options).
+  - [vishu phalswal | votes {'canUpvote': True} | 2026-11-11] @stithpragya Thanks a lot, this is really helpful! Good to know the clock starts at kernel start and queue time isn’t counted.
+
+I’ll add the KAGGLE_IS_COMPETITION_RERUN check, since right now I detect the scoring run indirectly from the test size.
+
+One follow-up, if you don’t mind: have you noticed /kaggle/input being slower in the scoring run than in a normal commit? Staff mentioned slow reads with the new caching, and I’m trying to judge how much safety margin to keep for large inputs.
+    - [somerandomguy | votes {'canUpvote': True} | 2026-11-11] It is variable, but the earlier problem is mostly solved, safety margin depends on the functions being run, though i leave 30mins spare for current runs.
+    - [vishu phalswal | votes {'canUpvote': True} | 2026-11-11] Thanks, that’s reassuring! I’ll keep ~30 min spare too, and copy large inputs to local disk anyway in case speed varies.

@@ -1,0 +1,176 @@
+[{"stream_name":"stdout","time":11.701266249,"data":"gpus 2\n"}
+,{"stream_name":"stdout","time":42.356348505,"data":"[r0] [     4s] cfg {\"run\": \"dev9\", \"ft_epochs\": 3, \"ft_lr_a\": 4e-05, \"ft_lr_h\": 0.0003, \"ft_bs\": 8, \"hidden\": 4096, \"n_layers\": 36, \"keep\": 24, \"layers\": [4, 8, 12, 16, 20, 24], \"r\": 16, \"alpha\": 32, \"ldrop\": 0.05, \"cap\": 3000, \"epochs\": 1, \"bs\": 16, \"maxlen\": 320, \"lr_a\": 0.0002, \"lr_h\": 0.001, \"wd\": 0.01, \"warm\": 0.05, \"seed\": 0, \"ckpt_every\": 400}\n"}
+,{"stream_name":"stdout","time":42.396250996,"data":"[r1] [     4s] cfg {\"run\": \"dev9\", \"ft_epochs\": 3, \"ft_lr_a\": 4e-05, \"ft_lr_h\": 0.0003, \"ft_bs\": 8, \"hidden\": 4096, \"n_layers\": 36, \"keep\": 24, \"layers\": [4, 8, 12, 16, 20, 24], \"r\": 16, \"alpha\": 32, \"ldrop\": 0.05, \"cap\": 3000, \"epochs\": 1, \"bs\": 16, \"maxlen\": 320, \"lr_a\": 0.0002, \"lr_h\": 0.001, \"wd\": 0.01, \"warm\": 0.05, \"seed\": 0, \"ckpt_every\": 400}\n"}
+,{"stream_name":"stdout","time":42.461759905,"data":"[r0] [     4s] model /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stdout","time":42.461785747,"data":"[r1] [     4s] model /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stderr","time":66.208398008,"data":"\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/266 [00:09\u003c40:33,  9.18s/it]\rLoading weights:   0%|          | 1/266 [00:09\u003c40:38,  9.20s/it]\rLoading weights:  36%|███▋      | 97/266 [00:09\u003c00:11, 14.48it/s]\rLoading weights:  36%|███▋      | 97/266 [00:09\u003c00:11, 14.45it/s]\rLoading weights:  45%|████▌     | 121/266 [00:10\u003c00:09, 15.35it/s]\rLoading weights:  45%|████▍     | 119/266 [00:10\u003c00:09, 15.00it/s]\rLoading weights:  50%|████▉     | 132/266 [00:11\u003c00:08, 15.41it/s]\rLoading weights:  51%|█████     | 135/266 [00:12\u003c00:09, 14.22it/s]\rLoading weights:  53%|█████▎    | 141/266 [00:12\u003c00:08, 15.16it/s]\rLoading weights:  55%|█████▍    | 146/266 [00:12\u003c00:08, 14.56it/s]\rLoading weights:  55%|█████▌    | 147/266 [00:12\u003c00:08, 14.15it/s]\rLoading weights:  59%|█████▉    | 157/266 [00:13\u003c00:07, 14.27it/s]\rLoading weights:  59%|█████▉    | 157/266 [00:13\u003c00:07, 14.71it/s]\rLoading weights:  63%|██████▎   | 168/266 [00:14\u003c00:06, 14.80it/s]\rLoading weights:  63%|██████▎   | 168/266 [00:14\u003c00:06, 14.44it/s]\rLoading weights:  67%|██████▋   | 179/266 [00:14\u003c00:05, 15.30it/s]\rLoading weights:  67%|██████▋   | 179/266 [00:14\u003c00:05, 15.45it/s]\rLoading weights:  69%|██████▉   | 183/266 [00:14\u003c00:05, 16.44it/s]\rLoading weights:  68%|██████▊   | 182/266 [00:14\u003c00:05, 15.66it/s]\rLoading weights:  71%|███████▏  | 190/266 [00:15\u003c00:05, 15.13it/s]\rLoading weights:  71%|███████▏  | 190/266 [00:15\u003c00:05, 15.19it/s]\rLoading weights:  76%|███████▌  | 201/266 [00:16\u003c00:04, 15.98it/s]\rLoading weights:  76%|███████▌  | 201/266 [00:16\u003c00:04, 16.03it/s]\rLoading weights:  76%|███████▋  | 203/266 [00:16\u003c00:03, 15.92it/s]\rLoading weights:  77%|███████▋  | 204/266 [00:16\u003c00:03, 16.33it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:16\u003c00:03, 15.73it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:16\u003c00:03, 15.52it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:17\u003c00:02, 16.01it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:17\u003c00:02, 16.15it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:18\u003c00:01, 16.05it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:18\u003c00:01, 16.06it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:18\u003c00:01, 15.61it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:18\u003c00:01, 15.53it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:19\u003c00:00, 16.44it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:19\u003c00:00, 16.45it/s]\rLoading weights: 100%|██████████| 266/266 [00:19\u003c00:00, 13.59it/s]\n"}
+,{"stream_name":"stderr","time":66.215233567,"data":"\rLoading weights: 100%|██████████| 266/266 [00:19\u003c00:00, 13.59it/s]\n"}
+,{"stream_name":"stderr","time":66.358088003,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stderr","time":66.358124772,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":66.358128827,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":66.358131615,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358134269,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358136879,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358139425,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.35814191,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358144391,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358146894,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358149727,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358167201,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358171649,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358186349,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358190023,"data":"lm_head.weight                                         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.358193993,"data":"\n"}
+,{"stream_name":"stderr","time":66.358197655,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":66.358201085,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":66.466833039,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stderr","time":66.466901536,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":66.466909275,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":66.466913314,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.46691733,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466920989,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466937772,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466941563,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466945726,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466949673,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466953227,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466957067,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466960738,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466964424,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466968189,"data":"lm_head.weight                                         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":66.466971897,"data":"\n"}
+,{"stream_name":"stderr","time":66.466975368,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":66.466978965,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":66.49499037,"data":"[r0] [    28s] trainable M 29.6\n"}
+,{"stream_name":"stdout","time":66.534318502,"data":"[r1] [    28s] trainable M 29.6\n"}
+,{"stream_name":"stdout","time":66.568683214,"data":"[r1] [    28s] init from /kaggle/input/notebooks/flashpm/ntl-dev7/out/lora_head_final.safetensors\n"}
+,{"stream_name":"stdout","time":66.568966643,"data":"[r0] [    28s] init from /kaggle/input/notebooks/flashpm/ntl-dev7/out/lora_head_final.safetensors\n"}
+,{"stream_name":"stdout","time":118.328663214,"data":"[r1] [    79s] fold 1 before ft BA 0.5333\n"}
+,{"stream_name":"stderr","time":118.334371247,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":118.334411041,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stdout","time":121.834734038,"data":"[r0] [    83s] fold 0 before ft BA 0.5833\n"}
+,{"stream_name":"stderr","time":121.840644102,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":121.840671678,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stderr","time":122.982628491,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":122.98266289,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stderr","time":122.982723097,"data":"/kaggle/src/script.py:149: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":122.982730077,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":122.98274839,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stderr","time":126.483872033,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":126.483931947,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stderr","time":126.483937798,"data":"/kaggle/src/script.py:149: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":126.483941948,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":126.483945437,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":428.281319399,"data":"[r1] [   389s] job 1 step 80/807 loss 1.2885\n"}
+,{"stream_name":"stdout","time":455.742021747,"data":"[r0] [   417s] job 0 step 80/807 loss 1.2817\n"}
+,{"stream_name":"stdout","time":733.981560222,"data":"[r1] [   695s] job 1 step 160/807 loss 1.2823\n"}
+,{"stream_name":"stdout","time":785.898080738,"data":"[r0] [   747s] job 0 step 160/807 loss 1.4434\n"}
+,{"stream_name":"stdout","time":1044.600935771,"data":"[r1] [  1006s] job 1 step 240/807 loss 1.2788\n"}
+,{"stream_name":"stdout","time":1119.851600621,"data":"[r0] [  1081s] job 0 step 240/807 loss 1.2045\n"}
+,{"stream_name":"stdout","time":1208.446414133,"data":"[r1] [  1170s] fold 1 after epoch 1 BA 0.5667\n"}
+,{"stream_name":"stdout","time":1297.519746659,"data":"[r0] [  1259s] fold 0 after epoch 1 BA 0.5759\n"}
+,{"stream_name":"stdout","time":1404.227163415,"data":"[r1] [  1365s] job 1 step 320/807 loss 0.7662\n"}
+,{"stream_name":"stdout","time":1515.015854124,"data":"[r0] [  1476s] job 0 step 320/807 loss 0.7439\n"}
+,{"stream_name":"stdout","time":1718.90923858,"data":"[r1] [  1680s] job 1 step 400/807 loss 0.7306\n"}
+,{"stream_name":"stdout","time":1850.798873752,"data":"[r0] [  1812s] job 0 step 400/807 loss 0.8352\n"}
+,{"stream_name":"stdout","time":2031.198161573,"data":"[r1] [  1992s] job 1 step 480/807 loss 0.7869\n"}
+,{"stream_name":"stdout","time":2180.737953567,"data":"[r0] [  2142s] job 0 step 480/807 loss 0.7696\n"}
+,{"stream_name":"stdout","time":2303.916988954,"data":"[r1] [  2265s] fold 1 after epoch 2 BA 0.5852\n"}
+,{"stream_name":"stdout","time":2389.55649368,"data":"[r1] [  2351s] job 1 step 560/807 loss 0.5837\n"}
+,{"stream_name":"stdout","time":2468.062525177,"data":"[r0] [  2429s] fold 0 after epoch 2 BA 0.5833\n"}
+,{"stream_name":"stdout","time":2561.503271829,"data":"[r0] [  2523s] job 0 step 560/807 loss 0.5840\n"}
+,{"stream_name":"stdout","time":2700.966442787,"data":"[r1] [  2662s] job 1 step 640/807 loss 0.3590\n"}
+,{"stream_name":"stdout","time":2894.778258117,"data":"[r0] [  2856s] job 0 step 640/807 loss 0.3346\n"}
+,{"stream_name":"stdout","time":3011.554015666,"data":"[r1] [  2973s] job 1 step 720/807 loss 0.3725\n"}
+,{"stream_name":"stdout","time":3222.422253132,"data":"[r0] [  3184s] job 0 step 720/807 loss 0.3979\n"}
+,{"stream_name":"stdout","time":3327.429012008,"data":"[r1] [  3289s] job 1 step 800/807 loss 0.4367\n"}
+,{"stream_name":"stdout","time":3402.5152602,"data":"[r1] [  3364s] fold 1 after epoch 3 BA 0.5907\n"}
+,{"stream_name":"stdout","time":3452.43117754,"data":"[r1] [  3414s] fold 1 FINAL BA 0.5907 secs 3381\n"}
+,{"stream_name":"stdout","time":3501.552707977,"data":"[r1] [  3463s] fold 3 before ft BA 0.55\n"}
+,{"stream_name":"stderr","time":3501.56102992,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":3501.561058193,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stderr","time":3504.867854656,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":3504.867924889,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":3551.113378738,"data":"[r0] [  3512s] job 0 step 800/807 loss 0.3965\n"}
+,{"stream_name":"stdout","time":3636.360542446,"data":"[r0] [  3598s] fold 0 after epoch 3 BA 0.6037\n"}
+,{"stream_name":"stdout","time":3689.617684637,"data":"[r0] [  3651s] fold 0 FINAL BA 0.6037 secs 3618\n"}
+,{"stream_name":"stdout","time":3742.695540178,"data":"[r0] [  3704s] fold 2 before ft BA 0.5638\n"}
+,{"stream_name":"stderr","time":3742.703994276,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":3742.704062947,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stderr","time":3746.369500258,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":3746.369541266,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":3817.275354682,"data":"[r1] [  3778s] job 3 step 80/807 loss 1.2035\n"}
+,{"stream_name":"stdout","time":4077.365986825,"data":"[r0] [  4039s] job 2 step 80/810 loss 1.2378\n"}
+,{"stream_name":"stdout","time":4127.512786782,"data":"[r1] [  4089s] job 3 step 160/807 loss 1.3021\n"}
+,{"stream_name":"stdout","time":4414.22997023,"data":"[r0] [  4375s] job 2 step 160/810 loss 1.3282\n"}
+,{"stream_name":"stdout","time":4450.873708164,"data":"[r1] [  4412s] job 3 step 240/807 loss 1.1714\n"}
+,{"stream_name":"stdout","time":4607.932725939,"data":"[r1] [  4569s] fold 3 after epoch 1 BA 0.5296\n"}
+,{"stream_name":"stdout","time":4755.191602339,"data":"[r0] [  4716s] job 2 step 240/810 loss 1.3044\n"}
+,{"stream_name":"stdout","time":4810.519486193,"data":"[r1] [  4772s] job 3 step 320/807 loss 0.7128\n"}
+,{"stream_name":"stdout","time":4927.654870453,"data":"[r0] [  4889s] fold 2 after epoch 1 BA 0.5563\n"}
+,{"stream_name":"stdout","time":5122.348504683,"data":"[r1] [  5083s] job 3 step 400/807 loss 0.8315\n"}
+,{"stream_name":"stdout","time":5138.327590547,"data":"[r0] [  5099s] job 2 step 320/810 loss 0.8204\n"}
+,{"stream_name":"stdout","time":5439.446392638,"data":"[r1] [  5401s] job 3 step 480/807 loss 0.7004\n"}
+,{"stream_name":"stdout","time":5474.328783259,"data":"[r0] [  5435s] job 2 step 400/810 loss 0.8232\n"}
+,{"stream_name":"stdout","time":5716.65618586,"data":"[r1] [  5678s] fold 3 after epoch 2 BA 0.5537\n"}
+,{"stream_name":"stdout","time":5800.316627421,"data":"[r0] [  5761s] job 2 step 480/810 loss 0.6913\n"}
+,{"stream_name":"stdout","time":5804.908495632,"data":"[r1] [  5766s] job 3 step 560/807 loss 0.5706\n"}
+,{"stream_name":"stdout","time":6104.730705989,"data":"[r0] [  6066s] fold 2 after epoch 2 BA 0.5934\n"}
+,{"stream_name":"stdout","time":6115.206821517,"data":"[r1] [  6076s] job 3 step 640/807 loss 0.3469\n"}
+,{"stream_name":"stdout","time":6187.940888952,"data":"[r0] [  6149s] job 2 step 560/810 loss 0.5678\n"}
+,{"stream_name":"stdout","time":6421.715126313,"data":"[r1] [  6383s] job 3 step 720/807 loss 0.3766\n"}
+,{"stream_name":"stdout","time":6519.21680807,"data":"[r0] [  6480s] job 2 step 640/810 loss 0.3983\n"}
+,{"stream_name":"stdout","time":6735.550494049,"data":"[r1] [  6697s] job 3 step 800/807 loss 0.3389\n"}
+,{"stream_name":"stdout","time":6810.457351675,"data":"[r1] [  6772s] fold 3 after epoch 3 BA 0.5611\n"}
+,{"stream_name":"stdout","time":6849.258189203,"data":"[r0] [  6810s] job 2 step 720/810 loss 0.3663\n"}
+,{"stream_name":"stdout","time":6859.582721609,"data":"[r1] [  6821s] fold 3 FINAL BA 0.5611 secs 3407\n"}
+,{"stream_name":"stderr","time":6859.644732589,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":6859.644777927,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stderr","time":6863.985708465,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":6863.985744563,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":7169.81244531,"data":"[r1] [  7131s] job full step 80/1011 loss 1.1416\n"}
+,{"stream_name":"stdout","time":7183.868153772,"data":"[r0] [  7145s] job 2 step 800/810 loss 0.3597\n"}
+,{"stream_name":"stdout","time":7279.145306192,"data":"[r0] [  7240s] fold 2 after epoch 3 BA 0.5916\n"}
+,{"stream_name":"stdout","time":7332.084215292,"data":"[r0] [  7293s] fold 2 FINAL BA 0.5916 secs 3642\n"}
+,{"stream_name":"stdout","time":7385.008602114,"data":"[r0] [  7346s] fold 4 before ft BA 0.5333\n"}
+,{"stream_name":"stderr","time":7385.017286029,"data":"/kaggle/src/script.py:140: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":7385.017317281,"data":"  scaler = torch.cuda.amp.GradScaler(); run = []\n"}
+,{"stream_name":"stderr","time":7389.669420855,"data":"/kaggle/src/script.py:149: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":7389.669472852,"data":"  torch.nn.utils.clip_grad_norm_(trainable, 1.0); scaler.step(opt); scaler.update(); sch.step(); run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":7477.035477591,"data":"[r1] [  7438s] job full step 160/1011 loss 1.2332\n"}
+,{"stream_name":"stdout","time":7718.935489804,"data":"[r0] [  7680s] job 4 step 80/807 loss 1.1264\n"}
+,{"stream_name":"stdout","time":7786.300370618,"data":"[r1] [  7747s] job full step 240/1011 loss 1.2553\n"}
+,{"stream_name":"stdout","time":8046.099770663,"data":"[r0] [  8007s] job 4 step 160/807 loss 1.2357\n"}
+,{"stream_name":"stdout","time":8100.859450987,"data":"[r1] [  8062s] job full step 320/1011 loss 1.2486\n"}
+,{"stream_name":"stdout","time":8375.370917543,"data":"[r0] [  8337s] job 4 step 240/807 loss 1.3235\n"}
+,{"stream_name":"stdout","time":8401.254264808,"data":"[r1] [  8362s] job full step 400/1011 loss 0.7973\n"}
+,{"stream_name":"stdout","time":8551.034182504,"data":"[r0] [  8512s] fold 4 after epoch 1 BA 0.5333\n"}
+,{"stream_name":"stdout","time":8713.114349206,"data":"[r1] [  8674s] job full step 480/1011 loss 0.8056\n"}
+,{"stream_name":"stdout","time":8759.036334955,"data":"[r0] [  8720s] job 4 step 320/807 loss 0.8090\n"}
+,{"stream_name":"stdout","time":9023.005576128,"data":"[r1] [  8984s] job full step 560/1011 loss 0.7554\n"}
+,{"stream_name":"stdout","time":9091.666606253,"data":"[r0] [  9053s] job 4 step 400/807 loss 0.7883\n"}
+,{"stream_name":"stdout","time":9335.338377651,"data":"[r1] [  9296s] job full step 640/1011 loss 0.6862\n"}
+,{"stream_name":"stdout","time":9428.845799785,"data":"[r0] [  9390s] job 4 step 480/807 loss 0.7170\n"}
+,{"stream_name":"stdout","time":9644.792762356,"data":"[r1] [  9606s] job full step 720/1011 loss 0.3615\n"}
+,{"stream_name":"stdout","time":9722.718604633,"data":"[r0] [  9684s] fold 4 after epoch 2 BA 0.5815\n"}
+,{"stream_name":"stdout","time":9813.262084865,"data":"[r0] [  9774s] job 4 step 560/807 loss 0.4899\n"}
+,{"stream_name":"stdout","time":9959.543200307,"data":"[r1] [  9921s] job full step 800/1011 loss 0.4190\n"}
+,{"stream_name":"stdout","time":10136.364727564,"data":"[r0] [ 10098s] job 4 step 640/807 loss 0.3803\n"}
+,{"stream_name":"stdout","time":10269.748796672,"data":"[r1] [ 10231s] job full step 880/1011 loss 0.3800\n"}
+,{"stream_name":"stdout","time":10472.176764931,"data":"[r0] [ 10433s] job 4 step 720/807 loss 0.4397\n"}
+,{"stream_name":"stdout","time":10582.05952423,"data":"[r1] [ 10543s] job full step 960/1011 loss 0.3580\n"}
+,{"stream_name":"stdout","time":10786.615322521,"data":"[r1] [ 10748s] saved full-fit 3927\n"}
+,{"stream_name":"stdout","time":10786.615373091,"data":"[r1] [ 10748s] done\n"}
+,{"stream_name":"stdout","time":10809.464691161,"data":"[r0] [ 10771s] job 4 step 800/807 loss 0.3688\n"}
+,{"stream_name":"stdout","time":10896.139685579,"data":"[r0] [ 10857s] fold 4 after epoch 3 BA 0.5796\n"}
+,{"stream_name":"stdout","time":10951.983821852,"data":"[r0] [ 10913s] fold 4 FINAL BA 0.5796 secs 3620\n"}
+,{"stream_name":"stdout","time":10951.983867717,"data":"[r0] [ 10913s] done\n"}
+,{"stream_name":"stdout","time":10954.114614041,"data":"OOF BA before ft 0.5528 after ft 0.5853\n"}
+,{"stream_name":"stdout","time":10954.115185201,"data":"recall {\"claude-fable-5\": 0.349, \"claude-opus-4-6\": 0.753, \"claude-opus-4-8\": 0.607, \"claude-opus-5\": 0.833, \"claude-sonnet-5\": 0.653, \"gemini-3.1-pro-preview\": 0.8, \"gemini-3.6-flash\": 0.693, \"gemini-3.7-flash\": 0.473, \"gemini-3.8-flash\": 0.52, \"glm-5.3\": 0.307, \"glm-5.3-flash\": 0.38, \"gpt-5.5\": 0.567, \"gpt-5.6-luna\": 0.573, \"gpt-5.6-sol\": 0.413, \"gpt-5.6-terra\": 0.56, \"gpt-6-astra\": 0.807, \"kimi-k3\": 0.533, \"qwen3.8-max\": 0.713}\n"}
+,{"stream_name":"stderr","time":10956.985287553,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":10956.985329249,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":10957.265229444,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":10957.265258327,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":10958.184615633,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":10959.329720352,"data":"[NbConvertApp] Writing 354209 bytes to __results__.html\n"}
+]

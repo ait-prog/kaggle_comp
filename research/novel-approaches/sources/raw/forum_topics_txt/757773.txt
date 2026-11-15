@@ -1,0 +1,16 @@
+# Can we use Kaggle Benchmarks model access to generate training data?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/757773
+author: Joanna C. date: 2026-11-10 votes: {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1}
+Hi, quick question for the host or Kaggle staff.
+
+Kaggle Benchmarks gives notebooks free model access (within quota limits), including several models in this competition's label set. Can you please confirm:
+
+1. Does text generated through Kaggle Benchmarks count as acceptable external data under the competition rules?
+2. Do the Benchmarks terms allow using those outputs to train a model for a competition?
+3. Are there limits on volume or automated batch generation from a notebook that we should respect?
+
+Thanks!
+## comments
+- [Darragh1Walsh | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-10] https://www.kaggle.com/datasets/darragh1walsh/ntl-kaggle-ai-gen-run-1
+
+Do this here, feel free to send on submissions

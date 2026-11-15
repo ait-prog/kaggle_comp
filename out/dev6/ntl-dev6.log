@@ -1,0 +1,144 @@
+[{"stream_name":"stdout","time":8.195184208,"data":"gpus 2\n"}
+,{"stream_name":"stdout","time":32.70267037,"data":"[     3s] cfg {\"run\": \"dev6\", \"hidden\": 2560, \"n_layers\": 36, \"keep\": 24, \"layers\": [4, 8, 12, 16, 20, 24], \"r\": 16, \"alpha\": 32, \"ldrop\": 0.05, \"cap\": 3000, \"epochs\": 1, \"bs\": 16, \"maxlen\": 320, \"lr_a\": 0.0002, \"lr_h\": 0.001, \"wd\": 0.01, \"warm\": 0.05, \"seed\": 0, \"ckpt_every\": 400}\n"}
+,{"stream_name":"stdout","time":32.710237934,"data":"[     3s] pool 53673 {'claude-fable-5': 3000, 'claude-opus-4-6': 3000, 'claude-opus-4-8': 3000, 'claude-opus-5': 3000, 'claude-sonnet-5': 3000, 'gemini-3.1-pro-preview': 3000, 'gemini-3.6-flash': 3000, 'gemini-3.7-flash': 3000, 'gemini-3.8-flash': 3000, 'glm-5.3': 3000, 'glm-5.3-flash': 3000, 'gpt-5.5': 3000, 'gpt-5.6-luna': 3000, 'gpt-5.6-sol': 3000, 'gpt-5.6-terra': 3000, 'gpt-6-astra': 3000, 'qwen3.8-max': 3000, 'kimi-k3': 2673}\n"}
+,{"stream_name":"stdout","time":32.744589771,"data":"[     3s] model /kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1\n"}
+,{"stream_name":"stdout","time":55.436746084,"data":"[    26s] tokenized; pool p50/p99 len 131 320\n"}
+,{"stream_name":"stderr","time":68.669066227,"data":"\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/266 [00:05\u003c26:08,  5.92s/it]\rLoading weights:   0%|          | 1/266 [00:05\u003c26:05,  5.91s/it]\rLoading weights:  43%|████▎     | 114/266 [00:06\u003c00:05, 26.27it/s]\rLoading weights:  43%|████▎     | 114/266 [00:06\u003c00:05, 26.31it/s]\rLoading weights:  56%|█████▋    | 150/266 [00:07\u003c00:04, 27.35it/s]\rLoading weights:  56%|█████▋    | 150/266 [00:07\u003c00:04, 27.36it/s]\rLoading weights:  64%|██████▍   | 171/266 [00:08\u003c00:03, 27.43it/s]\rLoading weights:  64%|██████▍   | 171/266 [00:08\u003c00:03, 27.45it/s]\rLoading weights:  70%|██████▉   | 185/266 [00:08\u003c00:02, 28.71it/s]\rLoading weights:  70%|██████▉   | 185/266 [00:08\u003c00:02, 28.68it/s]\rLoading weights:  74%|███████▎  | 196/266 [00:08\u003c00:02, 29.09it/s]\rLoading weights:  74%|███████▎  | 196/266 [00:08\u003c00:02, 29.06it/s]\rLoading weights:  77%|███████▋  | 204/266 [00:09\u003c00:02, 27.45it/s]\rLoading weights:  77%|███████▋  | 204/266 [00:09\u003c00:02, 27.46it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:09\u003c00:02, 26.88it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:09\u003c00:02, 26.90it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:09\u003c00:01, 27.63it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:09\u003c00:01, 27.54it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:10\u003c00:01, 28.15it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:10\u003c00:01, 28.16it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:10\u003c00:00, 28.76it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:10\u003c00:00, 28.74it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:10\u003c00:00, 28.95it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:10\u003c00:00, 28.94it/s]\rLoading weights: 100%|██████████| 266/266 [00:11\u003c00:00, 24.17it/s]\n"}
+,{"stream_name":"stderr","time":68.669153603,"data":"\rLoading weights: 100%|██████████| 266/266 [00:10\u003c00:00, 24.19it/s]\n"}
+,{"stream_name":"stderr","time":68.752291964,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1\n"}
+,{"stream_name":"stderr","time":68.75233675,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":68.75235839,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":68.752362824,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752383781,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752387888,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752391878,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.75239596,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752400138,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752404311,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.75240859,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752412619,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752416733,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752420822,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752424763,"data":"\n"}
+,{"stream_name":"stderr","time":68.752428422,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":68.752432359,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":68.79617924,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/4b-base/1\n"}
+,{"stream_name":"stderr","time":68.796208762,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":68.796213694,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":68.796217715,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796221895,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796226046,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796230016,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.79623389,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796237869,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796241746,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.79624578,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796249693,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796253542,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796257303,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.796273356,"data":"\n"}
+,{"stream_name":"stderr","time":68.796277315,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":68.796281181,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":71.286381941,"data":"[    42s] trainable M 22.3\n"}
+,{"stream_name":"stderr","time":71.757218452,"data":"/kaggle/src/script.py:122: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":71.757249861,"data":"  scaler = torch.cuda.amp.GradScaler()\n"}
+,{"stream_name":"stdout","time":71.757424573,"data":"[    42s] steps/rank 1677\n"}
+,{"stream_name":"stderr","time":71.75793373,"data":"/kaggle/src/script.py:122: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":71.757947353,"data":"  scaler = torch.cuda.amp.GradScaler()\n"}
+,{"stream_name":"stderr","time":75.197426712,"data":"/kaggle/src/script.py:141: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":75.197472754,"data":"  scaler.step(opt); scaler.update(); sch.step()\n"}
+,{"stream_name":"stderr","time":75.197478074,"data":"/kaggle/src/script.py:141: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":75.197483073,"data":"  scaler.step(opt); scaler.update(); sch.step()\n"}
+,{"stream_name":"stderr","time":75.197713675,"data":"/kaggle/src/script.py:142: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stdout","time":75.197826423,"data":"[    45s] step 1/1677 loss 3.2730 scale 32768 tok/s 1031 eta 96m\n"}
+,{"stream_name":"stderr","time":75.197839879,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":75.197858798,"data":"  toks += int(m.sum()) * world; run.append(float(loss))\n"}
+,{"stream_name":"stderr","time":75.197862577,"data":"/kaggle/src/script.py:142: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":75.19786664,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":75.197870489,"data":"  toks += int(m.sum()) * world; run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":79.98001122,"data":"[    50s] step 2/1677 loss 3.1886 scale 16384 tok/s 923 eta 115m\n"}
+,{"stream_name":"stdout","time":82.384595487,"data":"[    53s] step 3/1677 loss 3.2216 scale 8192 tok/s 1066 eta 99m\n"}
+,{"stream_name":"stdout","time":161.147557686,"data":"[   131s] step 25/1677 loss 3.0253 scale 2048 tok/s 1106 eta 98m\n"}
+,{"stream_name":"stdout","time":263.966436057,"data":"[   234s] step 50/1677 loss 2.6853 scale 2048 tok/s 1198 eta 104m\n"}
+,{"stream_name":"stdout","time":360.544637963,"data":"[   331s] step 75/1677 loss 2.3564 scale 2048 tok/s 1192 eta 103m\n"}
+,{"stream_name":"stdout","time":453.955483622,"data":"[   424s] step 100/1677 loss 2.2543 scale 2048 tok/s 1201 eta 100m\n"}
+,{"stream_name":"stdout","time":544.750797098,"data":"[   515s] step 125/1677 loss 2.0881 scale 2048 tok/s 1182 eta 98m\n"}
+,{"stream_name":"stdout","time":649.235514254,"data":"[   620s] step 150/1677 loss 2.0631 scale 2048 tok/s 1196 eta 98m\n"}
+,{"stream_name":"stdout","time":754.963659345,"data":"[   725s] step 175/1677 loss 1.8001 scale 2048 tok/s 1201 eta 98m\n"}
+,{"stream_name":"stdout","time":848.755883396,"data":"[   819s] step 200/1677 loss 1.8661 scale 2048 tok/s 1184 eta 96m\n"}
+,{"stream_name":"stdout","time":946.314401308,"data":"[   917s] step 225/1677 loss 1.8995 scale 2048 tok/s 1194 eta 94m\n"}
+,{"stream_name":"stdout","time":1039.081144864,"data":"[  1009s] step 250/1677 loss 2.0540 scale 2048 tok/s 1205 eta 92m\n"}
+,{"stream_name":"stdout","time":1132.142273886,"data":"[  1102s] step 275/1677 loss 1.7688 scale 2048 tok/s 1213 eta 90m\n"}
+,{"stream_name":"stdout","time":1239.024300332,"data":"[  1209s] step 300/1677 loss 1.7241 scale 2048 tok/s 1205 eta 89m\n"}
+,{"stream_name":"stdout","time":1332.793032762,"data":"[  1303s] step 325/1677 loss 1.7767 scale 2048 tok/s 1205 eta 87m\n"}
+,{"stream_name":"stdout","time":1433.058067165,"data":"[  1403s] step 350/1677 loss 1.6499 scale 2048 tok/s 1207 eta 86m\n"}
+,{"stream_name":"stdout","time":1526.656376573,"data":"[  1497s] step 375/1677 loss 1.6735 scale 2048 tok/s 1206 eta 84m\n"}
+,{"stream_name":"stdout","time":1617.143848209,"data":"[  1587s] step 400/1677 loss 1.5083 scale 2048 tok/s 1213 eta 82m\n"}
+,{"stream_name":"stdout","time":1617.291980535,"data":"[  1588s] saved last\n"}
+,{"stream_name":"stdout","time":1718.220755773,"data":"[  1688s] step 425/1677 loss 1.5060 scale 2048 tok/s 1214 eta 81m\n"}
+,{"stream_name":"stdout","time":1815.000860511,"data":"[  1785s] step 450/1677 loss 1.7256 scale 2048 tok/s 1211 eta 79m\n"}
+,{"stream_name":"stdout","time":1926.645599751,"data":"[  1897s] step 475/1677 loss 1.6134 scale 2048 tok/s 1215 eta 78m\n"}
+,{"stream_name":"stdout","time":2024.227690716,"data":"[  1995s] step 500/1677 loss 1.6223 scale 2048 tok/s 1216 eta 77m\n"}
+,{"stream_name":"stdout","time":2125.670427496,"data":"[  2096s] step 525/1677 loss 1.6722 scale 2048 tok/s 1220 eta 75m\n"}
+,{"stream_name":"stdout","time":2235.842029656,"data":"[  2206s] step 550/1677 loss 1.5270 scale 2048 tok/s 1211 eta 74m\n"}
+,{"stream_name":"stdout","time":2338.47768317,"data":"[  2309s] step 575/1677 loss 1.4795 scale 2048 tok/s 1216 eta 72m\n"}
+,{"stream_name":"stdout","time":2428.764216538,"data":"[  2399s] step 600/1677 loss 1.5460 scale 2048 tok/s 1216 eta 71m\n"}
+,{"stream_name":"stdout","time":2527.622402981,"data":"[  2498s] step 625/1677 loss 1.5938 scale 2048 tok/s 1210 eta 69m\n"}
+,{"stream_name":"stdout","time":2618.959016287,"data":"[  2589s] step 650/1677 loss 1.5523 scale 2048 tok/s 1205 eta 67m\n"}
+,{"stream_name":"stdout","time":2716.085987794,"data":"[  2686s] step 675/1677 loss 1.6394 scale 2048 tok/s 1201 eta 65m\n"}
+,{"stream_name":"stdout","time":2818.781153044,"data":"[  2789s] step 700/1677 loss 1.3820 scale 2048 tok/s 1202 eta 64m\n"}
+,{"stream_name":"stdout","time":2910.168521803,"data":"[  2880s] step 725/1677 loss 1.4501 scale 2048 tok/s 1207 eta 62m\n"}
+,{"stream_name":"stdout","time":2991.201268458,"data":"[  2961s] step 750/1677 loss 1.3862 scale 2048 tok/s 1210 eta 60m\n"}
+,{"stream_name":"stdout","time":3079.293273072,"data":"[  3050s] step 775/1677 loss 1.4995 scale 2048 tok/s 1209 eta 58m\n"}
+,{"stream_name":"stdout","time":3185.441270507,"data":"[  3156s] step 800/1677 loss 1.3834 scale 2048 tok/s 1210 eta 57m\n"}
+,{"stream_name":"stdout","time":3185.624805556,"data":"[  3156s] saved last\n"}
+,{"stream_name":"stdout","time":3261.956958532,"data":"[  3232s] step 825/1677 loss 1.6242 scale 2048 tok/s 1208 eta 55m\n"}
+,{"stream_name":"stdout","time":3360.479280931,"data":"[  3331s] step 850/1677 loss 1.3604 scale 2048 tok/s 1211 eta 53m\n"}
+,{"stream_name":"stdout","time":3462.637694005,"data":"[  3433s] step 875/1677 loss 1.4505 scale 2048 tok/s 1210 eta 52m\n"}
+,{"stream_name":"stdout","time":3571.304412787,"data":"[  3542s] step 900/1677 loss 1.2569 scale 2048 tok/s 1213 eta 50m\n"}
+,{"stream_name":"stdout","time":3680.631959589,"data":"[  3651s] step 925/1677 loss 1.2844 scale 2048 tok/s 1214 eta 49m\n"}
+,{"stream_name":"stdout","time":3798.898317252,"data":"[  3769s] step 950/1677 loss 1.2284 scale 2048 tok/s 1211 eta 48m\n"}
+,{"stream_name":"stdout","time":3893.612557752,"data":"[  3864s] step 975/1677 loss 1.2904 scale 2048 tok/s 1214 eta 46m\n"}
+,{"stream_name":"stdout","time":3975.56831508,"data":"[  3946s] step 1000/1677 loss 1.3837 scale 2048 tok/s 1212 eta 44m\n"}
+,{"stream_name":"stdout","time":4083.878653076,"data":"[  4054s] step 1025/1677 loss 1.1928 scale 2048 tok/s 1214 eta 43m\n"}
+,{"stream_name":"stdout","time":4178.093349963,"data":"[  4148s] step 1050/1677 loss 1.3872 scale 2048 tok/s 1211 eta 41m\n"}
+,{"stream_name":"stdout","time":4275.793204809,"data":"[  4246s] step 1075/1677 loss 1.3186 scale 2048 tok/s 1214 eta 39m\n"}
+,{"stream_name":"stdout","time":4385.523132679,"data":"[  4356s] step 1100/1677 loss 1.1768 scale 2048 tok/s 1215 eta 38m\n"}
+,{"stream_name":"stdout","time":4484.494385539,"data":"[  4455s] step 1125/1677 loss 1.1624 scale 2048 tok/s 1217 eta 36m\n"}
+,{"stream_name":"stdout","time":4581.576885805,"data":"[  4552s] step 1150/1677 loss 1.3374 scale 2048 tok/s 1217 eta 34m\n"}
+,{"stream_name":"stdout","time":4679.918147324,"data":"[  4650s] step 1175/1677 loss 1.2685 scale 2048 tok/s 1216 eta 33m\n"}
+,{"stream_name":"stdout","time":4790.259213198,"data":"[  4761s] step 1200/1677 loss 1.1416 scale 2048 tok/s 1216 eta 31m\n"}
+,{"stream_name":"stdout","time":4790.433423648,"data":"[  4761s] saved last\n"}
+,{"stream_name":"stdout","time":4887.555131198,"data":"[  4858s] step 1225/1677 loss 1.1844 scale 2048 tok/s 1214 eta 30m\n"}
+,{"stream_name":"stdout","time":4984.173434528,"data":"[  4954s] step 1250/1677 loss 1.2267 scale 2048 tok/s 1214 eta 28m\n"}
+,{"stream_name":"stdout","time":5076.662913177,"data":"[  5047s] step 1275/1677 loss 1.2982 scale 2048 tok/s 1213 eta 26m\n"}
+,{"stream_name":"stdout","time":5177.022186532,"data":"[  5147s] step 1300/1677 loss 1.0817 scale 2048 tok/s 1213 eta 25m\n"}
+,{"stream_name":"stdout","time":5276.40419952,"data":"[  5247s] step 1325/1677 loss 1.0982 scale 2048 tok/s 1214 eta 23m\n"}
+,{"stream_name":"stdout","time":5375.206766687,"data":"[  5345s] step 1350/1677 loss 1.1380 scale 2048 tok/s 1215 eta 21m\n"}
+,{"stream_name":"stdout","time":5475.597181358,"data":"[  5446s] step 1375/1677 loss 1.3223 scale 2048 tok/s 1213 eta 20m\n"}
+,{"stream_name":"stdout","time":5568.916047677,"data":"[  5539s] step 1400/1677 loss 1.1425 scale 2048 tok/s 1214 eta 18m\n"}
+,{"stream_name":"stdout","time":5665.268860832,"data":"[  5636s] step 1425/1677 loss 1.1507 scale 2048 tok/s 1213 eta 16m\n"}
+,{"stream_name":"stdout","time":5768.466847359,"data":"[  5739s] step 1450/1677 loss 1.1729 scale 2048 tok/s 1212 eta 15m\n"}
+,{"stream_name":"stdout","time":5868.414553242,"data":"[  5839s] step 1475/1677 loss 1.1173 scale 2048 tok/s 1212 eta 13m\n"}
+,{"stream_name":"stdout","time":5955.382727671,"data":"[  5926s] step 1500/1677 loss 1.2352 scale 2048 tok/s 1210 eta 12m\n"}
+,{"stream_name":"stdout","time":6050.769725097,"data":"[  6021s] step 1525/1677 loss 1.2299 scale 2048 tok/s 1209 eta 10m\n"}
+,{"stream_name":"stdout","time":6156.626055316,"data":"[  6127s] step 1550/1677 loss 1.1603 scale 2048 tok/s 1206 eta 8m\n"}
+,{"stream_name":"stdout","time":6253.873620974,"data":"[  6224s] step 1575/1677 loss 1.0689 scale 2048 tok/s 1208 eta 7m\n"}
+,{"stream_name":"stdout","time":6343.624352452,"data":"[  6314s] step 1600/1677 loss 1.2800 scale 2048 tok/s 1206 eta 5m\n"}
+,{"stream_name":"stdout","time":6343.799838488,"data":"[  6314s] saved last\n"}
+,{"stream_name":"stdout","time":6442.335676237,"data":"[  6413s] step 1625/1677 loss 1.2053 scale 2048 tok/s 1204 eta 3m\n"}
+,{"stream_name":"stdout","time":6541.343144806,"data":"[  6512s] step 1650/1677 loss 1.1725 scale 2048 tok/s 1204 eta 2m\n"}
+,{"stream_name":"stdout","time":6627.902186946,"data":"[  6598s] step 1675/1677 loss 1.1311 scale 2048 tok/s 1205 eta 0m\n"}
+,{"stream_name":"stdout","time":6635.380061706,"data":"[  6606s] saved final\n"}
+,{"stream_name":"stdout","time":6799.183528497,"data":"[  6769s] OFFICIAL-ROWS BA 0.536\n"}
+,{"stream_name":"stdout","time":6799.185454268,"data":"[  6769s] recall {\"claude-fable-5\": 0.282, \"claude-opus-4-6\": 0.76, \"claude-opus-4-8\": 0.62, \"claude-opus-5\": 0.773, \"claude-sonnet-5\": 0.7, \"gemini-3.1-pro-preview\": 0.713, \"gemini-3.6-flash\": 0.607, \"gemini-3.7-flash\": 0.507, \"gemini-3.8-flash\": 0.567, \"glm-5.3\": 0.16, \"glm-5.3-flash\": 0.307, \"gpt-5.5\": 0.42, \"gpt-5.6-luna\": 0.373, \"gpt-5.6-sol\": 0.407, \"gpt-5.6-terra\": 0.48, \"gpt-6-astra\": 0.713, \"kimi-k3\": 0.467, \"qwen3.8-max\": 0.793}\n"}
+,{"stream_name":"stdout","time":6799.186805517,"data":"[  6769s] done\n"}
+,{"stream_name":"stderr","time":6799.18771099,"data":"/usr/local/lib/python3.13/dist-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.\n"}
+,{"stream_name":"stderr","time":6799.187724675,"data":"  return func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":6805.683542403,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6805.683570142,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6805.883465623,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6805.883490806,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6806.704966274,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6807.645571394,"data":"[NbConvertApp] Writing 343717 bytes to __results__.html\n"}
+]

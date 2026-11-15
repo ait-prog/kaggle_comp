@@ -1,0 +1,44 @@
+# Notes from our runs: what transferred to the LB, what didn't, and a GLM/Kimi dataset
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/751871
+author: Daniel Andres Miranda date: 2026-10-22 votes: {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4}
+Sharing what we measured over the last days, including the negative results, plus a small dataset that fills a gap in the public pools. All CV numbers are 5-fold GroupKFold by `prompt_id`, scored **per passage** (no test-time grouping), which tracked our public LB 2–3 points high.
+
+### 1. Test-time prompt grouping did not transfer
+On train, clustering by topic + Hungarian assignment inside each prompt gave +10 points (0.447 → 0.69 with reconstructed groups). On the public LB: 0.425 with it vs 0.427 without. This matches the simulation in the "Test-time prompt grouping" thread: the hidden test seems to have only a few answers per prompt, so train's 18-answers-per-prompt structure is not there. We now validate per passage only.
+
+### 2. Frozen LLM features → LoRA → two-stage LoRA
+Qwen3.5-9B-Base, first 19 layers:
+
+| | CV per passage | Public LB |
+|---|---|---|
+| Frozen mean-pooled layers 4/9/16/17/18 + TF-IDF | 0.447 | 0.427 |
+| LoRA r16 on train only, layer 18 | 0.483 | |
+| LoRA (train) + frozen blend | 0.503 | 0.483 |
+| Two-stage LoRA (1 epoch on ~36k public passages, then 2 on train), 8-layer readout | 0.578 | |
+| Two-stage LoRA, layer-18 readout only | 0.582 | |
+| Both two-stage readouts + train-only LoRA | 0.605 | 0.573 |
+
+- Middle layers carry the style; the last layers lose it (layer 18 ≈ 0.42 frozen, layer 32 ≈ 0.34).
+- Stage 1 alone (no train passages seen) already scored 0.486–0.499 on all of train.
+- The 8-layer and the single-layer readouts score the same but disagree on 29 % of passages, so blending them adds ~2 points. Readout diversity is a cheap substitute for a second backbone.
+- An encoder (DeBERTa-v3-base) fine-tuned on train only did not beat char/word TF-IDF.
+
+### 3. External data: coverage matters more than volume
+- Adding seyit + lucas (13 of 18 labels) to frozen-feature classifiers: +4 points overall, but the 5 uncovered labels (GLM ×2, kimi-k3, qwen3.8-max, gemini-3.7-flash) **lost** 6 points of recall ("new prompt ⇒ not GLM" shortcut).
+- With all 18 labels covered (15k passages): 0.447 → 0.508. Labels with few external rows still dropped.
+
+### 4. Generating data yourself: what OpenRouter and the Gemini API actually do
+- On OpenRouter only `kimi-k3` accepts `reasoning.enabled=false`. `glm-5.3`, `glm-5.3-flash`, `gemini-3.7-flash` and `qwen3.8-max-0902` return *"Reasoning is mandatory for this endpoint"*. With `effort=minimal`, GLM barely reasons (median 1–8 tokens, $0.0003/passage), but Gemini-3.7-flash and Qwen still reason ~1,400–1,500 tokens.
+- Kimi-K3 without reasoning matches train's em-dash rate much better than with reasoning.
+- **Warning:** calling `gemini-3.7-flash` on the Google AI Studio API returned `modelVersion: gemini-3.8-flash` in our pilot (and ignored `thinkingBudget: 0`). If you generate Gemini-3.7 data there, check `modelVersion` on every response or your labels may be wrong.
+
+### 5. Things that did not help us
+- Character CNN (raw chars and an X/x "shape" view) trained on train + pool: 0.305 alone, +0.4 in the blend (noise level). The LoRA already sees the typography.
+- Lab → model hierarchy: better lab accuracy, same model accuracy.
+- Sinkhorn balancing on our OOF: −0.3. The spaced em-dash rule (" — ", only claude-opus-4-6, claude-opus-5 and both GLMs in train): no change on our OOF, the model already gets those right.
+
+### 6. Dataset
+[NTL OpenRouter GLM and Kimi passages](https://www.kaggle.com/datasets/danielandresmiranda/ntl-openrouter-glm-kimi): 1,516 passages (glm-5.3 600, glm-5.3-flash 600, kimi-k3 316) on the seyitkaangunes prompt bank, same request format as the other public generation sets, with per-row reasoning tokens and serving provider. CC BY 4.0.
+
+Thanks to everyone who published data and notebooks, in particular seyitkaangunes, lucasboesen, prvsiyan, abdullah1afify, dophuchung, nishantdahal and huangkx666, whose two-stage recipe we followed.
+## comments

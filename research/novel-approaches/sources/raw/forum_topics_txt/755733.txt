@@ -1,0 +1,17 @@
+# Prompt Group Sizes: Is it always exactly 18 texts per prompt?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/755733
+author: ナハト・ ファウスト date: 2026-11-04 votes: {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3}
+1. **Test set contain exactly 18 texts per prompt like  train set?**
+2. **Is it possible that some prompt groups aren't full, I mean not 18 but 17 or less?**
+
+I know that train dataset contain 1 prompt of 17 texts. Is it possible that the same case will appear in test dataset?
+## comments
+- [John K | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-10] Yes, the Overview line already answers the test-side question. On train, 149 of 150 prompts have 18 answers and one prompt has 17 (claude-fable-5 is the short model). That can make train look like neat rounds. Public and private do not promise a full 18-model group, and model counts are unequal, so anything that forces one of each label per prompt on test is fitting a structure the test set does not have.
+  - [ナハト・ ファウスト | votes {'canUpvote': True} | 2026-11-10] Got it. Thx
+- [somerandomguy | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-04] Mentioned on Overview page. 
+
+>The number of test passages per model is not equal, and the mix of models differs between the public and private leaderboard. Balanced accuracy gives every model the same weight.
+
+So yeah not all prompts will have an output by every model, worst case can be 4000 totally seperate prompts.
+  - [ナハト・ ファウスト | votes {'canUpvote': True} | 2026-11-05] I see. Thx
+- [AyoGG | votes {'canUpvote': True} | 2026-11-10] The test set is not uniform.

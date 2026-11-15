@@ -1,0 +1,15 @@
+{
+  "competition": "name-that-llm",
+  "run": "dev3",
+  "kernel": "flashpm/ntl-dev3",
+  "kernel_version": 1,
+  "output_file": "submission.parquet",
+  "status": "COMPLETE",
+  "public_score": "0.676",
+  "updated_at": "2026-11-13T03:37:51.698556+00:00",
+  "change": "disable Sinkhorn balancing",
+  "local_cv": null,
+  "submission_ref": 58281588,
+  "submitted_at": "2026-11-12T18:24:04.610000Z",
+  "error_description": null
+}

@@ -1,0 +1,32 @@
+{
+ "fetched": "2026-11-12 (anonymous internal API competitions.LeaderboardService/GetLeaderboard)",
+ "teams": 5607,
+ "score_at_rank": {
+  "1": 0.768,
+  "2": 0.765,
+  "3": 0.756,
+  "5": 0.752,
+  "10": 0.747,
+  "20": 0.733,
+  "50": 0.708,
+  "55": 0.706,
+  "100": 0.69,
+  "200": 0.684,
+  "500": 0.682,
+  "1000": 0.673,
+  "2000": 0.652
+ },
+ "n_ge_0.70": 72,
+ "n_ge_0.685": 116,
+ "n_eq_0.682": 141,
+ "n_eq_0.684": 319,
+ "team_submission_58200298": [
+  {
+   "teamId": 17339632,
+   "submissionId": 58200298,
+   "rank": 534,
+   "displayScore": "0.682",
+   "medal": "BRONZE"
+  }
+ ]
+}

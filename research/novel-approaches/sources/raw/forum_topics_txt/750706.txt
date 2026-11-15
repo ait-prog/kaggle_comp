@@ -1,0 +1,19 @@
+# train has a structure worth exploiting: every prompt is answered by every model exactly once
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750706
+author: Jean Brandicourt date: 2026-10-19 votes: {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 3}
+quick thing I noticed in train.csv that I haven't seen discussed yet
+
+150 prompts, 2699 rows. 149 prompts have exactly 18 rows, one per model, and the last one (p002) has 17 (only claude-fable-5 is missing). zero prompts where a model shows up twice. so train is basically 150 full "rounds" of all 18 models answering the same question
+
+why it matters: if test was built the same way, you can group the passages that answer the same prompt, and inside a group each model shows up at most once. so instead of 18 independent argmaxes you can solve a small assignment problem per group (scipy linear_sum_assignment on -log probs). when your model hesitates between glm-5.3 and glm-5.3-flash on two passages from the same prompt, the constraint picks for you. classic kaggle lesson (quora question pairs etc): how the data was built is often worth more than a bigger model
+
+grouping looks doable. using only the first ~15 words of each passage and a dumb word-overlap nearest neighbor, 91% of train passages land next to a passage from the same prompt. full text + embeddings should do a lot better
+
+caveats:
+- the host says test counts per model are not equal and the mix differs between public and private, so test is probably subsampled. I'd go with "at most one per model" (pad the cost matrix with dummy columns), not "exactly one"
+- clustering mistakes will hurt, so maybe only apply the constraint on tight clusters
+- haven't run it on the LB yet so no idea how much it gives. if someone tries it before me please share the numbers
+
+happy to be told this is already in a notebook somewhere
+## comments
+- [HALX2158 | votes {'canUpvote': True} | 2026-10-19] We tried this early on. Clustering passages by content and assigning models within each cluster (threshold 0.9) raised our grouped CV from about 0.34 to 0.39-0.40, but the public LB went from 0.345 to 0.343. Adisak Sukul reported the same pattern in 750390 (Hungarian assignment: 0.353 -> 0.344). Our read is that the hidden test has only a few passages per prompt, so the hard "one per model" constraint mostly forces errors. A softer use of the grouping (subtracting the cluster mean, as the public "adaptive centering" notebooks do) worked much better for us than hard assignment.

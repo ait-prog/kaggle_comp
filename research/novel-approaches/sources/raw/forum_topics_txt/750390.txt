@@ -1,0 +1,115 @@
+# New here? Grouped CV that tracks the LB, CPU baseline code (LB 0.353), pitfalls, 2xT4 tips
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750390
+author: Adisak Sukul date: 2026-10-18 votes: {'totalVotes': 24, 'canUpvote': True, 'totalUpvotes': 25}
+Hi all! I'm currently at the top of the public LB (early days, it will move), and these are my notes from the **first two days**, for newcomers. Sections 1-4 need no extra data or GPU. Metric: balanced accuracy over 18 classes (chance about 0.056). Start with the [official getting-started thread + Discord (749382)](https://www.kaggle.com/competitions/name-that-llm/discussion/749382).
+
+**Pitfalls:** random K-fold, "cleaned" text, test-layout tricks that only work in CV, ignoring short passages, bf16 on T4, no internet at submission.
+
+### 1. Group your folds by prompt
+
+All 18 models answer each of the 150 train prompts once (2,699 rows; one prompt lacks one model). [Random vs grouped CV (749593)](https://www.kaggle.com/competitions/name-that-llm/discussion/749593) showed random folds mislead (0.217 vs 0.369, LB 0.355), and my TF-IDF runs agree: only `StratifiedGroupKFold` with `groups=prompt_id` tracked the LB.
+
+Why is random CV *pessimistic*? Training passages sharing a validation passage's topic all come from the other 17 models, so topic words pull predictions toward wrong labels. Grouped folds keep prompts unseen, like the test.
+
+### 2. CPU baseline code
+
+Char + word TF-IDF + logistic regression: **grouped CV 0.343 (the snippet below prints 0.3426 with sklearn 1.9.1), public LB 0.353**. Character-level details carry signal, so keep the text as given (`TfidfVectorizer` lowercases by default):
+
+```python
+import numpy as np, pandas as pd
+from scipy.sparse import hstack
+from sklearn.model_selection import StratifiedGroupKFold
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import balanced_accuracy_score
+
+tr = pd.read_csv('/kaggle/input/competitions/name-that-llm/train.csv')
+y, oof = tr['model'].values, np.empty(len(tr), dtype=object)
+cfgs = [dict(analyzer='char', ngram_range=(1, 5), max_features=300_000),
+        dict(analyzer='word', ngram_range=(1, 2), max_features=200_000, token_pattern=r'(?u)\b\w+\b|[^\w\s]')]
+cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
+for trn, val in cv.split(tr, y, groups=tr['prompt_id']):
+    vs = [TfidfVectorizer(sublinear_tf=True, lowercase=False, min_df=2, **c) for c in cfgs]
+    Xtr = hstack([v.fit_transform(tr.text.iloc[trn]) for v in vs]).tocsr()
+    Xva = hstack([v.transform(tr.text.iloc[val]) for v in vs]).tocsr()
+    oof[val] = LogisticRegression(C=10, max_iter=3000).fit(Xtr, y[trn]).predict(Xva)
+print('grouped CV:', balanced_accuracy_score(y, oof))
+```
+
+Swap in `StratifiedKFold` to see the gap.
+
+### 3. A trick that backfired
+
+I clustered test passages into likely prompts and used Hungarian assignment (`scipy.optimize.linear_sum_assignment`) so each model appears at most once per cluster: **+~0.10** in grouped CV (up to 18 answers per prompt). On the public LB:
+
+- plain TF-IDF: 0.353
+- plus clustering + Hungarian: 0.344
+- plus per-cluster log-prob centering (subtract the cluster mean per class): 0.329
+
+One drop may be noise, but CV promised +0.10. My read: the hidden test likely has few passages per prompt; a CV that simulates the test is only as good as that guess. [Test-time grouping (750213)](https://www.kaggle.com/competitions/name-that-llm/discussion/750213) also saw a smaller-than-simulated gain.
+
+### 4. Short passages are hardest
+
+Passages run ~40-250 words; short ones are much harder. Check your OOF by length:
+
+```python
+words = tr.text.str.split().str.len()
+print(pd.Series(oof == y).groupby(pd.cut(words, [0, 60, 120, 180, 1000]), observed=True).mean())
+```
+
+### 5. Fine-tune an LLM (inference fits the free 2xT4)
+
+With no extra data, Qwen3-14B-Base + LoRA r16 (all linear layers), a classification head, 3 epochs and `max_len` 384 gave **fold-0 CV 0.443, public LB 0.466** (TF-IDF: 0.353; public LoRA notebooks score higher). I trained outside Kaggle; inference on 2xT4:
+
+- T4 has no bf16: use fp16. A 14B (~27.6 GiB) fits across both GPUs with `device_map="auto"` and ~14 GiB `max_memory` each.
+- Merge LoRA into the base first (no peft overhead).
+- Sort texts by length (max ~360 tokens, so 384 suffices): ~0.25 s/passage at batch 8, ~17-20 min for ~4,000 test rows.
+- Attach weights as a Kaggle dataset.
+
+### 6. Extra data: free options first
+
+More passages from the 18 models help ([the generated-data debate (749447)](https://www.kaggle.com/competitions/name-that-llm/discussion/749447)). Free, public sets: [18-model wide response corpus (749629)](https://www.kaggle.com/competitions/name-that-llm/discussion/749629), [extra Claude passages (750224)](https://www.kaggle.com/competitions/name-that-llm/discussion/750224), [helper dataset (750267)](https://www.kaggle.com/competitions/name-that-llm/discussion/750267). Still open: rules on self-generated API data ([749613](https://www.kaggle.com/competitions/name-that-llm/discussion/749613)) and the Kaggle Benchmarks free quota ([750038](https://www.kaggle.com/competitions/name-that-llm/discussion/750038)).
+
+Next read: [a beginner's journey from TF-IDF to LoRA notebooks (750230)](https://www.kaggle.com/competitions/name-that-llm/discussion/750230). Thanks to all linked authors; questions and corrections welcome!
+## comments
+- [GoPain | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-23] A data point for the "grouped CV tracks the LB" claim: it holds for my models trained on train only, like your TF-IDF (0.343 → 0.353) and your 14B LoRA without extra data (fold-0 CV 0.443 → 0.466). It does **not** hold once the public in-style pool is in training. I sent single-member submissions to find out which part of my blend was off. Same 5 prompt-grouped folds for every row:
+
+| submission | grouped CV | public LB | CV − LB |
+| --- | --- | --- | --- |
+| 4-view n-gram SVM, train only | 0.370 | 0.361 | −0.009 |
+| same SVM, train + pool (pool weight 0.85) | 0.467 | 0.423 | −0.044 |
+| two-stage LoRA (Qwen3-8B, stage 1 on the pool) | 0.576 | 0.538 | −0.038 |
+| same LoRA + Sinkhorn balancing | 0.576 | 0.549 | −0.027 |
+| LoRA + SVM blend | 0.590 | 0.544 | −0.046 |
+
+So the pool helps on the LB too: +0.062 for the SVM. But grouped CV reports +0.097, so it overstates the pool's gain by about 0.035, and every pool-trained member carries that offset. Noise can't explain it. On these OOF predictions the prompt-cluster-robust standard error of CV is about 0.009, and the public LB's is about 0.014. A simulation of this layout (150 x 18 CV against a 1,200-row public LB with 1 to 3 authors per prompt) gives CV − LB a standard deviation of 0.016 to 0.023. Every submission is scored on the same public rows, so the five gaps above are one draw of noise, not five.
+
+What I ruled out:
+- **Prompt leakage from the pool.** No pool passage shares a prompt id or exact text with train. Only 0.3% of pool passages have a content-word similarity of 0.4 or more with any train prompt. OOF accuracy is the same for train prompts with and without close pool neighbours.
+- **The "marks never seen in train" filter.** The pool does drop passages with marks a model never uses in train (an em dash for Gemini, curly quotes for Claude): those shares are exactly 0. That filter used all of train, validation folds included, so CV never sees it fail. But a leave-one-out count says only 0.6% of train passages carry a mark the rest of their model's passages never use, so that is worth at most about 0.006.
+
+Two practical takeaways while the cause is open:
+1. If your model trains on the pool, expect its grouped CV to read 0.03 to 0.04 high. Compare pool-trained candidates with each other, not with train-only ones.
+2. Balancing helped the LB by +0.011 for the LoRA alone, while it changed CV by less than 0.001. The test-time predictions seem to lean towards some authors in a way the OOF doesn't show, so balancing is worth keeping.
+
+If anyone has a pool-trained model whose grouped CV matches its LB, I'd like to know what differs: which pool, how its weight was chosen, and whether the pool filter was fitted inside the folds.
+
+The interval and gap numbers come from a small known-truth simulation: https://www.kaggle.com/code/locdunhat/confidence-intervals-for-clustered-eval-sets
+- [Hastika Cheddy | votes {'canUpvote': True} | 2026-10-18] Thanks for writing this up. The random vs grouped CV gap (0.217 vs 0.369) is a great warning for newcomers. On section 4 (short passages being hardest): have you tried randomly truncating training passages during training so the model sees more short examples? I’m curious whether that closes the gap for the <60-word bucket or just trades off accuracy on longer ones.
+  - [Adisak Sukul | votes {'canUpvote': True} | 2026-10-20] Thanks Hastika, good question! I hadn't tried it, so I just ran it on the section 2 baseline (same grouped 5-fold CV), adding one truncated copy of every training passage. Validation passages stay untouched.
+
+| training set | balanced acc. | ≤60 words | 61-120 | 121-180 | >180 |
+|---|---|---|---|---|---|
+| original | 0.343 | 0.270 | 0.321 | 0.389 | 0.419 |
+| + copies cut at a random word | 0.335 | 0.262 | 0.318 | 0.381 | 0.406 |
+| + copies cut at a sentence end | 0.331 | 0.255 | 0.304 | 0.375 | 0.428 |
+
+Word cuts: random length, log-uniform from 25 words to the full passage. Sentence cuts: the first k sentences, k random. The bucket columns are plain accuracy, as in the section 4 snippet.
+
+So for this baseline it doesn't close the gap: the ≤60-word bucket gets slightly worse with both variants, and overall balanced accuracy drops a little. The differences are small (581 short passages), but there's no sign it helps.
+
+My guess why: almost every train passage is a complete answer (2,677 of 2,699 end with a period), so short test passages are short *answers*, not the start of long ones. A model writing 50 words compresses differently (how it opens, how much structure, how it wraps up). Cut copies mostly teach the openings of long answers, plus endings the test never shows.
+
+I haven't tested it on a fine-tuned LLM, which could behave differently. If you try it there, the section 4 length table is the place to check.
+    - [Hastika Cheddy | votes {'canUpvote': True} | 2026-10-21] Thanks for running that experiment and sharing the numbers! Your point about short test passages being complete, compressed answers rather than just the beginnings of longer ones makes total sense. That definitely explains why truncating training data didn't help the < 60-word bucket.
+- [Marie Victoire IPOUK | votes {'canUpvote': True} | 2026-10-24] thank for your sharing

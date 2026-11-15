@@ -1,0 +1,14 @@
+#   Reconstructed train prompts for all 150 prompt_ids (dataset + method)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/749455
+author: pjmathematician date: 2026-10-15 votes: {'totalVotes': 22, 'canUpvote': True, 'totalUpvotes': 23}
+I wanted to know what kind of prompts the host used, so I reconstructed them. Every `prompt_id` in train has one answer from each of the 18 models, so the 17–18 passages for a prompt are 18 different answers to the same hidden question. For each prompt I shuffled its passages, removed the model names, and gave them to Claude Sonnet 5. I asked it for the most likely original instruction plus some tags: topic, domain, task type, audience/style, length behaviour, shared structural features and a self-rated confidence. A second call looked over all 150 reconstructions together and summarised the likely generation protocol, including 20 example prompts in the same style.
+
+The result is one row per `prompt_id`, so you can join it straight onto `train.csv`: [Name That LLM – Reconstructed Train Prompts](https://www.kaggle.com/datasets/pjmathematician/ntl-train-prompts-reconstructed). The script is included, and no passage text or labels are redistributed. These are LLM guesses, not ground truth. Average self-rated confidence is 0.81 (minimum 0.60), and the reconstructions I spot-checked read as very plausible.
+
+**What the prompts look like**
+- **Pop-science, "explain X vividly":** 85 are explain-a-concept, 45 describe/narrate, 10 argue/opinion, 8 story/fiction, 1 compare.
+- **Domains:** physics 32, biology 28, philosophy 21, creative prose 16, mathematics 15, history 12, CS 10, psychology 6, economics 5, other 5.
+- **Topics are specific named things,** not broad subjects. Examples: Jevons paradox, Stern–Gerlach, Hilbert's hotel, slime mold recreating the Tokyo rail network, standing on a neutron star, split-brain confabulation, Dutch Hunger Winter epigenetics.
+- **Style modifiers are common:** "vivid", "poetic/lyrical", "haunting", "whimsical", "use an everyday analogy", "for a general audience". Answers are always one self-contained paragraph with no headings, and often share an opening phrase across models.
+- **Length varies inside each prompt** (about 40 to about 250 words for nearly every prompt). That fits the host's note that each generation got its own random target length.
+## comments

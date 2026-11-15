@@ -1,0 +1,10 @@
+# people makes 0.700 point are those real or just some kind of trick used?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752418
+author: Melih Eymen date: 2026-10-24 votes: {'totalVotes': 5, 'canUpvote': True, 'totalUpvotes': 5}
+I just wanna know so I can try harder to find a way
+## comments
+- [Mahmoud saad Elgharib | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-26] I don't want to be unfair to anyone, but I sometimes notice notebooks where the outputs are there, yet the code responsible for generating them is missing probably because some people don't want to reveal how they won or learned it, while others actually explain their approach and what they did with it, which is really great.
+- [Ravi Ramakrishnan | votes {'canUpvote': True, 'totalUpvotes': 1} | 2026-10-24] Once a high scoring public kernel will come through, you will also reach there @meliheymen
+- [codex rybaka | votes {'totalVotes': -1, 'canUpvote': True} | 2026-10-26] You can spend a couple of hundreds of dollars to generate more data with LLMs - that’s all it takes
+  - [Carrot Production | votes {'canUpvote': True} | 2026-10-26] and you have to publish the data also, it is the competition rules, isnt it ?
+    - [codex rybaka | votes {'canUpvote': True} | 2026-10-26] Yeah, after the competition deadline. If you meant “reasonability” criteria, well, I think kaggle will allow this

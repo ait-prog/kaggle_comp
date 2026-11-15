@@ -1,0 +1,27 @@
+# Random-split CV underestimates you here: 0.22 vs 0.37 – split by prompt_id
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/749593
+author: Aleksey Osipenko date: 2026-10-15 votes: {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4}
+Quick finding that may save you some time.
+
+Every prompt in train is answered exactly once by each of the 18 models (2,699 passages / 150 prompts). That makes a random K-fold misleading – but in the opposite direction from usual.
+
+With a random split, the passage you validate on has its 17 "siblings" (same prompt, other models) in train. Topic words were seen only with other labels, so they push the prediction away from the true model.
+
+Same TF-IDF + stylometry model, balanced accuracy:
+
+- StratifiedKFold (random): 0.217
+- StratifiedGroupKFold by prompt_id: 0.369
+- Public LB of the same model: 0.355
+
+The group split tracks the LB within 0.014, the random split misses it by 0.14. If you tune on a random split, you may be throwing away ideas that actually work.
+
+Two more things from the out-of-fold analysis:
+
+- The lab is much easier than the exact model: lab-level balanced accuracy 0.587 vs 0.369. About half of all errors stay inside the same lab – the three Gemini Flash models confuse each other most.
+- Both GLM models are most often mistaken for claude-opus-5.
+
+Full notebook with the comparison, style heatmap and confusion analysis:
+https://www.kaggle.com/code/alekseyosipenko/name-that-llm-honest-cv-by-prompt-stylometry
+
+Curious whether others see the same gap with embedding-based models.
+## comments

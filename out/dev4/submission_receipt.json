@@ -1,0 +1,15 @@
+{
+  "competition": "name-that-llm",
+  "run": "dev4",
+  "kernel": "flashpm/ntl-dev4",
+  "kernel_version": 1,
+  "output_file": "submission.parquet",
+  "status": "COMPLETE",
+  "public_score": "0.657",
+  "updated_at": "2026-11-13T03:37:51.694236+00:00",
+  "change": "disable test-time grouping",
+  "local_cv": null,
+  "submission_ref": 58281594,
+  "submitted_at": "2026-11-12T18:24:11.490000Z",
+  "error_description": null
+}

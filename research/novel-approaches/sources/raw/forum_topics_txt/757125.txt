@@ -1,0 +1,11 @@
+# Model Parameterizations
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/757125
+author: James Bedichek date: 2026-11-09 votes: {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1}
+Hey guys,
+
+I've tried a bunch of stuff on the LoRA front, my best accuracy is somewhere between 0.64-0.65 (best case, I've had a hard time with calibration).  I've just been doing mean pooling of tokens at a few different probe layers (4), with a linear head.  Anyone find anything that works better? Any interesting model parameterizations you guys have tried?
+
+I've tried a bunch of stuff, haven't been able to surpass mean pooling.  I tried training from top-k logits on a frozen Qwen3.8-27B, token level expert routes on olmo, I've found a bunch of things which seem to match a linear head trained on frozen mean pooled tokens, but nothing that surpasses it.
+
+How are you guys leveraging pretrained weights?
+## comments

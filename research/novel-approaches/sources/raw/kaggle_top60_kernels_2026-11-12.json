@@ -1,0 +1,482 @@
+[
+ {
+  "title": "Starter Notebook for Name That LLM Competition",
+  "author": "martynaplomecka",
+  "bestPublicScore": 0.322,
+  "votes": 636,
+  "url": "https://www.kaggle.com/code/martynaplomecka/starter-notebook-for-name-that-llm-competition",
+  "lastRun": "2026-10-14"
+ },
+ {
+  "title": "0.680 | ModernBERT + LoRA + Sparse Ensemble",
+  "author": "lightningv08",
+  "bestPublicScore": 0.68,
+  "votes": 292,
+  "url": "https://www.kaggle.com/code/lightningv08/0-680-modernbert-lora-sparse-ensemble",
+  "lastRun": "2026-11-07"
+ },
+ {
+  "title": "0.681 | Qwen3-Embedding LoRA + Qwen3.8-27B",
+  "author": "lightningv08",
+  "bestPublicScore": 0.681,
+  "votes": 238,
+  "url": "https://www.kaggle.com/code/lightningv08/0-681-qwen3-embedding-lora-qwen3-8-27b",
+  "lastRun": "2026-11-08"
+ },
+ {
+  "title": "Name That LLM 0.684: All Public + What Failed",
+  "author": "alexchilton",
+  "bestPublicScore": 0.684,
+  "votes": 228,
+  "url": "https://www.kaggle.com/code/alexchilton/name-that-llm-0-684-all-public-what-failed",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "Name That LLM | Who am I?",
+  "author": "romantamrazov",
+  "bestPublicScore": 0.66,
+  "votes": 164,
+  "url": "https://www.kaggle.com/code/romantamrazov/name-that-llm-who-am-i",
+  "lastRun": "2026-10-28"
+ },
+ {
+  "title": "Teach the Model + 10% ATLAS",
+  "author": "josephadamski91",
+  "bestPublicScore": 0.607,
+  "votes": 159,
+  "url": "https://www.kaggle.com/code/josephadamski91/teach-the-model-10-atlas",
+  "lastRun": "2026-10-20"
+ },
+ {
+  "title": "nlm-v27",
+  "author": "dhruvtibarewal",
+  "bestPublicScore": 0.651,
+  "votes": 146,
+  "url": "https://www.kaggle.com/code/dhruvtibarewal/nlm-v27",
+  "lastRun": "2026-10-25"
+ },
+ {
+  "title": "Two-stage LoRA on the public pool",
+  "author": "nishantdahal",
+  "bestPublicScore": 0.592,
+  "votes": 135,
+  "url": "https://www.kaggle.com/code/nishantdahal/two-stage-lora-on-the-public-pool",
+  "lastRun": "2026-10-19"
+ },
+ {
+  "title": "0.663 | 0.660 V31 + ATLAS 20%",
+  "author": "omerfarukmerey",
+  "bestPublicScore": 0.663,
+  "votes": 126,
+  "url": "https://www.kaggle.com/code/omerfarukmerey/0-663-0-660-v31-atlas-20",
+  "lastRun": "2026-10-29"
+ },
+ {
+  "title": "0.681 | LoRA + Qwen3.8-27B Starter Notebook",
+  "author": "ozertuu",
+  "bestPublicScore": 0.672,
+  "votes": 120,
+  "url": "https://www.kaggle.com/code/ozertuu/0-681-lora-qwen3-8-27b-starter-notebook",
+  "lastRun": "2026-11-10"
+ },
+ {
+  "title": "0.668 | Verifier + Matched Rows + Pool Prompts",
+  "author": "omerfarukmerey",
+  "bestPublicScore": 0.668,
+  "votes": 118,
+  "url": "https://www.kaggle.com/code/omerfarukmerey/0-668-verifier-matched-rows-pool-prompts",
+  "lastRun": "2026-11-04"
+ },
+ {
+  "title": "LoRA x Adaptive Centering",
+  "author": "lucasboesen",
+  "bestPublicScore": 0.55,
+  "votes": 115,
+  "url": "https://www.kaggle.com/code/lucasboesen/lora-x-adaptive-centering",
+  "lastRun": "2026-10-17"
+ },
+ {
+  "title": "0.600 | Teach the Model, Remove the Prompt",
+  "author": "kirilltym",
+  "bestPublicScore": 0.6,
+  "votes": 113,
+  "url": "https://www.kaggle.com/code/kirilltym/0-600-teach-the-model-remove-the-prompt",
+  "lastRun": "2026-10-19"
+ },
+ {
+  "title": "0.552 | Adaptive Centering + LoRA + Claude Gates",
+  "author": "zbigniewkirchner",
+  "bestPublicScore": 0.552,
+  "votes": 108,
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-552-adaptive-centering-lora-claude-gates",
+  "lastRun": "2026-10-17"
+ },
+ {
+  "title": "The Prompt Is Not the Author",
+  "author": "prvsiyan",
+  "bestPublicScore": 0.684,
+  "votes": 105,
+  "url": "https://www.kaggle.com/code/prvsiyan/the-prompt-is-not-the-author",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "0.683 | Five-Fold Embeddings + Qwen3.8-27B LoRA",
+  "author": "lightningv08",
+  "bestPublicScore": 0.683,
+  "votes": 100,
+  "url": "https://www.kaggle.com/code/lightningv08/0-683-five-fold-embeddings-qwen3-8-27b-lora",
+  "lastRun": "2026-11-12"
+ },
+ {
+  "title": "0.664 [Hyperparameter Tuned] | Who are U?",
+  "author": "judith007",
+  "bestPublicScore": 0.664,
+  "votes": 99,
+  "url": "https://www.kaggle.com/code/judith007/0-664-hyperparameter-tuned-who-are-u",
+  "lastRun": "2026-10-31"
+ },
+ {
+  "title": "0.684 | I'M BETTER !",
+  "author": "areebbb",
+  "bestPublicScore": 0.684,
+  "votes": 98,
+  "url": "https://www.kaggle.com/code/areebbb/0-684-i-m-better",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "Name That LLM v5",
+  "author": "qasminumber",
+  "bestPublicScore": 0.665,
+  "votes": 87,
+  "url": "https://www.kaggle.com/code/qasminumber/name-that-llm-v5",
+  "lastRun": "2026-11-02"
+ },
+ {
+  "title": "Qwen LoRA + Multi-View Ensemble",
+  "author": "avazaku",
+  "bestPublicScore": 0.651,
+  "votes": 85,
+  "url": "https://www.kaggle.com/code/avazaku/qwen-lora-multi-view-ensemble",
+  "lastRun": "2026-10-26"
+ },
+ {
+  "title": "NTL Part Two Complement",
+  "author": "fleongg",
+  "bestPublicScore": 0.636,
+  "votes": 84,
+  "url": "https://www.kaggle.com/code/fleongg/ntl-part-two-complement",
+  "lastRun": "2026-10-23"
+ },
+ {
+  "title": "Two-Stage LoRA + Gaussian + Full Hungarian [0.604+",
+  "author": "sangam21",
+  "bestPublicScore": 0.604,
+  "votes": 84,
+  "url": "https://www.kaggle.com/code/sangam21/two-stage-lora-gaussian-full-hungarian-0-604",
+  "lastRun": "2026-10-19"
+ },
+ {
+  "title": "Two-stage LoRA, part two",
+  "author": "nishantdahal",
+  "bestPublicScore": 0.62,
+  "votes": 83,
+  "url": "https://www.kaggle.com/code/nishantdahal/two-stage-lora-part-two",
+  "lastRun": "2026-10-23"
+ },
+ {
+  "title": "0.682 | 0.681 + Qwen3.8-27B GSQ 12% + Mix 0.50",
+  "author": "omerfarukmerey",
+  "bestPublicScore": 0.682,
+  "votes": 80,
+  "url": "https://www.kaggle.com/code/omerfarukmerey/0-682-0-681-qwen3-8-27b-gsq-12-mix-0-50",
+  "lastRun": "2026-11-10"
+ },
+ {
+  "title": "0.675 | Are We Satisfied?",
+  "author": "areebbb",
+  "bestPublicScore": 0.675,
+  "votes": 73,
+  "url": "https://www.kaggle.com/code/areebbb/0-675-are-we-satisfied",
+  "lastRun": "2026-11-08"
+ },
+ {
+  "title": "Kaggle_name_the_LLM_v4",
+  "author": "maverickss26",
+  "bestPublicScore": 0.66,
+  "votes": 73,
+  "url": "https://www.kaggle.com/code/maverickss26/kaggle-name-the-llm-v4",
+  "lastRun": "2026-11-01"
+ },
+ {
+  "title": "Name that LLM lv683 a15",
+  "author": "heliosli",
+  "bestPublicScore": 0.684,
+  "votes": 70,
+  "url": "https://www.kaggle.com/code/heliosli/name-that-llm-lv683-a15",
+  "lastRun": "2026-11-12"
+ },
+ {
+  "title": "0.661 | Qwen3.8-27B LoRA + Spectral Ensemble",
+  "author": "lightningv08",
+  "bestPublicScore": 0.661,
+  "votes": 70,
+  "url": "https://www.kaggle.com/code/lightningv08/0-661-qwen3-8-27b-lora-spectral-ensemble",
+  "lastRun": "2026-10-29"
+ },
+ {
+  "title": "LLM Dual-Embedding LoRA + Qwen3.8-27B GSQ",
+  "author": "ozertuu",
+  "bestPublicScore": 0.683,
+  "votes": 69,
+  "url": "https://www.kaggle.com/code/ozertuu/llm-dual-embedding-lora-qwen3-8-27b-gsq",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "0.642 | Teach More, Keep the Signature",
+  "author": "kirilltym",
+  "bestPublicScore": 0.642,
+  "votes": 69,
+  "url": "https://www.kaggle.com/code/kirilltym/0-642-teach-more-keep-the-signature",
+  "lastRun": "2026-10-26"
+ },
+ {
+  "title": "0.667 | Pairwise Verifier + Matched External Rows",
+  "author": "zbigniewkirchner",
+  "bestPublicScore": 0.667,
+  "votes": 68,
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-667-pairwise-verifier-matched-external-rows",
+  "lastRun": "2026-11-03"
+ },
+ {
+  "title": "Name That LLM-Submission",
+  "author": "mercurydust",
+  "bestPublicScore": 0.679,
+  "votes": 66,
+  "url": "https://www.kaggle.com/code/mercurydust/name-that-llm-submission",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "\ud83e\udde0 Name That LLM | Deep Forensic EDA with Analogie",
+  "author": "evgendvorkin",
+  "bestPublicScore": 0.684,
+  "votes": 66,
+  "url": "https://www.kaggle.com/code/evgendvorkin/name-that-llm-deep-forensic-eda-with-analogie",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "NTL | WE BACK? | 0.673",
+  "author": "areebbb",
+  "bestPublicScore": 0.673,
+  "votes": 65,
+  "url": "https://www.kaggle.com/code/areebbb/ntl-we-back-0-673",
+  "lastRun": "2026-11-08"
+ },
+ {
+  "title": "ntl 684 ozertuu mirror",
+  "author": "lbjyang",
+  "bestPublicScore": 0.684,
+  "votes": 63,
+  "url": "https://www.kaggle.com/code/lbjyang/ntl-684-ozertuu-mirror",
+  "lastRun": "2026-11-12"
+ },
+ {
+  "title": "nlm-v21",
+  "author": "dhruvtibarewal",
+  "bestPublicScore": 0.611,
+  "votes": 62,
+  "url": "https://www.kaggle.com/code/dhruvtibarewal/nlm-v21",
+  "lastRun": "2026-10-20"
+ },
+ {
+  "title": "name-that-llm-v28-sovereign-titan-apex",
+  "author": "omkarpattanaik123",
+  "bestPublicScore": 0.683,
+  "votes": 59,
+  "url": "https://www.kaggle.com/code/omkarpattanaik123/name-that-llm-v28-sovereign-titan-apex",
+  "lastRun": "2026-11-10"
+ },
+ {
+  "title": "0.672+ | Dual-SVC Residual Refinement Apex",
+  "author": "ozertuu",
+  "bestPublicScore": 0.672,
+  "votes": 58,
+  "url": "https://www.kaggle.com/code/ozertuu/0-672-dual-svc-residual-refinement-apex",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "0.490 | Highest Public Notebook | Qwen3 Fusion",
+  "author": "rudrabhaskar",
+  "bestPublicScore": 0.49,
+  "votes": 55,
+  "url": "https://www.kaggle.com/code/rudrabhaskar/0-490-highest-public-notebook-qwen3-fusion",
+  "lastRun": "2026-10-15"
+ },
+ {
+  "title": "0.574 | In-Style Qwen3-8B LoRA, Fully Public",
+  "author": "zbigniewkirchner",
+  "bestPublicScore": 0.574,
+  "votes": 53,
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-574-in-style-qwen3-8b-lora-fully-public",
+  "lastRun": "2026-10-19"
+ },
+ {
+  "title": "0.664 | One Swap: 198k Clean Pool, Fully Public",
+  "author": "zbigniewkirchner",
+  "bestPublicScore": 0.664,
+  "votes": 48,
+  "url": "https://www.kaggle.com/code/zbigniewkirchner/0-664-one-swap-198k-clean-pool-fully-public",
+  "lastRun": "2026-10-31"
+ },
+ {
+  "title": "LoRA + Trained27 | Evidence for Close Calls",
+  "author": "kirilltym",
+  "bestPublicScore": 0.684,
+  "votes": 47,
+  "url": "https://www.kaggle.com/code/kirilltym/lora-trained27-evidence-for-close-calls",
+  "lastRun": "2026-11-12"
+ },
+ {
+  "title": "\ud83d\udd2c Apex Attribution: Sovereign Shield & Multi-LoRA",
+  "author": "saddamaditya",
+  "bestPublicScore": 0.572,
+  "votes": 44,
+  "url": "https://www.kaggle.com/code/saddamaditya/apex-attribution-sovereign-shield-multi-lora",
+  "lastRun": "2026-10-20"
+ },
+ {
+  "title": "Name That LLM public620 reproduction",
+  "author": "cosmorin",
+  "bestPublicScore": 0.622,
+  "votes": 43,
+  "url": "https://www.kaggle.com/code/cosmorin/name-that-llm-public620-reproduction",
+  "lastRun": "2026-10-24"
+ },
+ {
+  "title": "Name THAT LLM V1!",
+  "author": "matterhorn3838",
+  "bestPublicScore": 0.669,
+  "votes": 38,
+  "url": "https://www.kaggle.com/code/matterhorn3838/name-that-llm-v1",
+  "lastRun": "2026-11-06"
+ },
+ {
+  "title": "0.683 | THIS ACTUALLY WORKS ",
+  "author": "areebbb",
+  "bestPublicScore": 0.683,
+  "votes": 37,
+  "url": "https://www.kaggle.com/code/areebbb/0-683-this-actually-works",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "NTL lora instyle | 0.563 ",
+  "author": "vnton37nguyn",
+  "bestPublicScore": 0.563,
+  "votes": 36,
+  "url": "https://www.kaggle.com/code/vnton37nguyn/ntl-lora-instyle-0-563",
+  "lastRun": "2026-10-18"
+ },
+ {
+  "title": "The LLM Twist: Gnothi Seauton",
+  "author": "mpwolke",
+  "bestPublicScore": null,
+  "votes": 36,
+  "url": "https://www.kaggle.com/code/mpwolke/the-llm-twist-gnothi-seauton",
+  "lastRun": "2026-10-14"
+ },
+ {
+  "title": "Name That LLM Apex Stylometric Centering",
+  "author": "saddamaditya",
+  "bestPublicScore": 0.542,
+  "votes": 35,
+  "url": "https://www.kaggle.com/code/saddamaditya/name-that-llm-apex-stylometric-centering",
+  "lastRun": "2026-10-17"
+ },
+ {
+  "title": "SVM Frozen Qwen",
+  "author": "hanifnoerrofiq",
+  "bestPublicScore": 0.452,
+  "votes": 35,
+  "url": "https://www.kaggle.com/code/hanifnoerrofiq/svm-frozen-qwen",
+  "lastRun": "2026-10-15"
+ },
+ {
+  "title": "Starter Notebook Deep EDA",
+  "author": "ozertuu",
+  "bestPublicScore": 0.67,
+  "votes": 30,
+  "url": "https://www.kaggle.com/code/ozertuu/starter-notebook-deep-eda",
+  "lastRun": "2026-11-06"
+ },
+ {
+  "title": "NTL 672 Sinkhorn 050",
+  "author": "aboodps",
+  "bestPublicScore": 0.669,
+  "votes": 29,
+  "url": "https://www.kaggle.com/code/aboodps/ntl-672-sinkhorn-050",
+  "lastRun": "2026-11-05"
+ },
+ {
+  "title": "Name That LLM Starter Notebook",
+  "author": "pablodiegoo",
+  "bestPublicScore": 0.684,
+  "votes": 28,
+  "url": "https://www.kaggle.com/code/pablodiegoo/name-that-llm-starter-notebook",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "name-that-llm-d",
+  "author": "ahmedberatozer",
+  "bestPublicScore": 0.522,
+  "votes": 28,
+  "url": "https://www.kaggle.com/code/ahmedberatozer/name-that-llm-d",
+  "lastRun": "2026-10-15"
+ },
+ {
+  "title": "qwen blend",
+  "author": "lucasboesen",
+  "bestPublicScore": 0.414,
+  "votes": 25,
+  "url": "https://www.kaggle.com/code/lucasboesen/qwen-blend",
+  "lastRun": "2026-10-14"
+ },
+ {
+  "title": "NTL v1 baseline",
+  "author": "junaid512",
+  "bestPublicScore": 0.662,
+  "votes": 24,
+  "url": "https://www.kaggle.com/code/junaid512/ntl-v1-baseline",
+  "lastRun": "2026-11-03"
+ },
+ {
+  "title": "name-that-llm-train-lora24-s7",
+  "author": "lucasboesen",
+  "bestPublicScore": null,
+  "votes": 24,
+  "url": "https://www.kaggle.com/code/lucasboesen/name-that-llm-train-lora24-s7",
+  "lastRun": "2026-10-16"
+ },
+ {
+  "title": "Name That LLM 0684 Clean Baseline",
+  "author": "wadigongren",
+  "bestPublicScore": 0.684,
+  "votes": 23,
+  "url": "https://www.kaggle.com/code/wadigongren/name-that-llm-0684-clean-baseline",
+  "lastRun": "2026-11-11"
+ },
+ {
+  "title": "ntl fuse33 (0.668 fork + response corpus)",
+  "author": "whitegg",
+  "bestPublicScore": 0.684,
+  "votes": 23,
+  "url": "https://www.kaggle.com/code/whitegg/ntl-fuse33-0-668-fork-response-corpus",
+  "lastRun": "2026-11-12"
+ },
+ {
+  "title": "0.679",
+  "author": "concyclics",
+  "bestPublicScore": 0.679,
+  "votes": 23,
+  "url": "https://www.kaggle.com/code/concyclics/0-679",
+  "lastRun": "2026-11-04"
+ }
+]

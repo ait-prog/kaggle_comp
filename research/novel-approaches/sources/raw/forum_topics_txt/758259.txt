@@ -1,0 +1,5 @@
+# Scoring-run hardware
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/758259
+author: vishu phalswal date: 2026-11-12 votes: {'canUpvote': True}
+Does anyone know if the scoring rerun has the same machine as a normal commit: same RAM, same /dev/shm size, and the same local disk space in /tmp? I’m trying to plan memory and disk use for large intermediate files.
+## comments

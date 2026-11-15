@@ -1,0 +1,34 @@
+# Running GLM-5.3 / GLM-5.3-Flash inside the 9h limit — has anyone got the public GGUF segments working?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/757199
+author: vishu phalswal date: 2026-11-09 votes: {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 7}
+Hi everyone,
+
+I'm a solo competitor, currently around 0.68 with a Qwen-based ensemble plus my own fine-tuned Qwen3-Embedding-4B expert. My out-of-fold analysis shows where most of my remaining error is: the GLM corner.
+
+My OOF accuracy on these three models:
+- glm-5.3: 0.32
+- glm-5.3-flash: 0.44
+- claude-fable-5: 0.48
+
+Most of the mistakes are these three being confused with each other. GLM-5.3 seems to write a lot like Claude.
+
+Things I tried that did NOT help:
+- GLM-4-9B-0414 + Qwen3-8B-Base log-likelihood features (-0.002 in a prompt-grouped CV stack)
+- ~33k extra rows from public datasets (lower OOF)
+- Pseudo-labelling the test set (negative in simulation)
+
+I noticed public datasets with IQ3_XXS GGUF layer segments of GLM-5.3 and GLM-5.3-Flash, so the real model's likelihood looks like the missing signal. I'd appreciate any public pointers on:
+
+1. Does the llama.cpp build available offline on Kaggle support the GLM-5 / GLM-5.3 MoE architecture, or does it need a newer build attached as a dataset?
+2. How do you load or run the model segment by segment within the RAM and disk limits (2xT4, ~30 GB RAM)? Streaming layers or memory-mapping?
+3. Roughly how many tokens per passage is enough for a useful likelihood score within 9 hours on ~4,000 test passages?
+
+I'm not asking for anyone's private pipeline, just general guidance or links to public resources. If I get it working, I'll publish a notebook with the results so everyone benefits.
+
+Thanks!
+## comments
+- [Vijay Konda | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-10] Check general.architecture in the GGUF with gguf-py, and attach a newer llama.cpp build as a dataset; the preinstalled one is likely too old. Per-passage mmap inference won't fit 9h for a model that size: prefill touches most experts, so you stream most of the model each passage. The workable route is layer streaming over the whole test set: load one layer, run all passages' hidden states through it, free it, next layer. That reads the weights once. 128–256 tokens is usually enough for log-prob stats. Measure the curve on a train subset, and remember the feature has to exist for train rows too. I'd try GLM-5.3-Flash first, since it's smaller and targets the glm-5.3 vs Flash split directly.
+- [John K | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-10] The GLM and Claude mixup shows up in a simple TF-IDF plus logistic GroupKFold pass too. On that confusion matrix, true glm-5.3 was predicted as glm-5.3 27 times, as claude-opus-5 27 times, and as claude-fable-5 18 times (150 rows). True claude-fable-5 went to glm-5.3-flash 22 times and glm-5.3 21 times, against only 16 correct (149 rows). Across the two GLM labels and the five Claude labels, 125 true-GLM rows were called Claude and 119 true-Claude rows were called GLM. I have not run a GLM-5.3 likelihood feature, so I cannot help on the GGUF segment path.
+  - [vishu phalswal | votes {'canUpvote': True} | 2026-11-10] Thanks John, that's really useful. The GLM ↔ Claude confusion matches what I see in my own out-of-fold confusion matrix too: the glm-5.3 / glm-5.3-flash / claude-fable-5 / claude-opus-5 group is where most of my errors are. Appreciate you sharing the numbers!
+- [AyoGG | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-09] You can take a closer look at the publicly available models from the top-performing group.
+  - [vishu phalswal | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-09] Thanks a lot! Do you mean the GLM-5.3 / GLM-5.3-Flash GGUF segment datasets (e.g. from jinghengwu), or are there also public trained models (adapters/heads) from that team under Kaggle Models? A link to where to start would help a lot.

@@ -1,0 +1,145 @@
+# [BIG UPDATE - please try it] Same data, +0.027 accuracy: 1 in 4 passages in the public NTL pool was junk or the wrong genre. I cleaned it (Open Pool v9)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/753779
+author: Carrot Production date: 2026-10-29 votes: {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 8}
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F20960131%2Fde27ae29594601ed0a2436567a5bef12%2Fbanner_v9.png?generation=1793266974426863&alt=media)
+
+**TL;DR**
+
+- I audited every passage in the public pool that most of us train on: 254k passages from 59 community datasets.
+  **About 1 in 4 passages a model learns from is junk or the wrong genre.**
+- I trained the same small LoRA model on 45,000 passages each time and changed only *which* passages it saw.
+  **Cleaned data scored +0.026 to +0.027 balanced accuracy on real train passages. Both seeds agree.**
+- The dirtier a label's data was, the more cleaning helped (Spearman 0.64). kimi-k3 gained **+16 points of recall**
+  and claude-opus-4-8 **+13**.
+- **[Open Pool v9](https://www.kaggle.com/datasets/crtproduction/name-that-llm-open-pool)** is that clean set:
+  **192,926 passages, 18 labels, ready to train.** No filtering needed. The 70,558 removed rows are listed by `id`
+  and reason in `removed_rows.csv`.
+
+**Please support this work and share your thinking. This research cost me a lot of GPU time and effort, all to build the best training data I can for the community. If I got anything wrong, please point it out and tell me your view.**
+
+---
+
+## 1. What is wrong with the raw pool
+
+I compared the pool with the competition's `train.csv`. This is the only data known to come from the host's own
+generation process. Each label is weighted equally.
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F20960131%2Fec27f8082ece67da819eba69de8fd2d9%2Ffig3_style_gap.png?generation=1793267011498326&alt=media)
+
+| In the raw pool (v7) | Passages |
+|---|---|
+| Raw API responses (HTTP headers, JSON, `x-generation-id`) stored as text | 13,114 |
+| Refusals ("I can't…", "As an AI…") | 6,939 |
+| Cut off mid-sentence | 15,963 |
+| Chat preambles ("Sure, here's…"), CJK text, length outside 36–275 words, same text with two labels | 3,545 |
+| Off-genre sources: chat logs, benchmark answers, reasoning traces | 46,672 |
+
+Two of these deserve a closer look:
+
+- **API dumps fill the model's context window with headers.** 85% of the text you can pull out of these dumps is
+  already in the pool as clean rows. You lose nothing by dropping them.
+- **Off-genre text looks clean, but it teaches the wrong voice.** A label's chat replies are not the same as that
+  label's single-paragraph essays. In a balanced 45k sample of the raw pool, **27.7%** of passages came from these
+  sources. For some Claude labels it was more than half.
+
+Real train passages never contain these. In train, 99.9% of passages end with punctuation; in the raw pool, 93% do.
+After cleaning the figure is 99.4%.
+
+## 2. The test: same size, different quality
+
+I wanted to measure quality only, so every run had the same setup:
+
+- **Model:** Qwen3-1.7B-Base with a LoRA classifier, trained for 1 epoch on the pool only.
+- **Data:** exactly **2,500 passages per label (45,000 total)** in every run.
+- **Score:** balanced accuracy on **all 2,699 train passages**. The model never trains on them, so every prompt is unseen.
+- **Repeats:** 2 seeds per variant. Runs are deterministic: the same variant and seed reproduce to the 4th decimal.
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F20960131%2F27c1fddcd2813253f4aaa4ed512683ff%2Ffig1_clean_vs_raw.png?generation=1793267031072548&alt=media)
+
+| Training data (45k passages each) | Balanced acc. | vs raw |
+|---|---|---|
+| Raw pool v1-5 | 0.466 | — |
+| Raw pool v1-7 | 0.464 | −0.001 |
+| v1-5 minus hard junk (dumps, refusals, preambles) | 0.474 | +0.009 |
+| v1-5 minus junk and off-genre sources | **0.493** | **+0.027** |
+| v1-7 minus junk and off-genre sources | **0.492** | **+0.026** |
+
+**What this shows:**
+
+1. **Hard junk hurts.** Removing it adds about +0.009.
+2. **Off-genre text hurts more than obvious junk.** Removing it adds another +0.019, even though those passages
+   look clean.
+3. **Newer pool batches are not the problem; their junk is.** The raw v1-7 pool scores the same as raw v1-5, and the
+   clean v1-7 pool scores the same as clean v1-5. If you saw a lower LB after adding newer rows, check what came with them.
+
+## 3. It is the dirty labels that improve
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F20960131%2Fd5f31718e25886286f52e5fd42f019db%2Ffig2_label_gain.png?generation=1793267073934798&alt=media)
+
+Each dot is one label. The x-axis shows how much of that label's raw sample was junk or off-genre. The y-axis shows
+how much its recall changed after cleaning. Spearman correlation is **0.64**:
+
+- **kimi-k3:** 46% contaminated, +16 recall
+- **claude-opus-4-8:** 51% contaminated, +13 recall
+- **Labels that were already clean** (most Gemini labels): little change
+
+This is what you would expect if the junk itself was the problem.
+
+## 4. Things we tried that did *not* help
+
+These results are useful too, because they show what not to spend time on.
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F20960131%2F07f4c7bcc437eee285919451d5f73e84%2Ffig4_round2.png?generation=1793267086475170&alt=media)
+
+- **Keeping only the most "train-like" passages.** I built a style-only scorer that tells train passages from pool
+  passages using punctuation, pronouns, sentence rhythm and function words, never topic words. It reaches AUC 0.77–0.79
+  on prompts it never saw. I then dropped the 30% of each label's passages that looked least like train.
+  The result was **no gain** (−0.004 balanced accuracy over 2 seeds, and −0.016 recall on the 8 hardest labels): the variety you lose costs more than the cleaner style earns.
+  v9 includes the score as a column, so you can try other cut-offs yourself.
+- **Dropping every passage generated through the Kaggle Benchmarks proxy.** The host has ruled that the proxy may not be
+  used to build training sets ([752084]). Removing about 70k such rows changed the score by
+  −0.001 on average over 2 seeds, which is within noise. v9 flags them in `flag_kb_proxy` so you can stay on the safe side at almost no cost.
+- **Cheap proxies for data quality are misleading.** A TF-IDF + linear model trained on the same subsets said cleaning
+  *hurts*. It rewards volume and does not care about genre. Only test data decisions with the kind of model you
+  actually train.
+
+## 5. What is still open: the prompt gap
+
+One style gap does not move with cleaning. **31% of train passages use "we / our / us", against 15% in the pool,
+before and after cleaning.** The cause is the host's prompts, not junk. Their prompts lead to a collective, explanatory
+voice more often than the prompt banks most of us used. If you generate new data, prompts closer to that voice are
+probably the next big win. Please share what you find.
+
+## 6. How to use v9
+
+```python
+import pandas as pd
+pool = pd.read_parquet("/kaggle/input/name-that-llm-open-pool/ntl_open_pool.parquet")
+print(len(pool), pool.model.value_counts())       # 192,926 clean passages, 18 labels: train on all of it
+```
+
+- **Every row is clean.** v9 removes API dumps, refusals, preambles, off-genre sources, cut-off passages, rows with a
+  licence or provenance problem, answers to train prompts, and typography a label never uses in train.
+- **Row `id`s are unchanged** from earlier versions, so your existing splits keep working. Removed `id`s and the
+  reason for each are in `removed_rows.csv`, and the totals per reason are in `removal_summary.csv`.
+- **Licences are clean too.** Every row comes from a CC BY 4.0, CC BY-SA 4.0 or CC0 dataset with verifiable provenance.
+  About 38.8k rows that came from a licence-excluded source through CC0 re-uploads are gone.
+- **`flag_kb_proxy`** marks rows generated through the Kaggle Benchmarks proxy. They are kept because public community
+  datasets are allowed; drop them in one line if you want to be strict (section 4).
+- **`style_score`** is the train-likeness score from section 4.
+- The numbers in this post ship with the dataset: `dataq_results.csv`, `style_gap.csv`, `removal_summary.csv` and the figures.
+
+## Caveats
+
+- These tests use a 1.7B model at a fixed 45k passages. Bigger models are more robust to noise, so the gain may be
+  smaller at 14B scale. I am now training a full-size model on v9 and will report its LB score in this thread.
+- The clean set has about 20% fewer passages than the raw pool. At equal size clean wins clearly; at full size I am
+  still measuring.
+- Balanced accuracy on train passages is not the LB. It is the closest held-out data we have, and every prompt in it is
+  unseen during training.
+
+Credit goes to everyone who published generations. This pool exists because of you. Questions, corrections and new
+open-licensed data for glm, kimi, qwen and claude-fable are all welcome.
+
+
+please try it out, I hope it will help u guys
+## comments

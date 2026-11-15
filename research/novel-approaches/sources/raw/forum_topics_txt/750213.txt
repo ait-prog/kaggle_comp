@@ -1,0 +1,59 @@
+# Test-time prompt grouping: simulation vs. LB, and a question about the test layout
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750213
+author: Karthikeya Thatipamula date: 2026-10-17 votes: {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4}
+Hi all, sharing a bit of our experience from the last few days and hoping to learn from yours.
+
+Like several of the public notebooks, we spent some time on test-time prompt grouping, i.e. clustering test passages that probably answer the same prompt. In our own prompt-grouped CV simulations it looked very promising, especially when we simulated many answers per prompt. On the public LB the gain was a lot smaller than the simulations suggested. So the way you simulate the hidden test seems to matter a lot in this competition.
+
+That made us realise how much depends on the layout of the hidden test, so a few questions for the hosts (@martynaplomecka @yanyao23):
+
+1. Is every hidden-test prompt answered by all 18 models, or only by a subset of them?
+2. Is the public/private split done by prompt or by passage?
+3. Were the test passages generated with the same settings as train (request format, length targets, model snapshots)?
+
+And for everyone: how are you validating test-time steps like clustering or class balancing, given the unknown layout and only 40% of the test on the public LB? Do you simulate a fixed number of answers per prompt, a mix, or mostly trust the LB?
+
+Thanks to everyone sharing notebooks and datasets here, it's been a fun one so far.
+## comments
+- [GoPain | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-10-21] I wanted to know how much of that gap the layout alone explains, so I built a simulation with a known truth: 18 authors in 6 families (family easy, author within family hard), a shared Gaussian prompt effect, and test pools where I control how many authors answer each prompt. Plain decoding sits at about 0.35 balanced accuracy, close to a TF-IDF baseline here.
+
+Gain over plain with the **true** prompt groups (20 pools of 4,000 passages each):
+
+| answers per prompt | centring | Hungarian | joint, one per author |
+| --- | --- | --- | --- |
+| 1 | 0 | 0 | 0 |
+| 2 | -0.067 | +0.006 | +0.024 |
+| 3 | +0.002 | +0.013 | +0.042 |
+| 18 | +0.101 | +0.117 | +0.115 |
+
+With groups **recovered by clustering**, the same cut everywhere:
+
+| setting | centring | Hungarian | joint, one per author |
+| --- | --- | --- | --- |
+| train-like CV (150 prompts x 18 authors) | +0.098 | +0.118 | +0.111 |
+| test, 1 answer per prompt | -0.102 | -0.004 | -0.019 |
+| test, 2 answers per prompt | -0.057 | +0.004 | +0.015 |
+
+The same check on real scores: my n-gram SVC's prompt-grouped OOF on train (balanced accuracy 0.370), with every prompt subsampled to m random authors and the **true** prompt ids as groups (30 subsamples each):
+
+| answers per prompt | Hungarian | centring of log-probs |
+| --- | --- | --- |
+| 2 | +0.004 | -0.062 |
+| 3 | +0.011 | -0.020 |
+| 6 | +0.020 | +0.020 |
+| 18 | +0.081 | +0.045 |
+
+So a CV on train's layout promises +0.08 to +0.12, and a test with 1-2 answers per prompt gives about nothing, or a loss for centring. That is close to what Adisak reported (+0.10 in CV, 0.353 to 0.344 on the LB with clustering + Hungarian, 0.329 once centring was added), and no modelling error is needed to get it. Two mechanisms:
+
+- **Centring a small group removes the author signal too.** The mean of two passages contains half of each passage's own author signal, so subtracting it pushes each passage away from its true author. Estimating the prompt effect from the *other* members only (a cavity estimate) avoids this and never lost to plain decoding when the groups were true.
+- **Wrong merges are what hurt.** When most prompts have one or two answers, a cut that looks right on train merges passages from different prompts (pair precision 0.59 at two answers per prompt, 0.14 at a looser cut), and a one-author-per-group constraint then forbids correct labels.
+
+One more result, about balancing, since most public notebooks end with Sinkhorn: for balanced accuracy the best decision ignores the author frequencies, because every author's recall counts the same. In the simulation, balancing to equal mass cost at most about 0.003 even when the test frequencies were far from equal, while balancing to the *true* uneven frequencies cost up to 0.040. For a classifier trained on an unbalanced pool (like the public 1,100-3,300 passages per model), balancing to equal mass recovered +0.020 to +0.022. So balancing removes a training-prior bias; it is not a bet that the test is balanced.
+
+What I take from it for local validation: subsample each validation prompt to 1-3 answers before measuring any grouping trick, and recover the groups on that subsample the same way as on the test.
+
+It is a stylised Gaussian model with known parameters, so the sizes are illustrative; the dependence on the layout is the point.
+
+Notebook (CPU, source embedded): https://www.kaggle.com/code/locdunhat/when-does-test-time-prompt-grouping-help
+
+Dataset (the simulated pools with true authors and prompts, and all result tables): https://www.kaggle.com/datasets/locdunhat/prompt-grouping-simulations

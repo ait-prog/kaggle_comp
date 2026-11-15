@@ -1,0 +1,14 @@
+# Clarification on Rule 2.6: publicly shared generated passages and API-generated training data
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/751954
+author: Clivin John date: 2026-10-23 votes: {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 7}
+Hi hosts,
+
+Several top public notebooks pretrain on a pool of ~35k passages merged from community Kaggle datasets, where participants generated text from the competition’s 18 models via APIs/proxies. Could you clarify:
+
+- Is training on these already-published community datasets (CC BY / CC BY-SA) permitted for prize-eligible solutions?
+- Is generating additional passages via paid APIs permitted, and if so, what cost level counts as “reasonable” under Section 2.6?
+- If such data is allowed, does it need to be publicly shared before a certain date (e.g. the entry deadline) to be used in final submissions?
+- A participant reported that Gemini 3.7 Flash requests were routed to 3.8 after 8 October. Can you confirm whether the competition’s 3.7 labels were generated before any such change?
+
+Thanks. A clear answer would help a lot of teams avoid building on data that may later be ruled out.
+## comments

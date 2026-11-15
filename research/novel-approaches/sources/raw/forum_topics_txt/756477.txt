@@ -1,0 +1,35 @@
+# Random K-fold is pessimistic here: 0.11 vs 0.35 with grouped folds (reverse leakage)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/756477
+author: Renan Pinheiro date: 2026-11-06 votes: {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2}
+If you validate with a random K-fold in this competition, your CV is probably far **below** what the leaderboard will give you. That is the opposite of the usual leakage story.
+
+Same TF-IDF + logistic regression baseline, only the folds change:
+
+| Folds | Balanced accuracy |
+|---|---|
+| KFold (random) | 0.109 |
+| StratifiedKFold (random) | 0.114 |
+| StratifiedGroupKFold by `prompt_id` | **0.347** |
+
+**Why:** every prompt was answered once by (almost) each of the 18 models. Under a random split, ~14 of a text's 17 "siblings" (same prompt, different model) sit in training. They share its topic and none of them has its label, so the model is pulled towards the wrong answers. In the random split, the nearest training text is a sibling 99.6% of the time.
+
+**Dose-response:** starting from grouped folds, moving 2 / 4 / 8 siblings per prompt back into training drops accuracy from 0.347 to 0.264 / 0.215 / 0.156. It then flattens around 0.15.
+
+**Takeaways**
+
+- Group by `prompt_id`. In my submissions, grouped CV and public LB moved together every time (r ≈ 0.99).
+- Topic is a confounder. Removing per-prompt topic from embeddings ("prompt-centering"), and grouping test texts by similarity, gave me real gains.
+
+Notebook with code, curve and details: [Reverse leakage: why random CV is pessimistic](https://www.kaggle.com/code/pinheirodw17/reverse-leakage-why-random-cv-is-pessimistic)
+
+Counter-examples or different results welcome.
+## comments
+- [John K | votes {'canUpvote': True} | 2026-11-10] I used GroupKFold on prompt_id for a TF-IDF plus logistic baseline and got 0.3119 balanced accuracy on the 2,699 row train file. I haven't run a random split side by side, so I can't confirm your 0.109 vs 0.347 gap from my end. With 149 of 150 prompts carrying all 18 models in train though, it makes sense that the split choice swings the number this much.
+- [Renan Pinheiro | votes {'canUpvote': True} | 2026-11-08] **Update:** the notebook now ends with two things you can reuse directly:
+
+- **Section 6, grouped-CV template:** `StratifiedGroupKFold` on `prompt_id`, with an `assert` that fails if any prompt ends up in both train and validation.
+- **Section 7, baseline submission:** TF-IDF + logistic regression that writes `submission.parquet`. It scores **0.355** on the public LB, against **0.347** grouped CV.
+
+New finding: under the grouped split, **55%** of wrong predictions still land in the right model family (GPT, Gemini, Claude…), against 17% by chance. Family-level structure is worth exploiting, for example with a family-then-model hierarchy.
+
+[Reverse leakage: why random CV is pessimistic](https://www.kaggle.com/code/pinheirodw17/reverse-leakage-why-random-cv-is-pessimistic)

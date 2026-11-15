@@ -1,0 +1,337 @@
+[{"stream_name":"stdout","time":10.848206846,"data":"gpus 2\n"}
+,{"stream_name":"stdout","time":39.774865501,"data":"[     3s] cfg {\"run\": \"dev7\", \"hidden\": 4096, \"n_layers\": 36, \"keep\": 24, \"layers\": [4, 8, 12, 16, 20, 24], \"r\": 16, \"alpha\": 32, \"ldrop\": 0.05, \"cap\": 3000, \"epochs\": 1, \"bs\": 8, \"maxlen\": 320, \"lr_a\": 0.0002, \"lr_h\": 0.001, \"wd\": 0.01, \"warm\": 0.05, \"seed\": 0, \"ckpt_every\": 400}\n"}
+,{"stream_name":"stdout","time":39.780430706,"data":"[     3s] pool 53673 {'claude-fable-5': 3000, 'claude-opus-4-6': 3000, 'claude-opus-4-8': 3000, 'claude-opus-5': 3000, 'claude-sonnet-5': 3000, 'gemini-3.1-pro-preview': 3000, 'gemini-3.6-flash': 3000, 'gemini-3.7-flash': 3000, 'gemini-3.8-flash': 3000, 'glm-5.3': 3000, 'glm-5.3-flash': 3000, 'gpt-5.5': 3000, 'gpt-5.6-luna': 3000, 'gpt-5.6-sol': 3000, 'gpt-5.6-terra': 3000, 'gpt-6-astra': 3000, 'qwen3.8-max': 3000, 'kimi-k3': 2673}\n"}
+,{"stream_name":"stdout","time":39.812936496,"data":"[     3s] model /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stdout","time":62.497936466,"data":"[    26s] tokenized; pool p50/p99 len 131 320\n"}
+,{"stream_name":"stderr","time":83.467533001,"data":"\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 0/266 [00:00\u003c?, ?it/s]\rLoading weights:   0%|          | 1/266 [00:08\u003c37:59,  8.60s/it]\rLoading weights:   0%|          | 1/266 [00:08\u003c38:16,  8.67s/it]\rLoading weights:  36%|███▋      | 97/266 [00:08\u003c00:10, 15.40it/s]\rLoading weights:  36%|███▋      | 97/266 [00:08\u003c00:10, 15.42it/s]\rLoading weights:  45%|████▍     | 119/266 [00:10\u003c00:09, 15.99it/s]\rLoading weights:  47%|████▋     | 125/266 [00:10\u003c00:09, 15.23it/s]\rLoading weights:  50%|████▉     | 132/266 [00:10\u003c00:08, 16.38it/s]\rLoading weights:  53%|█████▎    | 141/266 [00:11\u003c00:07, 16.59it/s]\rLoading weights:  53%|█████▎    | 141/266 [00:11\u003c00:07, 16.22it/s]\rLoading weights:  55%|█████▌    | 147/266 [00:12\u003c00:08, 14.73it/s]\rLoading weights:  57%|█████▋    | 152/266 [00:12\u003c00:06, 16.39it/s]\rLoading weights:  59%|█████▉    | 157/266 [00:12\u003c00:07, 15.43it/s]\rLoading weights:  60%|██████    | 160/266 [00:12\u003c00:06, 15.69it/s]\rLoading weights:  61%|██████    | 161/266 [00:12\u003c00:06, 16.31it/s]\rLoading weights:  63%|██████▎   | 168/266 [00:13\u003c00:06, 15.60it/s]\rLoading weights:  63%|██████▎   | 168/266 [00:13\u003c00:06, 15.65it/s]\rLoading weights:  67%|██████▋   | 179/266 [00:14\u003c00:05, 15.31it/s]\rLoading weights:  67%|██████▋   | 179/266 [00:14\u003c00:05, 14.98it/s]\rLoading weights:  71%|███████▏  | 190/266 [00:14\u003c00:04, 16.95it/s]\rLoading weights:  71%|███████▏  | 190/266 [00:14\u003c00:04, 17.32it/s]\rLoading weights:  73%|███████▎  | 193/266 [00:14\u003c00:04, 17.77it/s]\rLoading weights:  73%|███████▎  | 193/266 [00:14\u003c00:04, 17.27it/s]\rLoading weights:  76%|███████▌  | 201/266 [00:15\u003c00:03, 16.31it/s]\rLoading weights:  76%|███████▌  | 201/266 [00:15\u003c00:03, 16.39it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:15\u003c00:03, 16.53it/s]\rLoading weights:  80%|███████▉  | 212/266 [00:15\u003c00:03, 16.40it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:16\u003c00:02, 16.73it/s]\rLoading weights:  84%|████████▍ | 223/266 [00:16\u003c00:02, 16.56it/s]\rLoading weights:  85%|████████▍ | 225/266 [00:16\u003c00:02, 16.74it/s]\rLoading weights:  85%|████████▍ | 225/266 [00:16\u003c00:02, 16.73it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:17\u003c00:02, 15.76it/s]\rLoading weights:  88%|████████▊ | 234/266 [00:17\u003c00:02, 15.68it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:17\u003c00:01, 16.58it/s]\rLoading weights:  92%|█████████▏| 245/266 [00:17\u003c00:01, 16.41it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:18\u003c00:00, 16.29it/s]\rLoading weights:  96%|█████████▌| 256/266 [00:18\u003c00:00, 16.23it/s]\rLoading weights: 100%|██████████| 266/266 [00:18\u003c00:00, 14.36it/s]\n"}
+,{"stream_name":"stderr","time":83.46828455,"data":"\rLoading weights: 100%|██████████| 266/266 [00:18\u003c00:00, 14.35it/s]\n"}
+,{"stream_name":"stderr","time":83.629328648,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stderr","time":83.629360811,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":83.629366548,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":83.629371383,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629376104,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629380583,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629385186,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629389985,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629394759,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629399224,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629403674,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629407964,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629412439,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629416842,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629421228,"data":"lm_head.weight                                         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.629425808,"data":"\n"}
+,{"stream_name":"stderr","time":83.62943022,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":83.629434807,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":83.706167354,"data":"[transformers] \u001b[1mQwen3Model LOAD REPORT\u001b[0m from: /kaggle/input/models/qwen-lm/qwen-3/transformers/8b-base/1\n"}
+,{"stream_name":"stderr","time":83.70619739,"data":"Key                                                    | Status     |  | \n"}
+,{"stream_name":"stderr","time":83.706202317,"data":"-------------------------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":83.7062064,"data":"model.layers.{24...35}.input_layernorm.weight          | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706210523,"data":"model.layers.{24...35}.self_attn.k_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706214403,"data":"model.layers.{24...35}.post_attention_layernorm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706230599,"data":"model.layers.{24...35}.self_attn.v_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706234838,"data":"model.layers.{24...35}.self_attn.q_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.70623895599999,"data":"model.layers.{24...35}.self_attn.q_norm.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706242881,"data":"model.layers.{24...35}.mlp.up_proj.weight              | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.70624684,"data":"model.layers.{24...35}.mlp.gate_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706250834,"data":"model.layers.{24...35}.self_attn.o_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706254752,"data":"model.layers.{24...35}.mlp.down_proj.weight            | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706258771,"data":"model.layers.{24...35}.self_attn.k_proj.weight         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.706262528,"data":"lm_head.weight                                         | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":83.70626645,"data":"\n"}
+,{"stream_name":"stderr","time":83.706270063,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":83.706273809,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":84.789398734,"data":"[    48s] trainable M 29.6\n"}
+,{"stream_name":"stderr","time":85.702759911,"data":"/kaggle/src/script.py:122: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":85.702791039,"data":"  scaler = torch.cuda.amp.GradScaler()\n"}
+,{"stream_name":"stdout","time":85.7030082,"data":"[    49s] steps/rank 3354\n"}
+,{"stream_name":"stderr","time":85.703593104,"data":"/kaggle/src/script.py:122: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.\n"}
+,{"stream_name":"stderr","time":85.703608236,"data":"  scaler = torch.cuda.amp.GradScaler()\n"}
+,{"stream_name":"stderr","time":89.698274748,"data":"/kaggle/src/script.py:141: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":89.698335318,"data":"  scaler.step(opt); scaler.update(); sch.step()\n"}
+,{"stream_name":"stderr","time":89.698341254,"data":"/kaggle/src/script.py:141: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":89.698346477,"data":"  scaler.step(opt); scaler.update(); sch.step()\n"}
+,{"stream_name":"stderr","time":89.698518657,"data":"/kaggle/src/script.py:142: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":89.698529187,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":89.69854646,"data":"  toks += int(m.sum()) * world; run.append(float(loss))\n"}
+,{"stream_name":"stderr","time":89.69855001,"data":"/kaggle/src/script.py:142: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":89.698553416,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":89.69855665,"data":"  toks += int(m.sum()) * world; run.append(float(loss))\n"}
+,{"stream_name":"stdout","time":89.69884692,"data":"[    53s] step 1/3354 loss 2.9758 scale 32768 tok/s 268 eta 223m\n"}
+,{"stream_name":"stdout","time":92.185745059,"data":"[    55s] step 2/3354 loss 3.0275 scale 16384 tok/s 625 eta 181m\n"}
+,{"stream_name":"stdout","time":93.893988101,"data":"[    57s] step 3/3354 loss 3.0453 scale 8192 tok/s 676 eta 152m\n"}
+,{"stream_name":"stdout","time":152.521975833,"data":"[   116s] step 25/3354 loss 3.0030 scale 2048 tok/s 774 eta 148m\n"}
+,{"stream_name":"stdout","time":218.029828239,"data":"[   181s] step 50/3354 loss 2.7989 scale 2048 tok/s 784 eta 146m\n"}
+,{"stream_name":"stdout","time":295.815808292,"data":"[   259s] step 75/3354 loss 2.7341 scale 2048 tok/s 801 eta 153m\n"}
+,{"stream_name":"stdout","time":359.575482364,"data":"[   323s] step 100/3354 loss 2.6791 scale 2048 tok/s 804 eta 149m\n"}
+,{"stream_name":"stdout","time":428.049253615,"data":"[   391s] step 125/3354 loss 2.3519 scale 2048 tok/s 799 eta 147m\n"}
+,{"stream_name":"stdout","time":502.209483739,"data":"[   466s] step 150/3354 loss 2.3608 scale 2048 tok/s 795 eta 148m\n"}
+,{"stream_name":"stdout","time":565.180441991,"data":"[   528s] step 175/3354 loss 2.2209 scale 2048 tok/s 800 eta 145m\n"}
+,{"stream_name":"stdout","time":633.47361974,"data":"[   597s] step 200/3354 loss 2.1431 scale 2048 tok/s 814 eta 144m\n"}
+,{"stream_name":"stdout","time":703.396918196,"data":"[   667s] step 225/3354 loss 2.3112 scale 2048 tok/s 814 eta 143m\n"}
+,{"stream_name":"stdout","time":775.204466899,"data":"[   738s] step 250/3354 loss 2.0137 scale 2048 tok/s 817 eta 143m\n"}
+,{"stream_name":"stdout","time":841.228850418,"data":"[   805s] step 275/3354 loss 1.9971 scale 2048 tok/s 826 eta 141m\n"}
+,{"stream_name":"stdout","time":915.307659942,"data":"[   879s] step 300/3354 loss 2.1858 scale 2048 tok/s 833 eta 141m\n"}
+,{"stream_name":"stdout","time":983.910660025,"data":"[   947s] step 325/3354 loss 2.0133 scale 2048 tok/s 832 eta 140m\n"}
+,{"stream_name":"stdout","time":1047.438237653,"data":"[  1011s] step 350/3354 loss 1.8903 scale 2048 tok/s 825 eta 138m\n"}
+,{"stream_name":"stdout","time":1118.124281816,"data":"[  1081s] step 375/3354 loss 1.8844 scale 2048 tok/s 825 eta 137m\n"}
+,{"stream_name":"stdout","time":1199.347116238,"data":"[  1163s] step 400/3354 loss 1.7930 scale 2048 tok/s 815 eta 137m\n"}
+,{"stream_name":"stdout","time":1199.542265205,"data":"[  1163s] saved last\n"}
+,{"stream_name":"stdout","time":1266.466565753,"data":"[  1230s] step 425/3354 loss nan scale 0 tok/s 815 eta 136m\n"}
+,{"stream_name":"stdout","time":1332.93566688,"data":"[  1296s] step 450/3354 loss nan scale 0 tok/s 814 eta 134m\n"}
+,{"stream_name":"stdout","time":1402.177317231,"data":"[  1365s] step 475/3354 loss nan scale 0 tok/s 816 eta 133m\n"}
+,{"stream_name":"stdout","time":1468.769713146,"data":"[  1432s] step 500/3354 loss nan scale 0 tok/s 820 eta 132m\n"}
+,{"stream_name":"stdout","time":1532.254935918,"data":"[  1496s] step 525/3354 loss nan scale 0 tok/s 828 eta 130m\n"}
+,{"stream_name":"stdout","time":1601.769107504,"data":"[  1565s] step 550/3354 loss nan scale 0 tok/s 827 eta 129m\n"}
+,{"stream_name":"stdout","time":1673.34685231,"data":"[  1637s] step 575/3354 loss nan scale 0 tok/s 836 eta 128m\n"}
+,{"stream_name":"stdout","time":1741.445405182,"data":"[  1705s] step 600/3354 loss nan scale 0 tok/s 834 eta 127m\n"}
+,{"stream_name":"stdout","time":1796.74299478,"data":"[  1760s] step 625/3354 loss nan scale 0 tok/s 840 eta 125m\n"}
+,{"stream_name":"stdout","time":1859.649093097,"data":"[  1823s] step 650/3354 loss nan scale 0 tok/s 843 eta 123m\n"}
+,{"stream_name":"stdout","time":1919.656895113,"data":"[  1883s] step 675/3354 loss nan scale 0 tok/s 849 eta 121m\n"}
+,{"stream_name":"stdout","time":1979.656934569,"data":"[  1943s] step 700/3354 loss nan scale 0 tok/s 851 eta 120m\n"}
+,{"stream_name":"stdout","time":2029.828698673,"data":"[  1993s] step 725/3354 loss nan scale 0 tok/s 854 eta 117m\n"}
+,{"stream_name":"stdout","time":2098.27575268,"data":"[  2062s] step 750/3354 loss nan scale 0 tok/s 857 eta 116m\n"}
+,{"stream_name":"stdout","time":2158.677660321,"data":"[  2122s] step 775/3354 loss nan scale 0 tok/s 859 eta 115m\n"}
+,{"stream_name":"stdout","time":2218.550589929,"data":"[  2182s] step 800/3354 loss nan scale 0 tok/s 862 eta 113m\n"}
+,{"stream_name":"stdout","time":2218.781856172,"data":"[  2182s] saved last\n"}
+,{"stream_name":"stdout","time":2281.49324018,"data":"[  2245s] step 825/3354 loss nan scale 0 tok/s 868 eta 112m\n"}
+,{"stream_name":"stdout","time":2341.912408657,"data":"[  2305s] step 850/3354 loss nan scale 0 tok/s 868 eta 111m\n"}
+,{"stream_name":"stdout","time":2398.914475691,"data":"[  2362s] step 875/3354 loss nan scale 0 tok/s 871 eta 109m\n"}
+,{"stream_name":"stdout","time":2458.894310777,"data":"[  2422s] step 900/3354 loss nan scale 0 tok/s 873 eta 108m\n"}
+,{"stream_name":"stdout","time":2514.466818255,"data":"[  2478s] step 925/3354 loss nan scale 0 tok/s 875 eta 106m\n"}
+,{"stream_name":"stdout","time":2575.340097246,"data":"[  2539s] step 950/3354 loss nan scale 0 tok/s 880 eta 105m\n"}
+,{"stream_name":"stdout","time":2637.539971999,"data":"[  2601s] step 975/3354 loss nan scale 0 tok/s 883 eta 104m\n"}
+,{"stream_name":"stdout","time":2697.456959299,"data":"[  2661s] step 1000/3354 loss nan scale 0 tok/s 886 eta 102m\n"}
+,{"stream_name":"stdout","time":2754.971407533,"data":"[  2718s] step 1025/3354 loss nan scale 0 tok/s 890 eta 101m\n"}
+,{"stream_name":"stdout","time":2818.062824694,"data":"[  2781s] step 1050/3354 loss nan scale 0 tok/s 896 eta 100m\n"}
+,{"stream_name":"stdout","time":2869.321750083,"data":"[  2833s] step 1075/3354 loss nan scale 0 tok/s 898 eta 98m\n"}
+,{"stream_name":"stdout","time":2930.344126846,"data":"[  2894s] step 1100/3354 loss nan scale 0 tok/s 897 eta 97m\n"}
+,{"stream_name":"stdout","time":2984.388835823,"data":"[  2948s] step 1125/3354 loss nan scale 0 tok/s 899 eta 96m\n"}
+,{"stream_name":"stdout","time":3043.359095801,"data":"[  3007s] step 1150/3354 loss nan scale 0 tok/s 901 eta 94m\n"}
+,{"stream_name":"stdout","time":3099.172596244,"data":"[  3062s] step 1175/3354 loss nan scale 0 tok/s 901 eta 93m\n"}
+,{"stream_name":"stdout","time":3163.104707416,"data":"[  3126s] step 1200/3354 loss nan scale 0 tok/s 903 eta 92m\n"}
+,{"stream_name":"stdout","time":3163.34167415,"data":"[  3127s] saved last\n"}
+,{"stream_name":"stdout","time":3222.768079446,"data":"[  3186s] step 1225/3354 loss nan scale 0 tok/s 904 eta 91m\n"}
+,{"stream_name":"stdout","time":3287.259021403,"data":"[  3251s] step 1250/3354 loss nan scale 0 tok/s 907 eta 90m\n"}
+,{"stream_name":"stdout","time":3339.635516798,"data":"[  3303s] step 1275/3354 loss nan scale 0 tok/s 908 eta 88m\n"}
+,{"stream_name":"stdout","time":3398.522851916,"data":"[  3362s] step 1300/3354 loss nan scale 0 tok/s 908 eta 87m\n"}
+,{"stream_name":"stdout","time":3450.760098463,"data":"[  3414s] step 1325/3354 loss nan scale 0 tok/s 910 eta 86m\n"}
+,{"stream_name":"stdout","time":3510.363466118,"data":"[  3474s] step 1350/3354 loss nan scale 0 tok/s 911 eta 85m\n"}
+,{"stream_name":"stdout","time":3564.381157183,"data":"[  3528s] step 1375/3354 loss nan scale 0 tok/s 913 eta 83m\n"}
+,{"stream_name":"stdout","time":3619.354767356,"data":"[  3583s] step 1400/3354 loss nan scale 0 tok/s 916 eta 82m\n"}
+,{"stream_name":"stdout","time":3678.273252003,"data":"[  3642s] step 1425/3354 loss nan scale 0 tok/s 919 eta 81m\n"}
+,{"stream_name":"stdout","time":3737.657702862,"data":"[  3701s] step 1450/3354 loss nan scale 0 tok/s 922 eta 80m\n"}
+,{"stream_name":"stdout","time":3793.321367131,"data":"[  3757s] step 1475/3354 loss nan scale 0 tok/s 925 eta 79m\n"}
+,{"stream_name":"stdout","time":3851.812387932,"data":"[  3815s] step 1500/3354 loss nan scale 0 tok/s 926 eta 78m\n"}
+,{"stream_name":"stdout","time":3909.569703262,"data":"[  3873s] step 1525/3354 loss nan scale 0 tok/s 927 eta 76m\n"}
+,{"stream_name":"stdout","time":3969.348077803,"data":"[  3933s] step 1550/3354 loss nan scale 0 tok/s 928 eta 75m\n"}
+,{"stream_name":"stdout","time":4018.747675259,"data":"[  3982s] step 1575/3354 loss nan scale 0 tok/s 929 eta 74m\n"}
+,{"stream_name":"stdout","time":4077.951613411,"data":"[  4041s] step 1600/3354 loss nan scale 0 tok/s 930 eta 73m\n"}
+,{"stream_name":"stdout","time":4078.178511278,"data":"[  4041s] saved last\n"}
+,{"stream_name":"stdout","time":4129.88546155,"data":"[  4093s] step 1625/3354 loss nan scale 0 tok/s 932 eta 72m\n"}
+,{"stream_name":"stdout","time":4181.251692409,"data":"[  4145s] step 1650/3354 loss nan scale 0 tok/s 931 eta 70m\n"}
+,{"stream_name":"stdout","time":4237.929187224,"data":"[  4201s] step 1675/3354 loss nan scale 0 tok/s 930 eta 69m\n"}
+,{"stream_name":"stdout","time":4301.736060033,"data":"[  4265s] step 1700/3354 loss nan scale 0 tok/s 929 eta 68m\n"}
+,{"stream_name":"stdout","time":4361.850859694,"data":"[  4325s] step 1725/3354 loss nan scale 0 tok/s 931 eta 67m\n"}
+,{"stream_name":"stdout","time":4417.212610976,"data":"[  4381s] step 1750/3354 loss nan scale 0 tok/s 933 eta 66m\n"}
+,{"stream_name":"stdout","time":4478.849222224,"data":"[  4442s] step 1775/3354 loss nan scale 0 tok/s 934 eta 65m\n"}
+,{"stream_name":"stdout","time":4535.354690096,"data":"[  4499s] step 1800/3354 loss nan scale 0 tok/s 936 eta 64m\n"}
+,{"stream_name":"stdout","time":4595.023281459,"data":"[  4558s] step 1825/3354 loss nan scale 0 tok/s 935 eta 63m\n"}
+,{"stream_name":"stdout","time":4659.633298593,"data":"[  4623s] step 1850/3354 loss nan scale 0 tok/s 936 eta 62m\n"}
+,{"stream_name":"stdout","time":4714.27096266,"data":"[  4678s] step 1875/3354 loss nan scale 0 tok/s 937 eta 61m\n"}
+,{"stream_name":"stdout","time":4774.07623002,"data":"[  4737s] step 1900/3354 loss nan scale 0 tok/s 938 eta 60m\n"}
+,{"stream_name":"stdout","time":4830.456451505,"data":"[  4794s] step 1925/3354 loss nan scale 0 tok/s 939 eta 59m\n"}
+,{"stream_name":"stdout","time":4887.413983401,"data":"[  4851s] step 1950/3354 loss nan scale 0 tok/s 939 eta 58m\n"}
+,{"stream_name":"stdout","time":4948.615629485,"data":"[  4912s] step 1975/3354 loss nan scale 0 tok/s 940 eta 57m\n"}
+,{"stream_name":"stdout","time":5008.725543309,"data":"[  4972s] step 2000/3354 loss nan scale 0 tok/s 941 eta 56m\n"}
+,{"stream_name":"stdout","time":5008.957707582,"data":"[  4972s] saved last\n"}
+,{"stream_name":"stdout","time":5062.87691741,"data":"[  5026s] step 2025/3354 loss nan scale 0 tok/s 942 eta 54m\n"}
+,{"stream_name":"stdout","time":5122.515487077,"data":"[  5086s] step 2050/3354 loss nan scale 0 tok/s 942 eta 53m\n"}
+,{"stream_name":"stdout","time":5182.506300356,"data":"[  5146s] step 2075/3354 loss nan scale 0 tok/s 943 eta 52m\n"}
+,{"stream_name":"stdout","time":5235.933248446,"data":"[  5199s] step 2100/3354 loss nan scale 0 tok/s 943 eta 51m\n"}
+,{"stream_name":"stdout","time":5292.930132615,"data":"[  5256s] step 2125/3354 loss nan scale 0 tok/s 944 eta 50m\n"}
+,{"stream_name":"stdout","time":5355.714100824,"data":"[  5319s] step 2150/3354 loss nan scale 0 tok/s 942 eta 49m\n"}
+,{"stream_name":"stdout","time":5418.259877626,"data":"[  5382s] step 2175/3354 loss nan scale 0 tok/s 943 eta 48m\n"}
+,{"stream_name":"stdout","time":5472.485227854,"data":"[  5436s] step 2200/3354 loss nan scale 0 tok/s 944 eta 47m\n"}
+,{"stream_name":"stdout","time":5539.594716355,"data":"[  5503s] step 2225/3354 loss nan scale 0 tok/s 946 eta 46m\n"}
+,{"stream_name":"stdout","time":5597.286066133,"data":"[  5561s] step 2250/3354 loss nan scale 0 tok/s 945 eta 45m\n"}
+,{"stream_name":"stdout","time":5649.552537136,"data":"[  5613s] step 2275/3354 loss nan scale 0 tok/s 946 eta 44m\n"}
+,{"stream_name":"stdout","time":5712.714775713,"data":"[  5676s] step 2300/3354 loss nan scale 0 tok/s 946 eta 43m\n"}
+,{"stream_name":"stdout","time":5773.953491047,"data":"[  5737s] step 2325/3354 loss nan scale 0 tok/s 945 eta 42m\n"}
+,{"stream_name":"stdout","time":5833.240519475,"data":"[  5797s] step 2350/3354 loss nan scale 0 tok/s 946 eta 41m\n"}
+,{"stream_name":"stdout","time":5890.851336959,"data":"[  5854s] step 2375/3354 loss nan scale 0 tok/s 946 eta 40m\n"}
+,{"stream_name":"stdout","time":5951.444772221,"data":"[  5915s] step 2400/3354 loss nan scale 0 tok/s 946 eta 39m\n"}
+,{"stream_name":"stdout","time":5951.670477739,"data":"[  5915s] saved last\n"}
+,{"stream_name":"stdout","time":6016.610910028,"data":"[  5980s] step 2425/3354 loss nan scale 0 tok/s 945 eta 38m\n"}
+,{"stream_name":"stdout","time":6078.774956886,"data":"[  6042s] step 2450/3354 loss nan scale 0 tok/s 945 eta 37m\n"}
+,{"stream_name":"stdout","time":6140.521827131,"data":"[  6104s] step 2475/3354 loss nan scale 0 tok/s 946 eta 36m\n"}
+,{"stream_name":"stdout","time":6194.82050336,"data":"[  6158s] step 2500/3354 loss nan scale 0 tok/s 946 eta 35m\n"}
+,{"stream_name":"stdout","time":6257.036390333,"data":"[  6220s] step 2525/3354 loss nan scale 0 tok/s 945 eta 34m\n"}
+,{"stream_name":"stdout","time":6313.412682419,"data":"[  6277s] step 2550/3354 loss nan scale 0 tok/s 946 eta 33m\n"}
+,{"stream_name":"stdout","time":6370.758407395,"data":"[  6334s] step 2575/3354 loss nan scale 0 tok/s 947 eta 32m\n"}
+,{"stream_name":"stdout","time":6428.759545864,"data":"[  6392s] step 2600/3354 loss nan scale 0 tok/s 948 eta 31m\n"}
+,{"stream_name":"stdout","time":6477.356703026,"data":"[  6441s] step 2625/3354 loss nan scale 0 tok/s 949 eta 30m\n"}
+,{"stream_name":"stdout","time":6543.505915191,"data":"[  6507s] step 2650/3354 loss nan scale 0 tok/s 951 eta 29m\n"}
+,{"stream_name":"stdout","time":6603.985765559,"data":"[  6567s] step 2675/3354 loss nan scale 0 tok/s 951 eta 28m\n"}
+,{"stream_name":"stdout","time":6668.006907039,"data":"[  6631s] step 2700/3354 loss nan scale 0 tok/s 951 eta 27m\n"}
+,{"stream_name":"stdout","time":6733.812355316,"data":"[  6697s] step 2725/3354 loss nan scale 0 tok/s 952 eta 26m\n"}
+,{"stream_name":"stdout","time":6792.395984058,"data":"[  6756s] step 2750/3354 loss nan scale 0 tok/s 954 eta 25m\n"}
+,{"stream_name":"stdout","time":6845.864130433,"data":"[  6809s] step 2775/3354 loss nan scale 0 tok/s 956 eta 24m\n"}
+,{"stream_name":"stdout","time":6904.929018468,"data":"[  6868s] step 2800/3354 loss nan scale 0 tok/s 955 eta 22m\n"}
+,{"stream_name":"stdout","time":6905.148238747,"data":"[  6868s] saved last\n"}
+,{"stream_name":"stdout","time":6963.791607167,"data":"[  6927s] step 2825/3354 loss nan scale 0 tok/s 955 eta 21m\n"}
+,{"stream_name":"stdout","time":7020.967506823,"data":"[  6984s] step 2850/3354 loss nan scale 0 tok/s 956 eta 20m\n"}
+,{"stream_name":"stdout","time":7086.460229189,"data":"[  7050s] step 2875/3354 loss nan scale 0 tok/s 956 eta 19m\n"}
+,{"stream_name":"stdout","time":7145.795953997,"data":"[  7109s] step 2900/3354 loss nan scale 0 tok/s 955 eta 18m\n"}
+,{"stream_name":"stdout","time":7193.492009585,"data":"[  7157s] step 2925/3354 loss nan scale 0 tok/s 956 eta 17m\n"}
+,{"stream_name":"stdout","time":7257.328928441,"data":"[  7221s] step 2950/3354 loss nan scale 0 tok/s 956 eta 16m\n"}
+,{"stream_name":"stdout","time":7313.393729887,"data":"[  7277s] step 2975/3354 loss nan scale 0 tok/s 957 eta 15m\n"}
+,{"stream_name":"stdout","time":7377.315202887,"data":"[  7341s] step 3000/3354 loss nan scale 0 tok/s 957 eta 14m\n"}
+,{"stream_name":"stdout","time":7438.487109095,"data":"[  7402s] step 3025/3354 loss nan scale 0 tok/s 958 eta 13m\n"}
+,{"stream_name":"stdout","time":7496.991056935,"data":"[  7460s] step 3050/3354 loss nan scale 0 tok/s 958 eta 12m\n"}
+,{"stream_name":"stdout","time":7558.082744103,"data":"[  7521s] step 3075/3354 loss nan scale 0 tok/s 959 eta 11m\n"}
+,{"stream_name":"stdout","time":7611.344114976,"data":"[  7575s] step 3100/3354 loss nan scale 0 tok/s 958 eta 10m\n"}
+,{"stream_name":"stdout","time":7673.914941134,"data":"[  7637s] step 3125/3354 loss nan scale 0 tok/s 959 eta 9m\n"}
+,{"stream_name":"stdout","time":7733.392064938,"data":"[  7697s] step 3150/3354 loss nan scale 0 tok/s 959 eta 8m\n"}
+,{"stream_name":"stdout","time":7786.066900877,"data":"[  7749s] step 3175/3354 loss nan scale 0 tok/s 961 eta 7m\n"}
+,{"stream_name":"stdout","time":7848.646219847,"data":"[  7812s] step 3200/3354 loss nan scale 0 tok/s 961 eta 6m\n"}
+,{"stream_name":"stdout","time":7848.875064702,"data":"[  7812s] saved last\n"}
+,{"stream_name":"stdout","time":7907.472303779,"data":"[  7871s] step 3225/3354 loss nan scale 0 tok/s 962 eta 5m\n"}
+,{"stream_name":"stdout","time":7963.824183908,"data":"[  7927s] step 3250/3354 loss nan scale 0 tok/s 962 eta 4m\n"}
+,{"stream_name":"stdout","time":8021.547987438,"data":"[  7985s] step 3275/3354 loss nan scale 0 tok/s 962 eta 3m\n"}
+,{"stream_name":"stdout","time":8084.211946839,"data":"[  8048s] step 3300/3354 loss nan scale 0 tok/s 962 eta 2m\n"}
+,{"stream_name":"stdout","time":8141.630142895,"data":"[  8105s] step 3325/3354 loss nan scale 0 tok/s 962 eta 1m\n"}
+,{"stream_name":"stdout","time":8190.24103947,"data":"[  8154s] step 3350/3354 loss nan scale 0 tok/s 962 eta 0m\n"}
+,{"stream_name":"stdout","time":8198.172030526,"data":"[  8161s] saved final\n"}
+,{"stream_name":"stderr","time":8377.294873321,"data":"[rank0]:[W1113 20:36:16.871249254 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())\n"}
+,{"stream_name":"stderr","time":8377.944775895,"data":"[rank1]:[W1113 20:36:16.517204463 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=6, addr=[localhost]:40848, remote=[localhost]:29512): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?\n"}
+,{"stream_name":"stderr","time":8377.944814482,"data":"Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):\n"}
+,{"stream_name":"stderr","time":8377.944820751,"data":"frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e) + 0x9d (0x7cfc19d7305d in /usr/local/lib/python3.13/dist-packages/torch/lib/libc10.so)\n"}
+,{"stream_name":"stderr","time":8377.944839518,"data":"frame #1: \u003cunknown function\u003e + 0x6a914bd (0x7cfb75eaa4bd in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8377.944844363,"data":"frame #2: c10d::TCPStore::check(std::vector\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e, std::allocator\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e \u003e \u003e const\u0026) + 0x273 (0x7cfb75ea8413 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8377.944850329,"data":"frame #3: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x4a5 (0x7cfb586948c5 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cuda.so)\n"}
+,{"stream_name":"stderr","time":8377.94485462,"data":"frame #4: \u003cunknown function\u003e + 0xecdb4 (0x7cfc31824db4 in /lib/x86_64-linux-gnu/libstdc++.so.6)\n"}
+,{"stream_name":"stderr","time":8377.944870838,"data":"frame #5: \u003cunknown function\u003e + 0x9cb84 (0x7cfc34423b84 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8377.944874648,"data":"frame #6: __clone + 0x44 (0x7cfc344b0cc4 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8377.944878294,"data":"\n"}
+,{"stream_name":"stderr","time":8377.947656895,"data":"[rank1]:[W1113 20:36:16.524234481 ProcessGroupNCCL.cpp:1826] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the \"should dump\" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?\n"}
+,{"stream_name":"stderr","time":8378.950765005,"data":"[rank1]:[W1113 20:36:17.524438348 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=6, addr=[localhost]:40848, remote=[localhost]:29512): Broken pipe\n"}
+,{"stream_name":"stderr","time":8378.950795644,"data":"Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):\n"}
+,{"stream_name":"stderr","time":8378.950806582,"data":"frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e) + 0x9d (0x7cfc19d7305d in /usr/local/lib/python3.13/dist-packages/torch/lib/libc10.so)\n"}
+,{"stream_name":"stderr","time":8378.950812272,"data":"frame #1: \u003cunknown function\u003e + 0x6a90931 (0x7cfb75ea9931 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8378.95081654,"data":"frame #2: c10d::TCPStore::check(std::vector\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e, std::allocator\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e \u003e \u003e const\u0026) + 0x24d (0x7cfb75ea83ed in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8378.950821721,"data":"frame #3: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x4a5 (0x7cfb586948c5 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cuda.so)\n"}
+,{"stream_name":"stderr","time":8378.950825612,"data":"frame #4: \u003cunknown function\u003e + 0xecdb4 (0x7cfc31824db4 in /lib/x86_64-linux-gnu/libstdc++.so.6)\n"}
+,{"stream_name":"stderr","time":8378.950829298,"data":"frame #5: \u003cunknown function\u003e + 0x9cb84 (0x7cfc34423b84 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8378.950832826,"data":"frame #6: __clone + 0x44 (0x7cfc344b0cc4 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8378.950848966,"data":"\n"}
+,{"stream_name":"stderr","time":8378.950852466,"data":"[rank1]:[W1113 20:36:17.527340130 ProcessGroupNCCL.cpp:1826] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the \"should dump\" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe\n"}
+,{"stream_name":"stderr","time":8379.95391057,"data":"[rank1]:[W1113 20:36:18.527520006 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=6, addr=[localhost]:40848, remote=[localhost]:29512): Broken pipe\n"}
+,{"stream_name":"stderr","time":8379.953938521,"data":"Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):\n"}
+,{"stream_name":"stderr","time":8379.953943234,"data":"frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e) + 0x9d (0x7cfc19d7305d in /usr/local/lib/python3.13/dist-packages/torch/lib/libc10.so)\n"}
+,{"stream_name":"stderr","time":8379.953948461,"data":"frame #1: \u003cunknown function\u003e + 0x6a90931 (0x7cfb75ea9931 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8379.953952606,"data":"frame #2: c10d::TCPStore::check(std::vector\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e, std::allocator\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e \u003e \u003e const\u0026) + 0x24d (0x7cfb75ea83ed in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8379.953958036,"data":"frame #3: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x4a5 (0x7cfb586948c5 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cuda.so)\n"}
+,{"stream_name":"stderr","time":8379.953962082,"data":"frame #4: \u003cunknown function\u003e + 0xecdb4 (0x7cfc31824db4 in /lib/x86_64-linux-gnu/libstdc++.so.6)\n"}
+,{"stream_name":"stderr","time":8379.953965866,"data":"frame #5: \u003cunknown function\u003e + 0x9cb84 (0x7cfc34423b84 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8379.953969706,"data":"frame #6: __clone + 0x44 (0x7cfc344b0cc4 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8379.953973312,"data":"\n"}
+,{"stream_name":"stderr","time":8379.953976823,"data":"[rank1]:[W1113 20:36:18.530503900 ProcessGroupNCCL.cpp:1826] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the \"should dump\" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe\n"}
+,{"stream_name":"stderr","time":8380.956852051,"data":"[rank1]:[W1113 20:36:19.530679803 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=6, addr=[localhost]:40848, remote=[localhost]:29512): Broken pipe\n"}
+,{"stream_name":"stderr","time":8380.956876107,"data":"Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):\n"}
+,{"stream_name":"stderr","time":8380.956880516,"data":"frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e) + 0x9d (0x7cfc19d7305d in /usr/local/lib/python3.13/dist-packages/torch/lib/libc10.so)\n"}
+,{"stream_name":"stderr","time":8380.956885277,"data":"frame #1: \u003cunknown function\u003e + 0x6a90931 (0x7cfb75ea9931 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8380.95688917,"data":"frame #2: c10d::TCPStore::check(std::vector\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e, std::allocator\u003cstd::__cxx11::basic_string\u003cchar, std::char_traits\u003cchar\u003e, std::allocator\u003cchar\u003e \u003e \u003e \u003e const\u0026) + 0x24d (0x7cfb75ea83ed in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cpu.so)\n"}
+,{"stream_name":"stderr","time":8380.956906541,"data":"frame #3: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x4a5 (0x7cfb586948c5 in /usr/local/lib/python3.13/dist-packages/torch/lib/libtorch_cuda.so)\n"}
+,{"stream_name":"stderr","time":8380.956910461,"data":"frame #4: \u003cunknown function\u003e + 0xecdb4 (0x7cfc31824db4 in /lib/x86_64-linux-gnu/libstdc++.so.6)\n"}
+,{"stream_name":"stderr","time":8380.956914041,"data":"frame #5: \u003cunknown function\u003e + 0x9cb84 (0x7cfc34423b84 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8380.956917643,"data":"frame #6: __clone + 0x44 (0x7cfc344b0cc4 in /lib/x86_64-linux-gnu/libc.so.6)\n"}
+,{"stream_name":"stderr","time":8380.956921102,"data":"\n"}
+,{"stream_name":"stderr","time":8380.956924286,"data":"[rank1]:[W1113 20:36:19.533462811 ProcessGroupNCCL.cpp:1826] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the \"should dump\" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe\n"}
+,{"stream_name":"stderr","time":8381.585519983,"data":"W1113 20:36:20.417000 7 torch/multiprocessing/spawn.py:165] Terminating process 27 via signal SIGTERM\n"}
+,{"stream_name":"stderr","time":8381.980960484,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":8381.981812929,"data":"  File \"/kaggle/src/script.py\", line 166, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":8381.981827133,"data":"    mp.spawn(main, args=(world,), nprocs=world, join=True)\n"}
+,{"stream_name":"stderr","time":8381.981831313,"data":"    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.981834657,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/multiprocessing/spawn.py\", line 340, in spawn\n"}
+,{"stream_name":"stderr","time":8381.981838469,"data":"    return start_processes(fn, args, nprocs, join, daemon, start_method=\"spawn\")\n"}
+,{"stream_name":"stderr","time":8381.981842542,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/multiprocessing/spawn.py\", line 296, in start_processes\n"}
+,{"stream_name":"stderr","time":8381.981846815,"data":"    while not context.join():\n"}
+,{"stream_name":"stderr","time":8381.981850679,"data":"              ~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":8381.981854584,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/multiprocessing/spawn.py\", line 211, in join\n"}
+,{"stream_name":"stderr","time":8381.981858516,"data":"    raise ProcessRaisedException(msg, error_index, failed_process.pid)\n"}
+,{"stream_name":"stderr","time":8381.981896033,"data":"torch.multiprocessing.spawn.ProcessRaisedException: \n"}
+,{"stream_name":"stderr","time":8381.981916333,"data":"\n"}
+,{"stream_name":"stderr","time":8381.98192029,"data":"-- Process 0 terminated with the following error:\n"}
+,{"stream_name":"stderr","time":8381.981924214,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":8381.981928274,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/multiprocessing/spawn.py\", line 87, in _wrap\n"}
+,{"stream_name":"stderr","time":8381.981932425,"data":"    fn(i, *args)\n"}
+,{"stream_name":"stderr","time":8381.981935768,"data":"    ~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.981938966,"data":"  File \"/kaggle/src/script.py\", line 153, in main\n"}
+,{"stream_name":"stderr","time":8381.981942646,"data":"    li = order[s:s + 32]; x, m = collate(li, T_ids); Z[li] = net(x, m).float().cpu().numpy()\n"}
+,{"stream_name":"stderr","time":8381.981951167,"data":"                                                             ~~~^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.981962991,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":8381.981967091,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.981995377,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982011053,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":8381.982015493,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982019363,"data":"  File \"/kaggle/src/script.py\", line 90, in forward\n"}
+,{"stream_name":"stderr","time":8381.982023048,"data":"    return self.fc(self.drop(self.feats(x, m)))\n"}
+,{"stream_name":"stderr","time":8381.982026999,"data":"                             ~~~~~~~~~~^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982030801,"data":"  File \"/kaggle/src/script.py\", line 86, in feats\n"}
+,{"stream_name":"stderr","time":8381.982034473,"data":"    hs = self.base(input_ids=x, attention_mask=m, output_hidden_states=True, use_cache=False).hidden_states\n"}
+,{"stream_name":"stderr","time":8381.982038006,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982041456,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":8381.98204499,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982048216,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982051527,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":8381.982056696,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.98206323,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/generic.py\", line 1081, in wrapper\n"}
+,{"stream_name":"stderr","time":8381.982065641,"data":"    output = func(self, *args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982067917,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/output_capturing.py\", line 287, in wrapper\n"}
+,{"stream_name":"stderr","time":8381.982070263,"data":"    outputs = func(self, *args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.98207247,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen3/modeling_qwen3.py\", line 405, in forward\n"}
+,{"stream_name":"stderr","time":8381.982074838,"data":"    hidden_states = decoder_layer(\n"}
+,{"stream_name":"stderr","time":8381.982077115,"data":"        hidden_states,\n"}
+,{"stream_name":"stderr","time":8381.982080045,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":8381.982082401,"data":"        **kwargs,\n"}
+,{"stream_name":"stderr","time":8381.982084586,"data":"    )\n"}
+,{"stream_name":"stderr","time":8381.982086752,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/modeling_layers.py\", line 111, in __call__\n"}
+,{"stream_name":"stderr","time":8381.982089558,"data":"    return super().__call__(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.98209284,"data":"           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982106976,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":8381.982117065,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982121172,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982124901,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1885, in _call_impl\n"}
+,{"stream_name":"stderr","time":8381.982128538,"data":"    return inner()\n"}
+,{"stream_name":"stderr","time":8381.982131778,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1833, in inner\n"}
+,{"stream_name":"stderr","time":8381.982135169,"data":"    result = forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.98213838,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen3/modeling_qwen3.py\", line 313, in forward\n"}
+,{"stream_name":"stderr","time":8381.982141855,"data":"    hidden_states = self.mlp(hidden_states)\n"}
+,{"stream_name":"stderr","time":8381.982145186,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":8381.982148725,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982151904,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982155094,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":8381.982158571,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.98216181,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen3/modeling_qwen3.py\", line 81, in forward\n"}
+,{"stream_name":"stderr","time":8381.98216547,"data":"    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))\n"}
+,{"stream_name":"stderr","time":8381.982170866,"data":"                                                                ~~~~~~~~~~~~^^^\n"}
+,{"stream_name":"stderr","time":8381.982177408,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
+,{"stream_name":"stderr","time":8381.982180018,"data":"    return self._call_impl(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982182425,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":8381.982184623,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
+,{"stream_name":"stderr","time":8381.982187113,"data":"    return forward_call(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":8381.982201267,"data":"  File \"/kaggle/src/script.py\", line 66, in forward\n"}
+,{"stream_name":"stderr","time":8381.982205228,"data":"    return self.base(x) + ((self.drop(x) @ self.A.t().to(x.dtype)) @ self.B.t().to(x.dtype) * self.s)\n"}
+,{"stream_name":"stderr","time":8381.982210255,"data":"                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~\n"}
+,{"stream_name":"stderr","time":8381.982216386,"data":"torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 232.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 2.81 MiB is free. Including non-PyTorch memory, this process has 14.56 GiB memory in use. Of the allocated memory 12.86 GiB is allocated by PyTorch, and 1.47 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"}
+,{"stream_name":"stderr","time":8381.982228525,"data":"\n"}
+,{"stream_name":"stderr","time":8382.210422251,"data":"/usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-27-2tlhda3b'}\n"}
+,{"stream_name":"stderr","time":8382.210454084,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":8384.565359328,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":8384.565392423,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8384.834161787,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8384.834195781,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":8385.717948716,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":8386.835977237,"data":"[NbConvertApp] Writing 343895 bytes to __results__.html\n"}
+]

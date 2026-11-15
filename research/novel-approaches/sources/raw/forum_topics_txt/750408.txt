@@ -1,0 +1,7 @@
+# What is the exact formatting procedure?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/750408
+author: ln date: 2026-10-18 votes: {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4}
+From Dataset Description: "Only light formatting cleanup was applied (for example, removing a **bold** wrapper around a whole passage)."
+
+A description of the exact formatting procedure would be very helpful when creating new data.
+## comments

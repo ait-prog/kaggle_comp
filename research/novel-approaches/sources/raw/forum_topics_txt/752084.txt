@@ -1,0 +1,79 @@
+# Open rules questions in one place: generated data (§2.6), Benchmarks quota, winner licence, test-time inference
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752084
+author: martin osmani date: 2026-10-23 votes: {'totalVotes': 6, 'canUpvote': True, 'totalUpvotes': 8}
+Hi @martynaplomecka @yanyao23,
+
+The same few rules questions are spread across many threads, none answered yet. Here is a quick summary, plus a few specific points, so one reply can settle them for everyone.
+
+Already asked (still open):
+
+- Is generated training data allowed, and at what cost? Passages generated from the 18 models through paid APIs, and whether publishing them makes them OK under §2.6: 749613, 751011, 751294, 751954, 750216. The fairness debate is in 749447 (the most-voted topic).
+
+- Can the Kaggle Benchmarks quota be used to generate data? 750038, 750512.
+
+-  Can solutions train on the community datasets already published on Kaggle? 751954, 751544.
+
+- Were the gemini-3.7-flash labels generated before Google started routing 3.7 requests to 3.8 (Oct 8)? 751954.
+
+- How is the test set laid out? (how many models answer each test prompt, and how public and private are split): 750768, 751802, 750213.
+
+
+Specific questions:
+
+1. Published generated data: suppose a participant generates passages by calling the candidate models' APIs (paid, or through the Kaggle Benchmarks quota) and publishes the full dataset as a public Kaggle Dataset (e.g. CC BY 4.0) before using it. Does that satisfy §2.6.a whatever the generation cost? Is there a deadline for publishing, such as the Jan 6 entry deadline?
+
+2. Unpublished generated data: can API-generated data that is not published qualify under the §2.6.b Reasonableness Standard? If so, roughly what total spend counts as "minimal cost": tens, hundreds or thousands of dollars?
+
+3. Kaggle Benchmarks model proxy: is it fine to use the free proxy quota to generate training passages for this competition?
+
+4. Winner licence: the rules header says CC BY 4.0, while §2.5.a.1 asks for an OSI-approved licence. Is MIT or Apache-2.0 for code, plus CC BY 4.0 for the write-up, acceptable?
+
+5. Test-time inference: may a submission notebook use relationships between hidden-test passages (for example, clustering or pseudo-labelling inside the notebook), fully automated with no human input?
+
+Even short yes/no answers would help a lot of teams plan the rest of the competition. 
+
+Thanks!
+## comments
+- [MartynaPlomecka | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-29] Adding a few clarifications regarding the competition:
+- **Kaggle Benchmarks proxy quota & public datasets:** It is not the intent of the Benchmarks proxy quota to be used for non-benchmarking work; however, we will not penalize participants who have already used it (no action is needed on earlier submissions). Public community datasets on Kaggle (including those generated via the proxy) are fine to train on.
+- **Self-generated data:** Self-generated training data (within reasonable cost, as noted earlier) does not need to be made public, so there is no publication deadline for it.
+- **Public pre-trained weights:** Additionally, model weights (such as LoRA adapters) that are publicly available to all participants on Kaggle are fine to use. 
+
+@martinosmani @rarjunthilak
+  - [devrim balaban | votes {'canUpvote': True} | 2026-10-29] Hi Martyna,
+
+Thank you for clarifying the rules regarding external models and training data.
+
+I have one additional question about AI coding assistants.
+
+Are participants allowed to use ChatGPT, Claude, or Gemini to generate, improve, and debug Python code for this competition?
+
+More specifically, does sharing portions of our own competition code with an AI coding assistant for debugging or optimization comply with the private code-sharing restrictions in Sections 3.5.d and 3.6.a?
+
+I would appreciate clarification so we can ensure our development workflow fully complies with the competition rules.
+
+Thank you!
+    - [? | votes {} | 2026-10-30] 
+    - [MartynaPlomecka | votes {'canUpvote': True} | 2026-11-03] Yes, use whatever workflow you prefer.
+  - [R Arjun Thilak | votes {'canUpvote': True} | 2026-10-30] Thank you for the clarification, Martyna — very helpful for everyone. Appreciate you taking the time to address these questions!
+- [MartynaPlomecka | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-28] Thanks for the questions! Here is some clarification on these points:
+
+- **Data generation:** This is intended to be an ML prediction competition, not a data generation competition. Effectively "buying" more training data via token spend beyond the value of a possible prize ($5k) would be considered unreasonable.
+- **Kaggle Benchmarks quota:**  The Benchmarks proxy quota is reserved for benchmark evaluation runs, not for generating competition training data *please see the answer below*
+- **Winner license:** Yes. An OSI-approved open source license for the write-up and documentation is acceptable.
+- **Existing public datasets:** Existing public community datasets on Kaggle are fine to train on.
+- [Ahmad Mahmoud | votes {'canUpvote': True} | 2026-11-06] @martynaplomecka — a follow-up on the Benchmarks proxy quota, because the earlier answers cover *training* data and I want to be sure about *evaluation* use. We would like to use the proxy only to **test** an already-trained 18-way classifier: generate fresh passages from the candidate models on new prompts, keep them private and sealed, and use them only for scoring (never as training rows, never published as training data). Is that within "benchmark evaluation runs"? If yes, we would do it through a Benchmarks task (`kaggle benchmarks tasks run`) rather than ad-hoc calls, keep the spend well under the daily quota, and say so in the write-up. If you would rather we avoid it entirely, we will use only our 7/18 free-generation bench. Thanks!
+- [Zbigniew Kirchner | votes {'canUpvote': True} | 2026-11-03] @martynaplomecka Thank you for clarifying this. I asked the same question earlier in this thread, but it didn't get an answer: https://www.kaggle.com/competitions/name-that-llm/discussion/750038
+
+I generated some training passages with the Kaggle Benchmarks proxy before your clarification. My last run finished on October 27 (21:18 UTC), about a day before your first answer here. This data is not public, and I haven't generated anything with the proxy since then.
+
+I understand there is no objection to publishing such data, generated via the proxy before your clarification, as public Kaggle datasets.
+  - [MartynaPlomecka | votes {'canUpvote': True} | 2026-11-03] Yes, that is correct
+- [ABDUL SALAM | votes {'canUpvote': True} | 2026-10-31] Hi @martynaplomecka , thank you for the earlier clarifications on generated data, public datasets and licensing.
+ 
+One point from the open rules questions thread (question 5) still seems unanswered: may a submission notebook use relationships between hidden-test passages, for example clustering them by topic or pseudo-labelling inside the notebook, fully automated with no human input?
+
+Some public notebooks already do this, so a short yes/no would help teams choose their final submissions with confidence.
+
+Thank you for your time!
+  - [MartynaPlomecka | votes {'canUpvote': True} | 2026-11-03] Feel free to explore any relationships in the data that you find useful.

@@ -1,0 +1,19 @@
+# My classifier thinks GLM-5.3 is more Claude than GLM
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/755314
+author: AyoGG date: 2026-11-03 votes: {'totalVotes': 5, 'canUpvote': True, 'totalUpvotes': 5}
+Trained a 9B classifier to tell 18 LLMs apart.
+Gemini only gets confused with Gemini. GPT only with GPT.
+GLM-5.3? Classified as Claude more often than as GLM-5.3 itself (68 vs 34 out of 150).
+Family resemblance is a hell of a thing.
+
+![](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F15255201%2Fadc6e47319cc189848e66bbe504f7f53%2Fimage-1793691457725.png?generation=1793691468047983&alt=media)
+## comments
+- [somerandomguy | votes {'totalVotes': 4, 'canUpvote': True, 'totalUpvotes': 4} | 2026-11-04] Anthropic claims their model being distilled, so yeah that explains some of that.
+- [Subhranil Paul | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-05] https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities
+- [hsiaosuan | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-11-05] XD same observations for mee as well 
+Two non-exclusive possibilities
+1. GLM distills claude
+2. GLM routes some requests to claude
+
+IMO both are very possible
+- [tingyi | votes {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 2} | 2026-11-03] maybe GLM5.3 API will rerouter to fable5?

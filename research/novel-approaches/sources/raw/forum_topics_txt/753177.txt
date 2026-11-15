@@ -1,0 +1,118 @@
+# Retrained the Qwen2.5-14B member of nlm-v27 on the 120k pool: OOF 0.569 → 0.605, public LB 0.651 → 0.647. Why?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/753177
+author: Harshita Kumari date: 2026-10-27 votes: {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 8}
+I tried what looked like the obvious next step after [nlm-v27](https://www.kaggle.com/code/dhruvtibarewal/nlm-v27) (0.651). The result went the wrong way, and I'd like to understand why before spending more compute.
+ 
+## Background
+ 
+In nlm-v27, three members (q14v5, q8v5, ll8v5) were retrained on the 120k `nlm_pool_v5`. That step took the notebook from 0.619 to 0.651.
+ 
+The Qwen2.5-14B member (`q25_14`, Nishant's part-two checkpoint, weight 1.0) was not retrained. According to the author's member table, it was still trained on the old ~35k pool, with OOF 0.569.
+ 
+## What I did
+ 
+I retrained only that member, with the same two-stage LoRA24 recipe as the other v5 members:
+ 
+- **Model:** Qwen2.5-14B base, first 32 of 48 layers, final norm off.
+  - LoRA r16 / alpha 32 on q, k, v, o, gate, up and down.
+  - Mean pool (first token masked) of layers 3, 5, 8, 11, 16, 21, 27 and 32, with a LayerNorm per layer.
+  - A plain head and a prompt-centred head; batches are triplets of answers to the same prompt.
+- **Stage 1:** 1 epoch on all of `nlm_pool_v5` (119,899 passages), class-weighted, lr 1e-4 (LoRA) / 1e-3 (heads), cosine.
+- **Stage 2:** 2 epochs on the official train, lr 5e-5 / 5e-4.
+  - 5 prompt-grouped folds for OOF, plus a full-data fit for inference.
+  - max_len 384, `` appended.
+- **Hardware:** about 2.3 h on one H100.
+## Results
+ 
+| | Old q25_14 (Nishant, ~35k pool) | Retrained (v5 pool) |
+|---|---|---|
+| Stage 1 only, on all official train | — | 0.570 |
+| 5-fold OOF balanced accuracy | 0.569 | **0.605** (folds 0.617 / 0.601 / 0.606 / 0.600 / 0.604) |
+| In-sample check inside nlm-v27 | — | 0.95 |
+ 
+**Leaderboard:** in nlm-v27 I changed one line, `nmeta('lora_qwen25_14b')` → my checkpoint, keeping weight 1.0 and everything else unchanged.
+ 
+- The log confirms it loaded correctly: `l24 q25_14: adapter ... done (bf16 redo batches 0)`, in-sample acc 0.95.
+- **Public LB: 0.647, against 0.651 for the original.**
+## My guesses (happy to be corrected)
+ 
+1. **Noise.** The author reported identical notebooks scoring 0.600 and 0.605, and ATLAS is time-budgeted, so the scored rows can vary between reruns. A −0.4 change may be inside that.
+2. **Lost diversity.** The old member saw a different, smaller data mix, so its errors differed from q14v5, q8v5 and ll8v5. Trained on the same v5 pool, the new one may mostly repeat their errors. A stronger but more correlated member could add less than a weaker, independent one.
+3. **Blend weights.** The ensemble weights (plus Sinkhorn and ATLAS gating) were chosen with the old member in place.
+## Questions
+ 
+- Has anyone else seen a member improve clearly in OOF but not in the ensemble here? Is there a reliable way to judge "does this help the blend" offline, with only 2,699 rows?
+- Is there an estimate of the hidden-rerun noise for nlm-v27 (the same version submitted twice)?
+- Would keeping both models (old Nishant q25_14 at 1.0 plus the retrained one at a lower weight) be the better test of the diversity explanation?
+
+Credits: dhruvtibarewal (nlm-v27, v5 pool and adapters), Nishant Dahal (two-stage recipe and part-two checkpoints), nuridudak (122k clean pool), and the LoRA24 recipe authors.
+
+
+
+https://www.kaggle.com/code/harshitakumari256/nlm-v27?scriptVersionId=362705244
+## comments
+- [HALX2158 | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-27] We measured something close to this with zero-weight ablations on the hidden test. Each run is the same notebook with one member's blend weight set to 0. Rescoring the same predictions gave the same score in our runs (two versions of an nlm-v21 fork both scored 0.617), so these deltas are not rerun noise.
+
+On a part-two-based blend (0.638):
+- Removing the old Nishant q25_14, which has OOF 0.569 and only weight 0.2 there, cost -0.014 (plain head alone -0.010). That is about as much as the 0.611-OOF Qwen3-14B member's plain head (-0.017).
+- The n-gram SVC (OOF 0.473) cost -0.011.
+
+So a weak but differently trained member carries far more LB weight than its OOF suggests.
+
+On nlm-v27 without Llama (0.642), adding is not the mirror of removing:
+- Adding the author's ModernBERT-large (OOF 0.588) at weight 1.5 gave -0.004.
+- Our own Mistral-7B two-stage LoRA24 on the same v5 pool (OOF 0.578) at weight 1.0 gave +0.002.
+
+Both fit your diversity and blend-weight guesses. Replacing the one member trained on a different data mix with a v5-pool clone removes exactly what the others don't already have. I'd try keeping the old q25_14 at 1.0 and adding yours at around 0.3-0.5. That is your third question, and I think it is the right test.
+  - [Harshita Kumari | votes {'totalVotes': 1, 'canUpvote': True, 'totalUpvotes': 1} | 2026-10-28] Thanks, this was exactly the right test. Results on the public LB, same notebook otherwise:
+
+| Version | q25 setup | Public LB |
+|---|---|---|
+| Original nlm-v27 | old Nishant q25_14 at 1.0 | 0.651 |
+| Replace | retrained q25 (v5 pool, OOF 0.605) instead of the old one | 0.647 |
+| Keep + add | old q25_14 at 1.0 + retrained q25 at 0.4 | 0.650 |
+
+So restoring the old member recovered almost all of the loss, and the v5-pool retrain on top adds nothing (−0.001, within noise). That fits your explanation: the value was in the old member's different training mix, and a stronger model trained on the same pool as q14v5/q8v5/ll8v5 mostly repeats them.
+
+Takeaway for anyone trying the same: in this ensemble, member OOF is a poor guide to LB value. A new member probably needs data the others haven't seen (a different pool, or fresh generations) to help, not just a higher OOF on v5.
+
+Two follow-ups, if you have numbers:
+- Did any member trained on a *different* data mix than v5 give you a gain when added to nlm-v27?
+- In your zero-weight ablations, did the old q25_14 or the SVC benefit from a higher weight, or was 1.0 / 1.5 already best?
+    - [HALX2158 | votes {'canUpvote': True} | 2026-10-31] Great test, thanks for sharing the numbers. It’s useful to see the old member recover almost all of the loss.
+
+- No, I don’t have a gain from a different data mix. The two members I added to nlm-v27 without Llama were ModernBERT (-0.004 at weight 1.5) and a Mistral-7B two-stage LoRA on the same v5 pool (+0.002 at weight 1.0). So your question is still open on my side.
+- I didn’t test this. My runs only set weights to 0, so they show what a member is worth at its current weight, not whether a higher weight would help.
+- [bosprimigenious | votes {'canUpvote': True} | 2026-11-02] Hi Harshita, I read your Qwen2.5-14B retraining and ensemble-diversity experiments. I'm looking for complementary teammates for a three-person Name That LLM team; my current public score is 0.349 with a CPU text/style baseline. Would you be open to contributing NLP model and ensemble experiments? I saw that your reported run used an H100; our collaboration would use free compute only. Would that constraint work for you, and roughly how much time could you contribute? I'm checking fit before sending formal team invitations.
+- [GoPain | votes {'canUpvote': True} | 2026-10-29] On your first question (judging "does this help the blend" offline with 2,699 rows): I tried scoring the OOF on a test-like shape rather than on all 18 answers per prompt, and I can share how that held up across 15 submissions, including a day when it did not.
+
+Why it matters at all: if something in the blend depends on the other passages of the same prompt (the prompt-centred head in nlm-v27, ATLAS, Sinkhorn), the full-prompt OOF scores it on groups of 18, while the hidden test seems to have far fewer passages per prompt. So inside each validation fold I cut every prompt to m random answers, rebuild the groups the way the test side builds them (content clustering in my case), and score the whole pipeline; 15 draws per m.
+
+All 15 submissions are one blend family: a LoRA member with a centred twin head (weight t), plus LoRA/DeBERTa/n-gram members, public LB 0.593–0.621. Correlation of each OOF version with the public LB (Pearson / Spearman):
+
+| OOF version | first 10 submissions | next 5 (chosen by m = 2) | all 15 |
+| --- | --- | --- | --- |
+| all answers (m = 18) | 0.13 / −0.42 | 0.56 / 0.72 | 0.13 / −0.17 |
+| m = 6 | 0.44 / −0.26 | 0.64 / 0.87 | 0.45 / −0.09 |
+| m = 3 | 0.71 / 0.15 | 0.13 / 0.36 | 0.70 / 0.25 |
+| m = 2 | **0.91 / 0.82** | −0.22 / 0.05 | **0.79 / 0.58** |
+| mean of the four | 0.63 / −0.10 | 0.47 / 0.62 | 0.64 / 0.14 |
+
+What I take from it:
+
+- After the first 10 I switched to ranking by m = 2, picked the next 5 with it, and it did not predict their order. Part of that is selection: I took the top of a 162-configuration grid by m = 2, so their m = 2 scores are inflated and squeezed together (0.6265–0.6328), and the LB spread of those 5 (0.611–0.621) is not far from LB noise.
+- Over all 15, m = 2 is still the version that agrees best, but much of that comes from one easy outlier (the twin member on its own, LB 0.593). Without it, Spearman drops to 0.49 for m = 2 and is around zero or negative for the rest. So it is a weak signal, useful mostly to reject clearly worse configurations, not to rank close ones.
+- The clearest pattern was about the centred head rather than the metric: the full-prompt OOF kept preferring a heavier head (t = 1.5–2.0), and all five of those lost on the LB to t = 1.0. Both submissions with t below 1.0 on the last day lost too. If you test the q25_14 swap or anything else prompt-dependent, I would check that its gain does not shrink when prompts are cut to 2–3 answers before trusting the full-prompt number.
+
+Caveats: one blend family, 15 points, one public LB split; treat it as a sanity check, not a calibrated tool. For a blend with no prompt-dependent step, cutting prompts only subsamples rows and should not change the ranking.
+  - [HALX2158 | votes {'canUpvote': True} | 2026-10-31] Thanks for sharing this, especially the day it did not hold up. I haven't tried cutting prompts in OOF, so I have no m = 2 numbers to compare with yours.
+
+What I can add is LB measurements of the prompt-dependent parts you list. These are zero-weight ablations on a part-two-based blend (0.638), so each number is the public LB change when that part is removed:
+
+- Both centred twins: -0.017
+- Either twin alone: about -0.003 to -0.004
+- ATLAS (10% blend): -0.009
+- Sinkhorn: -0.002
+
+They only show what each part is worth at its current weight, so they don't speak to your finding on t.
+- [? | votes {} | 2026-10-29] 

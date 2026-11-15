@@ -1,0 +1,24 @@
+# New external dataset: 9,719 OpenAI responses with exact prompts and provenance
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/753974
+author: Enai date: 2026-10-29 votes: {'totalVotes': 16, 'canUpvote': True, 'totalUpvotes': 17}
+![poster](https://www.googleapis.com/download/storage/v1/b/kaggle-forum-message-attachments/o/inbox%2F2630633%2F18084b750746f074599f44ce8248de5a%2Fname-that-llm-dataset-poster-landscape.png?generation=1793316136170612&alt=media)
+
+New external dataset for NTL:
+
+[Name That LLM – OpenAI Generated Responses](https://www.kaggle.com/datasets/enaimaan/ntl-openai-generated-responses)
+
+It contains 9,719 responses across four models:
+
+- GPT-5.6 Luna: 2,341
+- GPT-5.6 Sol: 2,338
+- GPT-5.6 Terra: 2,336
+- GPT-6 Astra: 2,704
+
+The collection includes 4,311 responses filling missing model coverage on existing community prompts, plus 5,408 responses forming additional prompt panels. Prompt sources include community banks and selected Dolly instructions.
+
+The release includes raw responses, exact system/user messages where supplied, generation settings, prompt provenance, source attribution, and license notices. Responses are available in CSV and Parquet, with prompts in JSONL.
+
+More data is coming soon!
+## comments
+- [bosprimigenious | votes {'canUpvote': True} | 2026-11-02] Hi Enai, I read your OpenAI response dataset release and appreciated the exact prompts, provenance, and missing-model coverage work. I'm looking for complementary teammates for a three-person Name That LLM team using free compute only; my current public score is 0.349 with a CPU text/style baseline. Would you be interested in contributing data-pipeline and coverage-validation experiments? Are you still competing solo, and roughly how much time could you contribute? I'm checking fit before sending formal team invitations.
+- [Wilmer E. Henao | votes {'canUpvote': True} | 2026-10-31] upvoted. People need to upvote datasets more.

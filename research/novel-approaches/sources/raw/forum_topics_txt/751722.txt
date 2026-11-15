@@ -1,0 +1,22 @@
+# Anyone tried a Hierarchical Approach? (Predicting Provider first, then Specific Model)
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/751722
+author: Ghaith Mechi date: 2026-10-22 votes: {'totalVotes': 8, 'canUpvote': True, 'totalUpvotes': 8}
+Hello everyone! 
+I am considering a two-stage approach for this competition and wanted to see if anyone has experimented with something similar or has any insights.
+Instead of training a single model to predict all individual model variants directly, the idea is to build a hierarchical 
+classification pipeline:
+1. Stage 1 (Provider Level): Predict the parent company/provider first (e.g., OpenAI, Google, Anthropic, etc.).
+2. Stage 2 (Model Level): Train a dedicated specialist model for each provider to predict the exact architecture/variant.
+For reference, here is the provider-to-model hierarchy:
+• OpenAI: gpt-5.5, gpt-5.6-luna, gpt-5.6-sol, gpt-5.6-terra, gpt-6-astra
+• Google: gemini-3.1-pro-preview, gemini-3.6-flash, gemini-3.7-flash, gemini-3.8-flash
+• Anthropic: claude-fable-5, claude-opus-4-6, claude-opus-4-8, claude-opus-5, claude-sonnet-5
+• Qwen: qwen3.8-max
+• ZAI: glm-5.3, glm-5.3-flash
+• Moonshot: kimi-k3
+## comments
+- [Cloud9 | votes {'totalVotes': 3, 'canUpvote': True, 'totalUpvotes': 3} | 2026-10-22] ATLAS predict the provider with good accuracy, https://arxiv.org/abs/2610.19583
+  - [Ghaith Mechi | votes {'canUpvote': True} | 2026-10-22] I appreciate your help! thanks.
+- [? | votes {} | 2026-10-22] 
+- [? | votes {} | 2026-10-22] 
+- [? | votes {} | 2026-10-22] 

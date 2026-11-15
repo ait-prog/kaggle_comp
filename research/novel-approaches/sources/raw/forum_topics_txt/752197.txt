@@ -1,0 +1,5 @@
+# The glm-5.3 / glm-5.3-flash / claude-fable-5 corner: noise floor, or is there a lever?
+url: https://www.kaggle.com/competitions/name-that-llm/discussion/752197
+author: Meni David Gottesman date: 2026-10-23 votes: {'totalVotes': 2, 'canUpvote': True, 'totalUpvotes': 3}
+Has anyone found something that genuinely separates these three (a representation, a training-data choice, a decoding trick), or is the working assumption that it's near the noise floor and effort is better spent elsewhere? Negative results are just as useful.
+## comments
